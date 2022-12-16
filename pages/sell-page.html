@@ -7,12 +7,12 @@
     <title>PET MALL</title>
     <header>
       <nav class="navbar">
-        <img class="logo-image" src="../../assets/images/image.logo.png" />
+        <img class="logo-image" src="../../assets/images/image.logo.png" alt="image"/>
         <div class="nav-bar">
           <div style="display: flex">
             <input class="search-bar" type="text" placeholder="search..." style="margin: 0px 0px 0px 100px;width: 210px;height: 45px;flex: 1;padding-right: 500px;"/>
             <button class="searchbar">
-              <img class="searchicon" src="../../assets/images/search-icon.png" />
+              <img class="searchicon" src="../../assets/images/search-icon.png" alt="image"/>
             </button>
           </div>
           <div>
@@ -27,12 +27,26 @@
     </header>
   </head>
   <body>
-    
+    <div class="sell-page">
+    <div class="amount"><p class="add-image">ADD IMAGE</p></div>
+    <div class="amount">PET DETAILS
+      <input type="number" value="Amount"/>
+      <input type="number" value="contact "/>
+      <input type="month" value="DOB of pet"/>
+      <input type="text" value="special qualities"/>
+      <input type="text" value=""/>
+      <input type="text" value=""/>
+      <input type="text" value=""/>
+      <input type="text" value=""/>
+      <input type="text" value=""/>
+      <input type="text" value=""/>
+
+    </div>
+  </div>
   </body>
   <style>
      body {
     background-color: white;
-    background-image: url(BACKGROUND-IMAGE.png);
     background-size: 1670px 2100px;
     background-repeat: no-repeat;
   }
@@ -63,7 +77,6 @@
     height: 100px;
     display: flex;
     flex-direction: row;
-    position: fixed;
     background-color: rgb(230, 229, 232);
     width: 1635px;
     z-index: 100;
@@ -84,5 +97,27 @@
   }
   :placeholder-shown{
     font-size: 30px;
+  }
+  input{
+    display:flex;
+    flex-direction:row;
+    width: 300px ;
+    height: 30px;
+    margin:30px;
+    text-align: center;
+  } 
+  .amount{
+    margin: 50px 150px 50px 150px ;
+    border:3px solid cyan;
+    border-radius: 20px;
+    padding: 50px;
+  }
+  .add-image{
+    width:500px;
+    height: 500px;
+  }
+  .sell-page{
+display: flex;
+flex-direction: row;
   }
   </style>
