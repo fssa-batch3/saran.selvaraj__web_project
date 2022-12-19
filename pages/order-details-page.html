@@ -27,14 +27,46 @@
     </header>
   </head>
   <body>
-    
+  <div>  
+    <div class="order">
+     <img class="image" src="../assets/images/buy-cat-image-1.png" alt="image" width="100px" height="100px" >
+     <div class="order-details">
+      <div class="text">₹5000</div>
+      <div class="text">12:30AM</div>
+      <div class="text">Order Will be delivered on 24 dec</div>
+    </div>
+    </div>
+    <div class="order">
+      <img class="image" src="../assets/images/buy-dog-image-2.jpg" alt="image" width="100px" height="100px" >
+      <div class="order-details">
+       <div class="text">₹5000</div>
+       <div class="text">12:30AM</div>
+       <div class="text">Order Will be delivered on 24 dec</div>
+      </div> 
+     </div>
+     <div class="order">
+      <img class="image" src="../assets/images/buy-fish-image-3.png" alt="image" width="100px" height="100px" >
+      <div class="order-details">
+       <div class="text">₹5000</div>
+       <div class="text">12:30AM</div>
+       <div class="text">Order Will be delivered on 24 dec</div>
+      </div>
+     </div>
+     <div class="order">
+      <img class="image" src="../assets/images/buy-birds-image-4.jpg" alt="image" width="100px" height="100px" >
+      <div class="order-details">
+       <div class="text">₹5000</div>
+       <div class="text">12:30AM</div>
+       <div class="text">Order Will be delivered on 24 dec</div>
+      </div>
+     </div>
+  </div>
   </body>
   <style>
      body {
-    background-color: white;
-    background-image: url(BACKGROUND-IMAGE.png);
+    background-color: rgb(255, 136, 0);
     background-size: 1670px 2100px;
-    background-repeat: no-repeat;
+    margin: 0px;
   }
   :root{
     background-color: rgb(255, 255, 255);
@@ -81,5 +113,23 @@
   }
   .button:hover {
     border-bottom: 5px solid rgb(255, 136, 0);
+  }
+  .order{
+    display: flex;
+    font-size: 30px;
+    
+  }
+  .image{
+    margin-top: 110px;
+    border-radius: 100px;
+   margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  .order-details{
+    display: flex;
+    margin-top: 130px;
+  }
+  .text{
+    margin:0px 100px 0px 200px;
   }
   </style>
