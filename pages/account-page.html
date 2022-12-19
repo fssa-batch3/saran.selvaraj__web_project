@@ -28,11 +28,17 @@
   </head>
   <body>
     <div class="customer-details">
-    <div><img classs="image" src="../assets/images/Account-image.jpg" height="200px" width="200px"></div>
-    <div>saran211245@gmail.com</div>
-    <div>hi</div>
-    <div>hi</div>
-    <div>hi</div>
+     <div class="profile">
+      <p class="profile-picture-text">Profile Picture</p>
+     <div>
+    <div><img class="image" src="../assets/images/Account-image.jpg" height="200px" width="200px" alt="image"></div>
+    <div>s.saran211245@gmail.com</div>
+    </div> 
+    <button class="change-profile-picture">Change profile picture</button>
+    </div> 
+    <div class="first-name">First-name<input class="first-name" type="text" placeholder="saran"></div>
+    <div class="first-name">Last-name<input class="first-name" type="text" placeholder="s"></div>
+    <div class="first-name">Password<input class="first-name" type="password" placeholder="change password"></div>
     <div>hi</div>
     <div>hi</div>
     <div>hi</div>
@@ -93,7 +99,28 @@
     margin-top: 200px;
     position: absolute;
   }
- img{
+ .image{
   border-radius:200px;
+}
+.profile{
+  display: flex;
+  align-items: center;
+  margin: 50px;
+  font-size:40px;
+}
+.profile-picture-text{
+  margin:100px;
+}
+.change-profile-picture{
+  height: 50px;
+  width: auto;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 30px;
+}
+.first-name{
+  font-size:30px;
+  margin:50px;
+  border-radius: 5px;
 }
   </style>
