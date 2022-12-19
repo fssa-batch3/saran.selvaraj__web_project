@@ -10,17 +10,34 @@
         <img class="logo-image" src="../../assets/images/image.logo.png" alt="image"/>
         <div class="nav-bar">
           <div style="display: flex">
-            <input class="search-bar" type="text" placeholder="search..." style="margin: 0px 0px 0px 100px;width: 210px;height: 45px;flex: 1;padding-right: 500px;"/>
+            <input
+              class="search-bar"
+              type="text"
+              placeholder="search..."
+              style="margin: 0px 0px 0px 100px;width: 210px;height: 45px;flex: 1;padding-right: 500px;" />
             <button class="searchbar">
-              <img class="searchicon" src="../../assets/images/search-icon.png" alt="image"/>
+              <img class="searchicon" src="../../assets/images/search-icon.png"alt="image"/>
             </button>
           </div>
           <div>
-            <button style="margin: 0px 0px 0px 100px" onclick="window.location.href ='./home-page.html'">HOMEPAGE</button>
-            <button onclick="window.location.href ='./sell-page.html'">SELL</button>
-            <button onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
-            <button onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
-            <button onclick="window.location.href ='./account-page.html'">ACCOUNT</button>
+            <button
+              style="margin: 0px 0px 0px 100px"
+              onclick="window.location.href ='./home-page.html'"
+            >
+              HOMEPAGE
+            </button>
+            <button onclick="window.location.href ='./sell-page.html'">
+              SELL
+            </button>
+            <button onclick="window.location.href ='./order-details-page.html'">
+              ORDER DETAILS
+            </button>
+            <button onclick="window.location.href ='./about-us-page.html'">
+              ABOUT US
+            </button>
+            <button onclick="window.location.href ='./account-page.html'">
+              ACCOUNT
+            </button>
           </div>
         </div>
       </nav>
@@ -28,35 +45,38 @@
   </head>
   <body>
     <div class="customer-details">
-     <div class="profile">
-      <p class="profile-picture-text">Profile Picture</p>
-     <div>
-    <div><img class="image" src="../assets/images/Account-image.jpg" height="200px" width="200px" alt="image"></div>
-    <div>s.saran211245@gmail.com</div>
-    </div> 
-    <button class="change-profile-picture">Change profile picture</button>
-    </div> 
-    <div class="first-name">First-name<input class="first-name" type="text" placeholder="saran"></div>
-    <div class="first-name">Last-name<input class="first-name" type="text" placeholder="s"></div>
-    <div class="first-name">Password<input class="first-name" type="password" placeholder="change password"></div>
-    
-  </div>\
-  
-</body>
-<footer>
-  <a href="">About us</a>
-  <a href="">Contact us</a>
-  <a href="">visit us</a>
-  <a href="">Instagram</a>
-  <a href="">Youtube</a>
-</footer>
-  </html>
-  <style>
-     body {
+      <div class="account">
+        <div>
+          <img class="image"src="../assets/images/Account-image.jpg"height="200px"width="200px"alt="image"/>
+        </div>
+        <button class="change-profile-picture">Change profile picture</button>
+        <div class="change-profile-picture">s.saran211245@gmail.com</div>
+        <div class="first-name">
+          First-name<input type="text" placeholder="saran" />
+        </div>
+        <div class="first-name">
+          Last-name<input type="text" placeholder="s" />
+        </div>
+        <div class="first-name">
+          Password<input type="password" placeholder="change password" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer style="display:flex; flex-direction:row;">
+    <a class="footer" href="">About us</a>
+    <a class="footer" href="">Contact us</a>
+    <a class="footer" href="">visit us</a>
+    <a class="footer" href="">Instagram</a>
+    <a class="footer" href="">Youtube</a>
+  </footer>
+</html>
+<style>
+  body {
     background-color: white;
     margin: 0px;
-   }
-  :root{
+  }
+  :root {
     background-color: rgb(255, 255, 255);
   }
   .logo-image {
@@ -83,7 +103,7 @@
     height: 100px;
     display: flex;
     flex-direction: row;
-    position: fixed;
+
     background-color: rgb(230, 229, 232);
     width: 1635px;
     z-index: 100;
@@ -97,39 +117,49 @@
   button {
     border: none;
     background-color: rgb(230, 229, 232);
-    cursor:pointer;
+    cursor: pointer;
   }
   button:hover {
     border-bottom: 5px solid rgb(255, 136, 0);
   }
-  .customer-details{
-    margin-top: 200px;
-    position: absolute;
+  .image {
+    border-radius: 200px;
   }
- .image{
-  border-radius:200px;
-}
-.profile{
-  display: flex;
-  align-items: center;
-  font-size:40px;
-}
-.change-profile-picture{
-  height: 50px;
-  width: auto;
-  padding: 5px;
-  border-radius: 10px;
-  font-size: 30px;
-}
-.first-name{
-  font-size:30px;
-  margin:50px;
-  border-radius: 5px;
-}
-footer{
-    padding:100px;
+  .profile {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+  }
+  .change-profile-picture {
+    height: 50px;
+    width: auto;
+    border-radius: 10px;
     font-size: 30px;
   }
-  </style>
+  .first-name {
+    font-size: 30px;
+    border-radius: 5px;
+  }
+  footer {
+    padding: 50px;
+    display: flex;
+   padding-left:500px;
+    flex-direction: column;
+    font-size: 30px;
+    background-color: rgb(130, 245, 220);
+  }
+  .footer{
+    padding:0px 10px 0px 10px;
+  }
+
+  .account {
+    border: 5px solid rgb(130, 245, 220);
+    border-radius: 20px;
+    margin:100px 600px 200px 600px;
+    width: 450px;
+  }
+  input {
+    font-size: 30px;
+    width: 250px;
+  }
+</style>
