@@ -50,7 +50,7 @@
           <img class="image"src="../assets/images/Account-image.jpg"height="200px"width="200px"alt="image"/>
         </div>
         <button class="change-profile-picture">Change profile picture</button>
-        <div class="change-profile-picture">s.saran211245@gmail.com</div>
+        <div class="change-profile-picture" id="email">s.saran211245@gmail.com</div>
         <div class="first-name">
           First-name<button class="first-nam">saran</button>
         </div>
@@ -62,6 +62,14 @@
         </div>
       </div>
     </div>
+    <script>
+
+      const user_email = localStorage.getItem("user_email")
+      console.log(user_email)
+
+      document.getElementById("email").innerText = user_email
+      
+    </script>>
   </body>
   <footer style="display:flex; flex-direction:row;">
     <a class="footer" href="">About us</a>

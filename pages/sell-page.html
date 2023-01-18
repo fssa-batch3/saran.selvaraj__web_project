@@ -29,15 +29,22 @@
   <body>
     <div class="sell-page">
     <div class="amount"><p class="add-image">ADD IMAGE</p></div>
-    <div class="amount">PET DETAILS
-      <input type="ext" value="REAL NAME "/>
+    <div class="amount" ><a style="text-align:center; margin-left: 130px;">PET DETAILS</a><br>
+      <a class="text">Real Name  : </a><br>
+      <input type="text" value="REAL NAME "/>
+      <a class="text">Pets Personal Name</a><br>
       <input type="text" value="Pets name "/>
+      <a class="text">DOB of the pet</a><br>
       <input type="month" value="DOB of pet"/>
+      <a class="text">Special talent</a><br>
       <input type="text" value="special talent"/>
+      <a class="text">Behavior</a><br>
       <input type="text" value="Child friendly or not"/>
+      <a class="text">Character</a><br>
       <input type="text" value="Active or Lazy"/>
-      <input type="number" value="Amount"/>
+      <a class="text">Contact</a><br>
       <input type="number" value="contact"/>
+      <button class="submit" type="button">submit</button>
     </div>
   </div>
   </body>
@@ -104,14 +111,23 @@
   :placeholder-shown{
     font-size: 30px;
   }
+  .text{
+    margin-left: 10px;
+  }
   input{
     display:flex;
     flex-direction:row;
     width: 300px ;
     height: 30px;
-    margin:30px;
+    margin:10px;
     text-align: center;
   } 
+  .submit{
+    margin-left: 130px;
+    font-size: 20px;
+    border:1px solid black;
+    border-radius: 5px;
+  }
   .amount{
     margin: 50px 150px 50px 150px ;
     border:3px solid cyan;

@@ -4,63 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PET MALL</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
-  <header>
-    <img class="pet-mall" src="../../assets/images/image.logo.png" height="200px" width="400px" alt="image"/>
-  </header>
-  <link rel="stylesheet" href="../assets/styles/style.css">
   <body>
-    <div class="divs">
-      <div class="sign-up">
-        <p id="sign-up">SIGN-UP</p>
-        <input type="email" placeholder="E-MAIL ID" required/>
-        <input type="password" placeholder="PASSWORD" required/>
-        <input type="text" placeholder="ADDRESS" required/>
-        <input type="date" placeholder="MM/DD/YYYY" required/>
-        <input type="number" placeholder="MOBILE NUMBER" required/>
-        <input type="number" placeholder="PIN-CODE" required/>
-        <input type="text" placeholder="FIRST-NAME" required/>
-        <input type="text" placeholder="LAST-NAME" required/>
-        <input type="text" placeholder="REFERAL-CODE" required/>
-        <button class="submit" onclick="window.location.href ='./pages/home-page.html'">
-          SUBMIT
-        </button>
-      </div>
-
-      <div style="align-content: center; margin-top: 400px">OR</div>
-      <div class="login">
-        <p class="login-text">
-          LOGIN<br /><a>with</a><br />EXISTING<br />ACCOUNT
-        </p>
-        <input id="login" type="email" placeholder="E-MAIL ID" />
-        <input id="login" type="password" placeholder="PASSWORD" />
-        <input id="login" type="text" placeholder="FIRST-NAME" />
-        <input id="login" type="text" placeholder="LAST-NAME" />
-        <button class="submit" onclick="window.location.href ='./pages/home-page.html'">
-          SUBMIT
-        </button>
-      </div>
-      <div style="align-content: center; margin-top: 400px">OR</div>
-      <div class="existing-account">
-        <p class="login-text">LOGIN<br />with</p>
-        <div class="other-ways">
-          <img class="logo" src="./assets/images/google-image.png" alt="image" width="80px" height="80px" />
-          <div class="text">SIGN-IN WITH GOOGLE</div>
-        </div>
-        <div class="other-ways">
-          <img class="logo" src="./assets/images/twitter-logo.png" alt="image" width="80px" height="80px" />
-          <div class="text">SIGN-IN WITH FACEBOOK</div>
-        </div>
-        <div class="other-ways">
-          <img class="logo" src="./assets/images/facebook-logo.png" width="80px" height="80px" alt="image"/>
-          <div class="text">SIGN-IN WITH TWITTER</div>
-        </div>
-        <div class="other-ways">
-          <img class="logo" src="./assets/images/call-logo.png" alt="image" width="80px" height="80px" />
-          <div class="text">SIGN-IN WITH MOBILE NUMBER</div>
-        </div>
+    <img
+      src="./assets/images/image.logo.png"
+      alt="logo"
+      height="200px"
+      width="400px"
+      style="margin-left: 40px;"
+    />
+    </div>
+      <div class="login-form">
+        <input class="email"type="text" id="loginemail" placeholder="Email address or phone number" />
+        <input class="password" type="password" id="loginpassword" placeholder="Password"/>
+        <button class="login" type="button" onclick="submit()">Log in</button>
+        <a class="forget" href="./pages/forgot-password.html">Forgotten password?</a>
+        <hr />
+        <button class="create" onclick="window.location.href='./pages/create-account.html'">Create New Account</button>
       </div>
     </div>
+  <script>
+function submit() {
+
+    const email = document.getElementById("loginemail").value   
+    const password = document.getElementById("loginpassword").value   
+
+    console.log(email)
+    console.log(password)
+     
+
+    //localStorage.setItem("key",value)
+    localStorage.setItem("user_email",email)
+    localStorage.setItem("password",password)
+
+    window.location.href = "./pages/home-page.html"
+}   
+
+  </script>
+
   </body>
 </html>

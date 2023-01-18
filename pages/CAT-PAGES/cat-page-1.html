@@ -32,12 +32,18 @@
 </head>
 <body> 
     <div class="main-image">
-    <div><img class="all-images" src="../../assets/images/buy-cat-image-1.png" height="500px" width="700px" alt="image"/><p style="margin:0px 20px 20px 240px; font-size:40px;">SIBERIAN-CAT</p> </div>
+      <div class="scroll-image">
+        <img class="more-cat-1-image" class="first-cat-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYuI6vKU81229BR3p0Lvg25ZBN6f5Uj1uPB-F6Ik2yx5dIl4E3xWmuVDqZ1DoyZjbPMq4&usqp=CAU" width="80px" height="80px" alt="image"/>
+        <img class="more-cat-1-image" src="https://www.sayadaws.co.uk/wp-content/uploads/2020/06/sevastian1.jpg" width="80px" height="80px" alt="image"/>
+        <img class="more-cat-1-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCmC2Ko6RDlIWstVExqJ27ywuw5Hfw_GF6KC-x1m9xyD6nffqfaN0aJgIsCglFmm6uQo0&usqp=CAU" width="80px" height="80px" alt="image"/>
+        <img class="more-cat-1-image" src="https://i.pinimg.com/originals/c2/b4/39/c2b439d611f31add55c67e2c11f041a2.png" width="80px" height="80px" alt="image"/>
+      </div>
+    <div><img class="all-images" src="../../assets/images/buy-cat-image-1.png" height="400px" width="500px" alt="image"/><p style="margin:0px 20px 20px 170px; font-size:40px;">SIBERIAN-CAT</p> </div>
     <div><p class="paragraph">The Siberian is a centuries-old landrace<br>
         (natural variety) of domestic cat in Russia and recently developed as a formal<br>
          breed with standards promulgated the <br>
          world over since the late 1980s </p>
-         <a class="ratings">₹5000</a>
+         <a class="money">₹5000</a>
          <a href="#" class="ratings">Ratings</a>
          <a href="#" class="food">Food</a>
          <a href="#" class="home-utilities">Homely utilities</a>
@@ -46,12 +52,6 @@
 
   <section>
     <div id="more-cat-1-div">
-      <div>
-        <img class="more-cat-1-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYuI6vKU81229BR3p0Lvg25ZBN6f5Uj1uPB-F6Ik2yx5dIl4E3xWmuVDqZ1DoyZjbPMq4&usqp=CAU" width="300px" height="300px" alt="image"/>
-        <img class="more-cat-1-image" src="https://www.sayadaws.co.uk/wp-content/uploads/2020/06/sevastian1.jpg" width="300px" height="300px" alt="image"/>
-        <img class="more-cat-1-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCmC2Ko6RDlIWstVExqJ27ywuw5Hfw_GF6KC-x1m9xyD6nffqfaN0aJgIsCglFmm6uQo0&usqp=CAU" width="300px" height="300px" alt="image"/>
-        <img class="more-cat-1-image" src="https://i.pinimg.com/originals/c2/b4/39/c2b439d611f31add55c67e2c11f041a2.png" width="300px" height="300px" alt="image"/>
-      </div>
         <div class="buy-add">
           <button class="buy-now" onclick="window.location.href='../Buy-Now.html'">BUY NOW</button>
           <button class="add-to-cart" onclick="window.location.href='../Add-to-Cart.html'">ADD TO CART</button></div>
@@ -63,8 +63,8 @@
   <a class="footer" href="">About us</a>
   <a class="footer" href="">Contact us</a>
   <a class="footer" href="">visit us</a>
-  <a class="footer" href="">Instagram</a>
-  <a class="footer" href="">Youtube</a>
+  <a class="footer" href="https://www.instagram.com/">Instagram</a>
+  <a class="footer" href="https://www.youtube.com/watch?v=jORreokUsco">Youtube</a>
 </footer>
 </html>
 <style>
@@ -72,6 +72,7 @@
     background-color: rgb(255, 136, 0);
     color: black;
     margin: 0px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   .all-images{
     border-radius:20px ;
@@ -81,34 +82,53 @@
     position:relative;
     display: flex;
 }
+.scroll-image{
+  display:flex; 
+  flex-direction:column;
+   overflow-y:scroll;
+   height:400px ;
+   width: 200px;
+  margin-top:150px;
+}
+.scroll-image::-webkit-scrollbar{
+display: none;
+}
 .paragraph{
     margin:130px 20px 20px 20px;
     font-size: 50px;
     display: flex;
     flex-direction:column;
 }
+.money{
+text-decoration: none;
+font-size: 60px;
+margin:20px 20px 20px 250px;
+}
 .ratings{
 text-decoration: none;
 font-size: 60px;
-margin:20px 20px 20px 320px;
+margin:20px 20px 20px 200px;
 }
 .food{
 text-decoration: none;
 font-size: 60px;
-margin:20px 20px 20px 340px;
+margin:20px 20px 20px 270px;
 }
 .home-utilities{
 text-decoration: none;
 font-size: 60px;
-margin:20px 20px 20px 230px;
+margin:20px 20px 20px 100px;
+}
+.first-cat-image{
+  margin-top: 0px;
 }
 .more-cat-1-image{
-    margin:80px 20px 80px 70px;
+    margin:20px 20px 20px 20px;
     border-radius: 20px;
 }
 #more-cat-1-div{
     background-color: white;
-    border-radius: 20px;
+    border-radius: 0px;
     display: flex;
     flex-direction: column;
 }
@@ -181,7 +201,7 @@ padding:15px 30px ;
     border-bottom: 5px solid rgb(130, 245, 220);
   }
   footer {
-    padding: 50px;
+    padding: 90px;
     display: flex;
    padding-left:500px;
     flex-direction: column;
@@ -189,7 +209,7 @@ padding:15px 30px ;
     background-color: rgb(130, 245, 220);
   }
   .footer{
-    padding:0px 10px 0px 10px;
+    padding:0px 20px 0px 20px;
     text-decoration: none;
   }
 

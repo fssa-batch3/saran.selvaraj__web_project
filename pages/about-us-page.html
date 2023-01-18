@@ -16,7 +16,7 @@
             </button>
           </div>
           <div>
-            <button style="margin: 0px 0px 0px 100px" onclick="window.location.href ='./home-page.html'">HOMEPAGE</button>
+            <button style="margin: 50px 0px 0px 80px  " onclick="window.location.href ='./home-page.html'">HOMEPAGE</button>
             <button onclick="window.location.href ='./sell-page.html'">SELL</button>
             <button onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
             <button onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
@@ -27,7 +27,10 @@
     </header>
   </head>
   <body>
-    
+  <div class="about-us">
+    <p>About Us pages are where you <br>showcase your history, what is <br>unique about your work, your<br> company's values, and who you serve.<br> The design, written content, and<br> visual or video elements together<br> tell an important story about who<br> you are and why you do it.</p>
+    <img src="https://img.freepik.com/free-photo/adorable-dog-with-owner-pet-shop_23-2148872556.jpg?" width="500px" height="500px" style="border-radius:10px;">
+  </div>
   </body>
 </html>
 <footer style="display:flex; flex-direction:row;">
@@ -41,6 +44,12 @@
      body {
     background-color: white;
     margin: 0px;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .about-us{
+    display: flex;
+    flex-direction: row;
   }
   :root{
     background-color: rgb(255, 255, 255);
@@ -94,11 +103,12 @@
     font-size: 30px;
   }  
   footer {
-    padding: 50px;
+    padding: 80px;
     display: flex;
    padding-left:500px;
     flex-direction: column;
     font-size: 30px;
+    margin-top: 80px;
     background-color: rgb(130, 245, 220);
   }
   .footer{
