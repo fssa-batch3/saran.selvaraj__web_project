@@ -25,7 +25,7 @@
                 <div class="searchbar-center">
                     <div class="searchbar-input-spacer"></div>
         
-                    <input type="text" class="searchbar-input" placeholder="Search Pets">
+                    <input type="text" class="searchbar-input" placeholder="SEARCH PETS">
                 </div>
         
                 <div class="searchbar-right">
@@ -42,7 +42,7 @@
             </div>
         </div>
           <div class="btns">
-            <button class="button" style="margin: 0px 0px 0px 0px" onclick="window.location.href ='./home-page.html'">HOME</button>
+            <button class="button" onclick="window.location.href ='./home-page.html'">HOME</button>
             <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
             <button class="button" onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
             <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
@@ -56,8 +56,8 @@
               <a href="#">HOME</a>
               <a href="#">SELL</a>
               <a href="#">ORDER DETAILS</a>
-              <a href="">ABOUT US</a>
-              <a href="">ACCOUNT</a>
+              <a href="#">ABOUT US</a>
+              <a href="#">ACCOUNT</a>
             </div>
           </div>
         </div>
@@ -121,37 +121,93 @@
     <a class="footer" href="">About us</a>
     <a class="footer" href="">Contact us</a>
     <a class="footer" href="">visit us</a>
-    <a class="footer" href="">Instagram</a>
-    <a class="footer" href="">Youtube</a>
+    <a class="footer" href="https://www.instagram.com/">Instagram</a>
+  <a class="footer" href="https://www.youtube.com/watch?v=jORreokUsco">Youtube</a>
   </footer>
 </body>
 <script>
 
-const images = ["../../assets/images/buy-cat-image-1.png","../../assets/images/buy-cat-image-2.jpg","../../assets/images/buy-dog-image-1.jpg","../../assets/images/buy-dog-image-2.jpg","../../assets/images/buy-dog-image-3.jpg","../../assets/images/buy-birds-image-1.jpg","../../assets/images/buy-birds-image-2.jpg","../../assets/images/buy-fish-image-1.jpg","../../assets/images/buy-fish-image-2.png","../../assets/images/buy-rabbit-image-1.png","../../assets/images/buy-rabbit-image-2.png","../../assets/images/buy-rabbit-image-3.png"]
-const link = ["window.location.href ='./CAT-PAGES/cat-page-1.html'","window.location.href ='./CAT-PAGES/cat-page-2.html'","window.location.href ='./DOG-PAGES/dog-page-1.html'","window.location.href ='./DOG-PAGES/dog-page-2.html'","window.location.href ='./DOG-PAGES/dog-page-3.html'","window.location.href ='./BIRDS-PAGES/bird-page-1.html'","window.location.href ='./BIRDS-PAGES/bird-page-2.html'","window.location.href ='./FISH-PAGES/fish-page-1.html'","window.location.href ='./FISH-PAGES/fish-page-2.html'","window.location.href ='./RABBIT-PAGES/rabbit-page-1.html'","window.location.href ='./RABBIT-PAGES/rabbit-page-2.html'","window.location.href ='./RABBIT-PAGES/rabbit-page-3.html'"]
+const arrayOfDetails = [
+  {
+    "image":{source: "../../assets/images/buy-cat-image-1.png",
+             alt:"cat-1"}
+    
+},
+{
+    "image":{source:"../../assets/images/buy-cat-image-2.jpg",
+             alt:"cat-2"}
+},
+{
+    "image":{source:"../../assets/images/buy-dog-image-1.jpg",
+             alt:"dog-1"}
+},
+{
+    "image":{source:"../../assets/images/buy-dog-image-2.jpg",
+             alt:"dog-2"}
+},
+{
+    "image":{source:"../../assets/images/buy-dog-image-3.jpg",
+             alt:"dog-3"}
+},
+{
+    "image":{source:"../../assets/images/buy-birds-image-1.jpg",
+             alt:"bird-1"}
+},
+{
+    "image":{source:"../../assets/images/buy-birds-image-2.jpg",
+             alt:"bird-2"}
+},
+{
+    "image":{source:"../../assets/images/buy-fish-image-1.jpg",
+             alt:"fish-1"}
+},
+{
+    "image":{source:"../../assets/images/buy-fish-image-2.png",
+             alt:"fish-2"}
+},
+{
+    "image":{source:"../../assets/images/buy-rabbit-image-1.png",
+             alt:"rabbit-1"}
+},
+{
+    "image":{source:"../../assets/images/buy-rabbit-image-2.png",
+             alt:"rabbit-2"}
+},
+{
+    "image":{source:"../../assets/images/buy-rabbit-image-3.png",
+             alt:"rabbit-3"}
+}
+];
+
 
 
 for(let i = 11; i>=0; i--){
 
-const separate_div = document.createElement("div")
-separate_div.setAttribute("class","separate_divs")
-separate_div.setAttribute("style","margin: 140px 0px 0px 50px")
-document.querySelector("div.cats").prepend(separate_div)
+  const details = arrayOfDetails[i]
 
-const div_image = document.createElement("img")
-div_image.setAttribute("class","cat-view")
-div_image.setAttribute("src",images[i])
-div_image.setAttribute("alt","image")
-div_image.setAttribute("height","250px")
-div_image.setAttribute("width","300px")
-separate_div.append(div_image);
+  console.log(details["image"])
 
-const view_button = document.createElement("button")
-view_button.setAttribute("onclick",link[i])
-view_button.setAttribute("class","buttons")
-view_button.innerText=("VIEW")
-separate_div.append(view_button)
+const separate_div = document.createElement("div");
+separate_div.setAttribute("class","separate_divs");
+document.querySelector("div.cats").prepend(separate_div);
+
+const view_image = document.createElement("a");
+view_image.setAttribute("onclick","window.location.href ='./pet-page.html'");
+separate_div.append(view_image);
+
+const div_image = document.createElement("img");
+div_image.setAttribute("class","cat-view");
+div_image.setAttribute("src",details["image"]["source"]);
+div_image.setAttribute("alt",details["image"]["alt"]);
+div_image.setAttribute("height","250px");
+div_image.setAttribute("width","300px");
+view_image.append(div_image);
+
+
 }
+
+
+
 </script>
 
 </html>
@@ -171,29 +227,29 @@ separate_div.append(view_button)
   }
   .buy-cat-image-1 {
     margin: 125px 50px 50px 75px;
-    position: relative;
     border-radius: 50px;
   }
-  .cats {
-    position: relative;
+  .cats{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin:0px 10px;
     margin-left: 5px;
   }
 
-  .separate-divs{
-    display: flex;
-    flex-direction: column;
-    margin: 140px 0px 0px 110px;
+  .separate_divs{
+    display: grid;
+    margin:100px 0px 0px 40px;
   }
 
   .cat-view{
     margin:8px;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px rgb(255, 136, 0);
+    margin: 20px 20px;
+
   }
   .buttons{
-    background-color: rgb(255, 136, 0);
+    background-color: rgb(251, 160, 63);
     color:white;
     border:3px double red;
     border-radius: 5px;
@@ -204,7 +260,8 @@ separate_div.append(view_button)
   }
   .btns{
     margin-left:0px;
-  }
+    display:flex;
+    }
   .searchbar {
   font-size: 14px;
   font-family: arial, sans-serif;
@@ -330,7 +387,7 @@ separate_div.append(view_button)
   }
   .button {
     border: none;
-    background-color: rgb(230, 229, 232);
+    background-color:transparent;
     cursor:pointer;
     font-size: 19px;
   }
@@ -341,12 +398,13 @@ separate_div.append(view_button)
     border: 2px black solid;
   }
   footer {
-    padding: 50px;
     display: flex;
-   padding-left:500px;
     flex-direction: column;
+    padding: 50px 0px 50px 500px ;
+    margin: 100px 0px 25px 0px;
     font-size: 30px;
-    background-color: white;
+    background-color: rgb(255, 179, 80);
+    border-radius: 100px;
 
   }
   .footer{
@@ -406,66 +464,77 @@ display:none;
 .dropdown:hover .dropdown-content {
   display: block;
 }
-  @media screen and (max-width:500px){
+  @media screen and (max-width:1000px){
     body{
       font-size:0px;
     }
     .navbar{
-     margin-top:0px;
+     margin-top:25px;
      padding: 0px;
      width:auto;
-     height: auto;
+     height:100px;
      text-align: center;
+     display: flex;
+     margin-left: 20px;
     }
     .btns{
       margin-left:0px;
     }
     .logo-image{
-      width:400px;
-      height: 300px;
+      width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    margin:0px;
+    margin-left: 70px;
     }
     .cats{
-      margin-top:0px;
+      margin-top:150px;
       margin-left: 50px;
-      display: flex;
-      flex-direction: column;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
     }
     .button{
-      display: none;
-      
+      display:initial;
+      margin-left:0px;
+    }
+    .separate_divs{
+      margin:0px 0px 50px 0px;
     }
     .cat-view{
-      width: 1000px;
-      height: 600px;
+      width: 300px;
+      height: 200px;
       box-shadow: 0px 0px 10px 10px rgb(255, 136, 0);
+      margin: 20px 20px;
+
     }
     .buttons{
-      width: 1000px;
-      height: 100px;
-      font-size: 50px;
+      width: 300px;
+      height: 50px;
+      font-size: 25px;
       box-shadow: 0px 0px 10px 10px rgb(255, 136, 0);
-      margin-top: 20px;
+      margin: 15px 0px 50px 20px;
     }
     .searchbar{
       text-align: center;
-      width: 400px;
-      height: 100px;
+      width: 350px;
+      height: 50px;
       border-radius: 100px;
       font-size: 50px;
+      margin: 0px 200px 0px 200px;
+
     }
     .searchbar-center{
-      width: 300px;
+      width: 150px;
       height:auto;
-      font-size:100px;
+      font-size:0px;
     }
     .searchbar-icon{
-      height: 100px;
-      width: 100px;
+      height: 50px;
+      width: 50px;
     }
     .dropbtn{
-      display: initial;
-      width:200px;
-      height:0px ;
+      display:none;
+
     }
   }
 </style>
