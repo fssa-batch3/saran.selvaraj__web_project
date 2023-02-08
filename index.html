@@ -16,33 +16,129 @@
       style="margin-left: 40px;"
     />
     </div>
-      <div class="login-form">
-        <input class="email"type="text" id="loginemail" placeholder="Email address or phone number" />
-        <input class="password" type="password" id="loginpassword" placeholder="Password"/>
-        <button class="login" type="button" onclick="submit()">Log in</button>
+    <form id = "login" class="login-form">
+        <input class="email"type="email" id="email" placeholder="Email address or phone number" />
+        <input class="password" type="password" id="password" placeholder="Password"/>
+        <button class="login" type="submit"  >Log in</button>
         <a class="forget" href="./pages/forgot-password.html">Forgotten password?</a>
         <hr />
         <button class="create" onclick="window.location.href='./pages/create-account.html'">Create New Account</button>
-      </div>
+    </form>
     </div>
   <script>
-function submit() {
 
-    const email = document.getElementById("loginemail").value   
-    const password = document.getElementById("loginpassword").value   
 
-    console.log(email)
-    console.log(password)
+        let logIn = document.getElementById("login");
+        logIn.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let user_arr = [] 
+        let defaultData = JSON.parse(localStorage.getItem("userdata"));
+        console.log(defaultData);
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        console.log(email, password);
+        
+        let isMatch = false;
+        for (let i = 0; i < defaultData.length; i++) {
+          if (
+            email == defaultData[i].emailaddress &&
+            password == defaultData[i].Newpassword
+          ) {
+            isMatch = true;
+            user_arr.push(defaultData[i]);
+            window.localStorage.setItem("user_data",JSON.stringify(user_arr))
+            break;
+            // i = i + defaultData.length;
+          } else {
+            isMatch = false;
+          }
+        }
+        if (isMatch === true) {
+          alert("Success you are now our customer");
+          window.location.href = "./pages/home-page.html";
+        } else {
+          alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
+        }
+
+      });
+
+
+
+
+
+
+// function submit() {
+
+//     const email = document.getElementById("loginemail").value   
+//     const password = document.getElementById("loginpassword").value   
+
+//     console.log(email)
+//     console.log(password)
      
+//     //localStorage.setItem("key",value)
+//     localStorage.setItem("user_email",email)
+//     localStorage.setItem("password",password)
 
-    //localStorage.setItem("key",value)
-    localStorage.setItem("user_email",email)
-    localStorage.setItem("password",password)
+//     window.location.href = "./pages/home-page.html"
+// }
 
-    window.location.href = "./pages/home-page.html"
-}   
+// function sign(){
+//      const email = document.getElementById("loginemail").value   
+//      const password = document.getElementById("loginpassword").value
+//      const check = log.find((e) => e.email == email);
+//      console.log(check);
+
+
+//       form.addEventListener("submit", (e) =>{
+//       event.preventDefault();
+//       submit();
+//      });
+//       function submit(){
+
+//       let login =JSON.parse( localStorage.getItem("data"));
+//       console.log(login);
+//       let useremail = document.getElementById("loginemail").value;
+//       let userpassword = document.getElementById("loginpassword").value;
+      
+      
+//       for(let i = 0; i < login.length; i++){
+
+//       if (
+//         useremail == login[i].Emailaddress &&
+//         userpassword == login[i].Newpassword
+//       ){
+//       alert("Success you are now our customer")
+//       }
+//     else{
+//       alert("Failed to login retry again in 5 secs")}
+      
+//       }
+//     }
+
+//     let logIn = document.getElementById("form");
+//       logIn.addEventListener("submit", (event) => {
+//         event.preventDefault();
+//         let Data = JSON.parse(localStorage.getItem("user"));
+//         console.log(Data);
+//         let Email = document.getElementById("loginemail").value;
+//         let Password = document.getElementById("loginpassword").value;
+//         // const selectUser = Data.find(function (event) {
+//         //   const email = event["email"];
+//         //   const password = event["password"];
+//           if (Email == loginemail && Password === loginpassword) {
+//             alert("Success");
+//             window.location.href = "/home-page.html";
+//           } else {
+//             alert("failed");
+//           }
+//           // window.location.href = "\page\sign-up\sign-up.html";
+//         });
+
+
+//     //  window.location.href = "/home-page.html";
+
 
   </script>
-
+<a href="./pages/home-page.html"></a>
   </body>
 </html>

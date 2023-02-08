@@ -21,10 +21,10 @@
             </div>
             <div>
               <button class="button" style="margin: 0px 0px 0px 100px" onclick="window.location.href ='../home-page.html'">HOMEPAGE</button>
-              <button class="button" onclick="window.location.href ='../sell-page.html'">SELL</button>
-              <button class="button" onclick="window.location.href ='../order-details-page.html' ">ORDER DETAILS</button>
-              <button class="button" onclick="window.location.href ='../about-us-page.html'">ABOUT US</button>
-              <button class="button" onclick="window.location.href ='../account-page.html'">ACCOUNT</button>
+              <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
+              <button class="button" onclick="window.location.href ='./order-details-page.html' ">ORDER DETAILS</button>
+              <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
+              <button class="button" onclick="window.location.href ='./account-page.html'">ACCOUNT</button>
             </div>
           </div>
         </nav>
@@ -40,20 +40,23 @@
       </div>
     <div><img class="all-images" src="../assets/images/buy-cat-image-1.png" height="400px" width="500px" alt="image"/><p style="margin:0px 20px 20px 170px; font-size:40px;">SIBERIAN-CAT</p> </div>
     <div><p class="paragraph">The Siberian is a centuries-old landrace<br>
-        (natural variety) of domestic cat in Russia and recently developed as a formal<br>
-         breed with standards promulgated the <br>
+        (natural variety) of domestic cat in Russia<br>
+         and recently developed as a formal breed <br>
+         with standards promulgated the<br>
          world over since the late 1980s </p>
+         <div class="pet-price-and-facilities">
          <a class="money">₹5000</a>
          <a href="#" class="ratings">Ratings</a>
          <a href="#" class="food">Food</a>
-         <a href="#" class="home-utilities">Homely utilities</a>
+         <a href="#" class="home-utilities">Homely utilities</a></div>
     </div>
   </div>
   <section>
     <div id="more-cat-1-div">
         <div class="buy-add">
           <button class="buy-now" onclick="window.location.href='../Buy-Now.html'">BUY NOW</button>
-          <button class="add-to-cart" onclick="window.location.href='../Add-to-Cart.html'">ADD TO CART</button></div>
+          <button class="add-to-cart" onclick="window.location.href='../Add-to-Cart.html'">ADD TO CART</button>
+        </div>
       </div>
       
   </section>
@@ -137,30 +140,18 @@ display: none;
 }
 .paragraph{
     margin:130px 20px 20px 20px;
-    font-size: 50px;
+    font-size: 40px;
     display: flex;
     flex-direction:column;
 }
-.money{
-text-decoration: none;
-font-size: 60px;
-margin:20px 20px 20px 250px;
+.pet-price-and-facilities{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-decoration: none;
+  font-size: 50px;
+  margin: 0px 0px 0px 40px;
 }
-.ratings{
-text-decoration: none;
-font-size: 60px;
-margin:20px 20px 20px 200px;
-}
-.food{
-text-decoration: none;
-font-size: 60px;
-margin:20px 20px 20px 270px;
-}
-.home-utilities{
-text-decoration: none;
-font-size: 60px;
-margin:20px 20px 20px 100px;
-}
+
 .first-cat-image{
   margin-top: 0px;
 }
@@ -171,22 +162,27 @@ margin:20px 20px 20px 100px;
 #more-cat-1-div{
     background-color: white;
     border-radius: 0px;
-    display: flex;
-    flex-direction: column;
+}
+.buy-add{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0px 0px 0px 250px;
 }
 .buy-now{
-background-color: rgb(255, 136, 0);
+background-color: #1877f2;
 color:white;
+width:500px;
+height: auto;
 font-size: 50px;
-margin:20px 260px;
 border-radius: 20px;
 padding:15px 30px ;
 }
 .add-to-cart{
-  background-color: rgb(255, 136, 0);
+  background-color: #1877f2;
   color:white;
+  width:500px;
+  height: auto;
   font-size: 50px;
-  margin-left: 180px;
   border-radius: 20px;
   padding:15px 30px ;
 }

@@ -7,11 +7,20 @@ body {
       display: flex;
       flex-direction: column;
       width:505px;
-      height:420px;
+      height:500px;
       background-color: aliceblue;
-      border-radius: 10px;
+      border-radius: 10px 10px 0px 0px ;
       justify-content: center;
   }
+  .loginform{
+    display: flex;
+    flex-direction: column;
+    width:505px;
+    height:200px;
+    background-color: aliceblue;
+    border-radius: 0px 0px 10px 10px ;
+    justify-content: center;
+}
   .email,.password{
       padding:10px;
       font-size: 20px;
