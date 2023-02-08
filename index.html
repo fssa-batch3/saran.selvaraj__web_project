@@ -17,8 +17,8 @@
     />
     </div>
     <form id = "login" class="login-form">
-        <input class="email"type="email" id="email" placeholder="Email address or phone number" />
-        <input class="password" type="password" id="password" placeholder="Password"/>
+        <input class="email"type="email" id="email" placeholder="Email address" required/>
+        <input class="password" type="password" id="password" placeholder="Password"required>
         <button class="login" type="submit"  >Log in</button>
         <a class="forget" href="./pages/forgot-password.html">Forgotten password?</a>
         <hr />
@@ -37,7 +37,7 @@
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         console.log(email, password);
-        
+
         let isMatch = false;
         for (let i = 0; i < defaultData.length; i++) {
           if (
