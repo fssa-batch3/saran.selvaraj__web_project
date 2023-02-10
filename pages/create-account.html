@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Create account</title>
   </head>
   <body>
     <form id = "form">
@@ -15,14 +15,14 @@
         </div>
         <hr />
         <div style="display: flex; flex-direction: row">
-          <input type="text" id="first-name" class="first-name"  name="firstname"  placeholder="First name" required/>
-          <input  type="text" id="last-name"  class="first-name"  name="lastname"  placeholder="Surname"  required/>
+          <input type="text" id="first-name" class="first-name"  name="firstname" pattern="[A-Za-z]{1-40}"  placeholder="First name" required="true"/>
+          <input  type="text" id="last-name"  class="first-name"  name="lastname" pattern="[A-Za-z]{1-40}" placeholder="Surname"  required="true"/>
         </div>
         <div style="display: flex; flex-direction: column">
-          <input type="text" id="email-address"  class="email-address" placeholder="Email address"  required/>
-          <input type="number" id="phone-number" class="new-password" placeholder="Phonenumber" required/>
-          <input type="password" id="new-password" class="new-password" placeholder="Password" required/>
-          <input type="password" id="confirm-password"  class="new-password"  placeholder="Confirm Password" required />
+          <input type="text" id="email-address"  class="email-address" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email address" title="Match the following @ and .com " required="true"/>
+          <input type="number" id="phone-number" class="new-password" pattern="\d{1,10}" placeholder="Phonenumber" required="true"/>
+          <input type="password" id="new-password" class="new-password" placeholder="Password" title="Maximum 8 characters" required="true"/>
+          <input type="password" id="confirm-password"  class="new-password"  placeholder="Confirm Password" required="true"/>
         </div>
         <div style="font-size: 25px">Date of birth !</div>
         <div>
@@ -175,7 +175,7 @@
     customer_data["Confirmpassword"] = confirmpassword
 
     data.push(customer_data);
-    
+    if(customer_data["Confirmpassword"]===customer_data["Newpassword"]){
     if(window.localStorage.getItem("userdata") === null){
       window.localStorage.setItem("userdata",JSON.stringify(data));
     }else{
@@ -183,8 +183,15 @@
       let json = JSON.parse(local);
       json.push(customer_data);
       window.localStorage.setItem("userdata",JSON.stringify(json));
+
     }
+    alert("Successfully registered")
     window.location.href="./home-page.html"
+  } 
+     else{
+      alert("password and confirm password not match")
+    }
+
   });
 </script>
 </html>
@@ -195,6 +202,16 @@
   .create-account {
     width: 500px;
   }
+  input:valid,
+  select:valid{
+     border-width: 5px;
+     border-color: green;
+  }
+  input:invalid,
+  select:invalid{
+     border-width: 5px;
+     border-color: red;
+  }
   .whole-gender {
     display: flex;
     flex-direction: column;
@@ -204,7 +221,6 @@
     height: 50px;
     font-size: 30px;
     text-align: center;
-    border-radius: 5px;
     margin: 10px;
   }
   .email-address,
@@ -212,7 +228,6 @@
     width: 480px;
     height: 50px;
     font-size: 30px;
-    border-radius: 5px;
     margin: 10px;
   }
   .select {
@@ -221,7 +236,6 @@
     font-size: 25px;
     margin: 20px;
     border: 2px solid #1877f2;
-    border-radius: 10px;
     padding: 2px;
   }
   .gender {
