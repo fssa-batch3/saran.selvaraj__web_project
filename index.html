@@ -31,8 +31,8 @@
         let logIn = document.getElementById("login");
         logIn.addEventListener("submit", (event) => {
         event.preventDefault();
-        let user_arr = [] 
-        let defaultData = JSON.parse(localStorage.getItem("data"));
+        // let user_arr = [] 
+        let defaultData = JSON.parse(localStorage.getItem("userdata"));
         console.log(defaultData);
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
@@ -45,8 +45,8 @@
             password == defaultData[i].Newpassword
           ) {
             isMatch = true;
-            user_arr.push(defaultData[i]);
-            window.localStorage.setItem("user_data",JSON.stringify(user_arr))
+            // user_arr.push(defaultData[i]);
+            window.localStorage.setItem("user_data",JSON.stringify(defaultData[i].emailaddress))
             break;
             // i = i + defaultData.length;
           } else {
@@ -54,7 +54,7 @@
           }
         }
         if (isMatch === true) {
-          alert("Success you are now our customer");
+          alert("Welcome back");
           window.location.href = "./pages/home-page.html";
         } else {
           alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");

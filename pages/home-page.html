@@ -46,7 +46,7 @@
             <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
             <button class="button" onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
             <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
-            <button class="button" onclick="window.location.href ='./account-page.html'">ACCOUNT</button>
+            <a class="acc" onclick="window.location.href ='./profile.html'"><img src="../assets/images/Account-Logo.svg" height="40px" width="40px"></a>
           </div>
           <div class="dropdown">
             <button class="dropbtn"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/220px-Hamburger_icon.svg.png" height="20px" width="20px">
@@ -71,8 +71,8 @@
 </div> -->
 
   <img src="	https://i.gifer.com/XZ5K.gif" width="500px" height="400px">
-  <img src="https://cdnb.artstation.com/p/assets/images/images/045/352/753/original/naroe-cat-animate-gif-chat-2.gif?1642524845" width="400px" height="500px">
-  <img src="	https://media.baamboozle.com/uploads/images/197603/1623908962_500190.gif" width="600px" height="500px">
+  <img src="https://cdnb.artstation.com/p/assets/images/images/045/352/753/original/naroe-cat-animate-gif-chat-2.gif?1642524845" width="300px" height="400px">
+  <img src="	https://media.baamboozle.com/uploads/images/197603/1623908962_500190.gif" width="500px" height="400px">
   <div class="cats">
     <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
       <img class="cat-view" src="../../assets/images/buy-cat-image-1.png" alt="image" height="250px" width="300px">
@@ -124,7 +124,7 @@
     </div> -->
 
   </div>
-  <footer style="display:flex; flex-direction:row;">
+  <footer>
     <a class="footer" href="">About us</a>
     <a class="footer" href="">Contact us</a>
     <a class="footer" href="">visit us</a>
@@ -210,8 +210,8 @@ const div_image = document.createElement("img");
 div_image.setAttribute("class","cat-view");
 div_image.setAttribute("src",details["image"]["source"]);
 div_image.setAttribute("alt",details["image"]["alt"]);
-div_image.setAttribute("height","250px");
-div_image.setAttribute("width","300px");
+div_image.setAttribute("height","200px");
+div_image.setAttribute("width","250px");
 view_image.append(div_image);
 
 
@@ -273,7 +273,7 @@ view_image.append(div_image);
   border: 1px solid #dfe1e5;
   box-shadow: none;
   border-radius: 24px;
-  margin: 0 180px;
+  margin: 0 130px;
   width:500px;
 }
 
@@ -376,7 +376,7 @@ view_image.append(div_image);
     height: 100px;
     display: flex;
     background-color: rgb(230, 229, 232);
-    width:1635px;
+    width:1460px;
     z-index: 100;
     border-radius: 100px;
     margin:25px 0px 0px 10px;
@@ -390,6 +390,7 @@ view_image.append(div_image);
     background-color:transparent;
     cursor:pointer;
     font-size: 19px;
+    color:#1877f2;
   }
   .button:hover {
     border-bottom: 5px solid #1877f2;
@@ -399,8 +400,7 @@ view_image.append(div_image);
   }
   footer {
     display: flex;
-    flex-direction: column;
-    padding: 50px 0px 50px 500px ;
+    padding: 40px 0px 40px 420px ;
     margin: 100px 0px 25px 0px;
     font-size: 30px;
     background-color: #8bb7ef;

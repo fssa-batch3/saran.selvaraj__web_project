@@ -156,7 +156,7 @@
   
   <script>
     let data = [];
-    // let form = document.getElementById("form")
+    let form = document.getElementById("form")
     form.addEventListener("submit", function (event) {
     event.preventDefault();
     let customer_data = {}
@@ -170,14 +170,29 @@
     customer_data["Firstname"] = firstname
     customer_data["Lastname"] =  lastname
     customer_data["Phonenumber"] = phonenumber
-    customer_data["Emailaddress".toLocaleLowerCase()] =emailaddress
+    customer_data["Emailaddress".toLowerCase()] =emailaddress
     customer_data["Newpassword"] =  newpassword
     customer_data["Confirmpassword"] = confirmpassword
 
     data.push(customer_data);
-    if(customer_data["Confirmpassword"]===customer_data["Newpassword"]){
+
+
+
+
+// let validation = JSON.parse(window.localStorage.getItem("userdata"));
+//         let is = false;
+//         for (let i = 0; i < validation.length; i++) {
+//           if (emailaddress === validation[i].Emailaddress) {
+//             alert("Email is already in use");
+//             is = true;
+//           break;
+//           }
+//         }
+        
+    if(customer_data["Newpassword"] ===customer_data["Confirmpassword"]){ 
     if(window.localStorage.getItem("userdata") === null){
       window.localStorage.setItem("userdata",JSON.stringify(data));
+      console.log(window.localStorage.getItem("data"))
     }else{
       let local = window.localStorage.getItem("userdata");
       let json = JSON.parse(local);
@@ -187,11 +202,10 @@
     }
     alert("Successfully registered")
     window.location.href="./home-page.html"
-  } 
-     else{
-      alert("password and confirm password not match")
-    }
+}  else{
+  alert("password and confirm password does not match")
 
+}
   });
 </script>
 </html>
