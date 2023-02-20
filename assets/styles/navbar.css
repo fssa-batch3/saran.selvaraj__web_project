@@ -1,0 +1,243 @@
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+  }
+  :root{
+    background-color: rgb(255, 255, 255);
+  }
+  .logo-image {
+    width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  .buy-cat-image-1 {
+    margin: 125px 50px 50px 75px;
+    border-radius: 50px;
+  }
+  .cats{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin:0px 10px;
+    margin-left: 5px;
+  }
+
+  .separate_divs{
+    display: grid;
+    margin:100px 0px 0px 40px;
+  }
+
+  .cat-view{
+    margin:8px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px #569dfa;
+    margin: 20px 20px;
+
+  }
+  .btns{
+    margin-left:0px;
+    display:flex;
+    }
+  .searchbar {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #202124;
+  display: flex;
+  z-index: 3;
+  height: 44px;
+  background: white;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  margin: 0 130px;
+  width:500px;
+}
+
+.searchbar:hover {
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-color: rgba(223,225,229,0);
+}
+
+.searchbar-wrapper {
+  flex: 1;
+  display: flex;
+  padding: 5px 8px 0 14px;
+}
+
+.searchbar-left {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #202124;
+  display: flex;
+  align-items: center;
+  padding-right: 13px;
+  margin-top: -5px;
+}
+
+.search-icon-wrapper {
+  margin: auto;
+}
+
+.search-icon {
+  margin-top: 3px;
+  color: #1877f2;
+  height:0px;
+  line-height: 20px;
+  width: 0px;
+}
+
+.searchbar-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+}
+
+.searchbar-center {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.searchbar-input-spacer {
+  color: transparent;
+  flex: 100%;
+  white-space: pre;
+  height: 34px;
+  font-size: 16px;
+}
+
+.searchbar-input {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, .87);
+  word-wrap: break-word;
+  outline: none;
+  display: flex;
+  flex: 100%;
+  margin-top: -37px;
+  height: 34px;
+  font-size: 16px;
+  max-width: 100%;
+  width:auto;
+}
+
+.searchbar-right {
+  display: flex;
+  flex: 0 0 auto;
+  margin-top: -5px;
+  align-items: stretch;
+  flex-direction: row
+}
+
+.searchbar-clear-icon {
+  margin-right: 12px
+}
+
+.voice-search {
+  flex: 1 0 auto;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  outline: none;
+  padding: 0 8px;
+  width: 2.8em;
+}
+  .navbar {
+    height: 100px;
+    display: flex;
+    background-color: rgb(230, 229, 232);
+    width:1460px;
+    z-index: 100;
+    border-radius: 100px;
+    margin:25px 0px 0px 10px;
+  }
+  .nav-bar {
+    display: flex;
+    align-items: center;
+  }
+  .button {
+    border: none;
+    background-color:transparent;
+    cursor:pointer;
+    font-size: 19px;
+    color:#1877f2;
+  }
+  .button:hover {
+    border-bottom: 5px solid #1877f2;
+  }
+  #rabbit{
+    border: 2px black solid;
+  }
+  footer {
+    display: flex;
+    padding: 40px 0px 40px 420px ;
+    margin: 100px 0px 25px 0px;
+    font-size: 30px;
+    background-color: #8bb7ef;
+    border-radius: 100px;
+
+  }
+  .footer{
+    padding:0px 10px 0px 10px;
+    color:black;
+    text-decoration: none;
+  }
+
+  .account {
+    border: 5px solid rgb(130, 245, 220);
+    border-radius: 20px;
+    margin:100px 0px 200px 600px;
+    width: 450px;
+  }
+  
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropbtn{
+margin-left:0px;
+height: 200px;
+width:200px;
+display:none;
+}
+.dropdown .dropbtn {
+  font-size: 30px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin-left:350px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left:380px ;
+}
+
+.dropdown-content a {
+  float:none; 
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display:block;
+  text-align:center ;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

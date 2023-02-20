@@ -58,13 +58,13 @@
   </head>
   <body>
     <div class="customer-details">
-      <form id = "profile" class="account">
+      <form id = "profile-form" class="account">
         <div>
           <div class="first-name">First-name</div>
-          <input id="first-name" class="first-nam"></input>
+          <input id="First-name" class="first-nam"></input>
 
           <div class="first-name">Last-name</div>
-          <input id="last-name" class="first-nam"></input>
+          <input id="Last-name" class="first-nam"></input>
 
           <div class="first-name">Email</div>
           <input id="Email" class="first-nam"></input>
@@ -82,30 +82,54 @@
   </body>
   <script>
 
-      let profile = localStorage.getItem();
-      console.log(user_email);
+      // let profile = localStorage.getItem();
+      // console.log(user_email);
+      let email_check =JSON.parse(window.localStorage.getItem("user_data"))
+      let details = JSON.parse(window.localStorage.getItem("userdata"))
+     console.log(details)
+      let user_profile = details.find(function(objuser){
+      let mailcheck = objuser["emailaddress"];
+        if (email_check===mailcheck){
+        return true;
+       }
+    });console.log(user_profile);
 
-      document.getElementById("Email").innerText = emailaddress;
+      
+      let first = document.getElementById("First-name").value = user_profile["Firstname"];
+      let last = document.getElementById("Last-name").value = user_profile["Lastname"];
+      let email = document.getElementById("Email").value = user_profile["emailaddress"];
+      let phone = document.getElementById("Phonenumber").value = user_profile["Phonenumber"];
+      
+    let form = document.getElementById("profile-form");
 
-      let user_profile = JSON.parse(window.localStorage.getItem("user_data"));
-      console.log(user_profile);
-      document.getElementById("first-name").innerText = user_profile[0]["Firstname"];
-      document.getElementById("last-name").innerText = user_profile[0]["Lastname"];
-      document.getElementById("Email").innerText = user_profile[0]["emailaddress"];
-
-    let form = document.getElementById("profile");
     form.addEventListener("submit",function(event){
 
-    let Firstname = document.getElementById("first-name").value;
-    let Lastname = document.getElementById("last-name").value;
-    let emailaddress = document.getElementById("Email").value;
-    let Phonenumber = document.getElementById("Phonenumber").value;
-    let Address = document.getElementById("Address").value;    
+    let first = document.getElementById("first-name");
+    let last = document.getElementById("last-name");
+    let email = document.getElementById("Email");
+    let phone= document.getElementById("Phonenumber");
+    let Address = document.getElementById("Address");    
 
-    let edited_details = {Firstname,Lastname,emailaddress,Phonenumber,Address}
+    let edited_details = {first,last,email,phone,Address}
 
-    let combine = Object.assign()
-    })
+    
+    if(email_check != email){
+      alert("You can't change the email")
+    }else{
+      let combine = Object.assign(user_profile,edited_details);
+
+    let userindex = details.indexOf(user_profile)
+    details[userindex] = combine;
+
+    window.localStorage.setItem("userdata",JSON.stringify(details))
+
+    // window.localStorage.setItem("updated_user_details",JSON.stringify(details))
+    // alert("Successfully updated your profile")
+    }
+
+    
+
+    });
 
 
   </script>
@@ -291,7 +315,7 @@
   .first-nam {
     font-size: 30px;
     border-radius: 5px;
-    width: 300px;
+    width: 450px;
     margin-bottom: 20px;
   }
   footer {
@@ -312,7 +336,7 @@
     border-radius: 20px;
     margin: 100px 600px 200px 550px;
     text-align: center;
-    width: 450px;
+    width: 600px;
   }
   input {
     font-size: 30px;
