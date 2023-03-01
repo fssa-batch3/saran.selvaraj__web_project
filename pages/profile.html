@@ -61,21 +61,25 @@
       <form id = "profile-form" class="account">
         <div>
           <div class="first-name">First-name</div>
-          <input id="First-name" class="first-nam"></input>
+          <input type="text" id="First-name" class="first-nam"></input>
 
           <div class="first-name">Last-name</div>
-          <input id="Last-name" class="first-nam"></input>
+          <input type="text" id="Last-name" class="first-nam"></input>
 
           <div class="first-name">Email</div>
-          <input id="Email" class="first-nam"></input>
+          <input type="email" id="Email" class="first-nam"></input>
 
           <div class="first-name">Phonenumber</div>
-          <input id="Phonenumber" class="first-nam"></input>
+          <input type="number" id="Phonenumber" class="first-nam"></input>
 
           <div class="first-name">Address</div>
-          <input id="Address" class="first-nam"></input>
+          <!-- <input type="textarea" id="Address" class="first-nam"></input> -->
+          <textarea rows="4" cols="60" id="Address" >
+            Enter Address here...</textarea>
         </div>
-        <button id = "save" type="submit" class="edit-delete">Save</button>
+        <button id = "edit" type="submit" class="edit-save-delete">Edit</button>
+        <button id = "save" type="submit" class="edit-save-delete">Save</button>
+        <button id = "delete" type="submit" class="edit-save-delete">Delete</button>
       </form>
     </div>
     
@@ -113,8 +117,8 @@
     let edited_details = {first,last,email,phone,Address}
 
     
-    if(email_check != email){
-      alert("You can't change the email")
+    if(email_check === email){
+      // alert("You can't change the email")
     }else{
       let combine = Object.assign(user_profile,edited_details);
 
@@ -334,18 +338,21 @@
   .account {
     border: 5px solid rgb(130, 245, 220);
     border-radius: 20px;
-    margin: 100px 600px 200px 550px;
+    margin: 100px 600px 200px 475px;
     text-align: center;
     width: 600px;
+    height: auto;
   }
   input {
     font-size: 30px;
     width: 250px;
   }
-  .edit-delete {
+  .edit-save-delete {
+    width:100px;
+    margin-bottom: 100px;
     background-color: #1877f2;
     text-decoration: none;
-    padding: 2px 100px;
+    padding: 2px 0px;
     color:white;
     border-radius: 25px;
   }

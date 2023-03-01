@@ -71,10 +71,11 @@
   <img src="https://i.makeagif.com/media/8-23-2015/97VAUa.gif">
 </div> -->
 
-  <img src="	https://i.gifer.com/XZ5K.gif" width="500px" height="400px">
+  
+  <div class="cats">
+    <img src="	https://i.gifer.com/XZ5K.gif" width="500px" height="400px">
   <img src="https://cdnb.artstation.com/p/assets/images/images/045/352/753/original/naroe-cat-animate-gif-chat-2.gif?1642524845" width="300px" height="400px">
   <img src="	https://media.baamboozle.com/uploads/images/197603/1623908962_500190.gif" width="500px" height="400px">
-  <div class="cats">
     <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
       <img class="cat-view" src="../../assets/images/buy-cat-image-1.png" alt="image" height="250px" width="300px">
       <button onclick="window.location.href ='./CAT-PAGES/cat-page-1.html'" class="buttons">VIEW</button>
@@ -142,8 +143,7 @@
 const arrayOfDetails = [
   {
     "image":{source: "../assets/images/buy-cat-image-1.png",
-             alt:"cat-1"}
-    
+             alt:"cat-1"}   
 },
 {
     "image":{source:"../assets/images/buy-cat-image-2.jpg",
@@ -184,16 +184,24 @@ const arrayOfDetails = [
 {
     "image":{source:"../assets/images/buy-rabbit-image-2.png",
              alt:"rabbit-2"}
-},
+            },
 {
     "image":{source:"../assets/images/buy-rabbit-image-3.png",
-             alt:"rabbit-3"}
+              alt:"rabbit-3"}
+            }
+]
+          
+let create_card = JSON.parse(localStorage.getItem("new_card"));
+console.log(create_card);
+
+for(let i = 0; i < create_card.length; i++ ){
+  arrayOfDetails.push("create_card")
+  console.log()
+
 }
-];
 
 
-
-for(let i = 11; i>=0; i--){
+for(let i = 0; i < arrayOfDetails.length; i++){
 
   const details = arrayOfDetails[i]
 
@@ -201,7 +209,7 @@ for(let i = 11; i>=0; i--){
 
 const separate_div = document.createElement("div");
 separate_div.setAttribute("class","separate_divs");
-document.querySelector("div.cats").prepend(separate_div);
+document.querySelector("div.cats").append(separate_div);
 
 const view_image = document.createElement("a");
 view_image.setAttribute("onclick","window.location.href ='./pet-page.html'");
@@ -219,16 +227,15 @@ view_image.append(div_image);
 }
 
 
+
 </script>
 
 </html>
 <style>
-  .navvvv::-webkit-scrollbar{
-display: none;
-  }
   body {
     background-color: rgb(255, 255, 255);
     margin: 0px;
+    justify-content: center;
   }
   :root{
     background-color: rgb(255, 255, 255);
@@ -239,27 +246,25 @@ display: none;
     border-radius: 5px;
     margin-left: 20px;
   }
-  .buy-cat-image-1 {
-    margin: 125px 50px 50px 75px;
-    border-radius: 50px;
-  }
+
   .cats{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin:0px 10px;
-    margin-left: 5px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:0px 0px;
   }
 
   .separate_divs{
-    display: grid;
-    margin:100px 0px 0px 40px;
+    display:flex;
+    flex-wrap: wrap;
+    margin:100px 0px 0px 50px;
   }
 
   .cat-view{
-    margin:8px;
+
     border-radius: 10px;
     box-shadow: 0px 0px 10px 10px #569dfa;
-    margin: 20px 20px;
+    margin: 20px 0px;
 
   }
   .btns{

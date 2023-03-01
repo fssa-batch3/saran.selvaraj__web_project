@@ -27,27 +27,67 @@
     </header>
   </head>
   <body>
-    <div class="sell-page">
-    <div class="amount"><p class="add-image">ADD IMAGE    <input type="file" value="choose image"/></p></div>
-    <div class="amount" ><a style="text-align:center; margin-left: 130px;">PET DETAILS</a><br>
+    <form id="seller_form" class="sell-page">
+    <div class="amount"><a style="padding-bottom: 100px;">PET DETAILS</a><br><br><br><br>
+      <a class="text">ADD IMAGE    
+      <input id="pet_img" type="text" value="Image url"/></a>
       <a class="text">Real Name  : </a><br>
-      <input type="text" value="REAL NAME "/>
+      <input id="pet_name_alt" type="text" value="REAL NAME "/>
       <a class="text">Pets Personal Name</a><br>
-      <input type="text" value="Pets name "/>
+      <input id="pet_personal_name" type="text" value="Pets name "/>
       <a class="text">DOB of the pet</a><br>
-      <input type="month" value="DOB of pet"/>
+      <input id="dob_pet" type="date" value="DOB of pet"/>
       <a class="text">Special talent</a><br>
-      <input type="text" value="special talent"/>
+      <input id="special_talent" type="text" value="special talent"/>
       <a class="text">Behavior</a><br>
-      <input type="text" value="Child friendly or not"/>
+      <input id="behavior" type="text" value="Child friendly or not"/>
       <a class="text">Character</a><br>
-      <input type="text" value="Active or Lazy"/>
+      <input id="character" type="text" value="Active or Lazy"/>
+      <a class="text">Pets price</a><br>
+      <input id="pet_price" type="text" value="Pets price "/>
       <a class="text">Contact</a><br>
-      <input type="number" value="contact"/>
-      <button class="submit" type="button">submit</button>
+      <input id="seller_contact" type="number" value="contact"/>
+      <button class="submit" type="submit">submit</button>
     </div>
-  </div>
+  </form>
   </body>
+  <script>
+
+
+    let form = document.getElementById("seller_form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let updates = {};
+        let pet_img = document.getElementById("pet_img").value;
+        updates["src"] = pet_img;
+        let pet_name_alt = document.getElementById("pet_name_alt").value;
+        updates["pet_name_alt"] = pet_name_alt;
+        let personal_name = document.getElementById("pet_personal_name").value;
+        updates["personal_name"] = personal_name;
+        let dob_pet = document.getElementById("dob_pet").value;
+        updates["dob_pet"] = dob_pet;
+        let special_talent = document.getElementById("special_talent").value;
+        updates["special_talent"] = special_talent;
+        let behavior = document.getElementById("behavior").value;
+        updates["behavior"] = behavior;
+        let character = document.getElementById("character").value;
+        updates["character"] = character;
+        let pet_price = document.getElementById("pet_price").value;
+        updates["pet_price"] = pet_price;
+        let contact = document.getElementById("seller_contact").value;
+        updates["contact"] = contact;
+        console.log(updates);
+        let whole = [];
+        if (localStorage.getItem("new_card") != null) {
+          whole = JSON.parse(localStorage.getItem("new_card"));
+          console.log(whole);
+        }
+        whole.push(updates);
+        localStorage.setItem("new_card", JSON.stringify(whole));
+        location.href = "./home-page.html";
+      });
+
+  </script>
   <footer style="display:flex; flex-direction:row;">
     <a class="footer" href="">About us</a>
     <a class="footer" href="">Contact us</a>
@@ -62,6 +102,8 @@
     background-size: 1670px 2100px;
     background-repeat: no-repeat;
     margin: 0px;
+
+    text-align: center;
   }
   :root{
     background-color: rgb(255, 255, 255);
@@ -141,6 +183,7 @@
   .sell-page{
 display: flex;
 flex-direction: row;
+justify-content: center;
   }
   footer {
     padding: 50px;
