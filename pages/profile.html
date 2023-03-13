@@ -88,15 +88,16 @@
 
       // let profile = localStorage.getItem();
       // console.log(user_email);
-      let email_check =JSON.parse(window.localStorage.getItem("user_data"))
+      let email =JSON.parse(window.localStorage.getItem("user_data"))
       let details = JSON.parse(window.localStorage.getItem("userdata"))
      console.log(details)
       let user_profile = details.find(function(event){
-      let mailcheck = event["Emailaddress"];
-        if (email_check===mailcheck){
+      let mailcheck = event["emailaddress"];
+        if (email===mailcheck){
         return true;
        }
-    });console.log(user_profile);
+    });
+    console.log(user_profile);
 
       
       let Firstname = document.getElementById("First-name").value = user_profile["Firstname"];
@@ -138,12 +139,12 @@ let deletes =document.getElementById("deletes")
 deletes.addEventListener("click", function (event){
  event.preventDefault();
 
- let indexof = details.indexOf(user_profile);
+ let index = details.indexOf(user_profile);
  let failed = confirm("Cofirm to delete this");
  if(failed !== true){
   return;
  }else{
-  details.splice(indexof, 1);
+  details.splice(index, 1);
   localStorage.setItem("userdata", JSON.stringify(details));
   window.location.href = "./home-page.html"
  }
