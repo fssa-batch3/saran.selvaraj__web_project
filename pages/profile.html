@@ -75,11 +75,11 @@
           <div class="first-name">Address</div>
           <!-- <input type="textarea" id="Address" class="first-nam"></input> -->
           <textarea rows="4" cols="60" id="Address" >
-            Enter Address here...</textarea>
+            </textarea>
         </div>
-        <button id = "edit" type="submit" class="edit-save-delete">Edit</button>
-        <button id = "save" type="submit" class="edit-save-delete">Save</button>
-        <button id = "delete" type="submit" class="edit-save-delete">Delete</button>
+        <button id = "edit" type="submit" onclick="edit" class="edit-save-delete">Edit</button>
+        <button id = "save" class="edit-save-delete">Save</button>
+        <button id = "deletes" onclick="Delete" class="edit-save-delete">Delete</button>
       </form>
     </div>
     
@@ -91,34 +91,35 @@
       let email_check =JSON.parse(window.localStorage.getItem("user_data"))
       let details = JSON.parse(window.localStorage.getItem("userdata"))
      console.log(details)
-      let user_profile = details.find(function(objuser){
-      let mailcheck = objuser["emailaddress"];
+      let user_profile = details.find(function(event){
+      let mailcheck = event["Emailaddress"];
         if (email_check===mailcheck){
         return true;
        }
     });console.log(user_profile);
 
       
-      let first = document.getElementById("First-name").value = user_profile["Firstname"];
-      let last = document.getElementById("Last-name").value = user_profile["Lastname"];
-      let email = document.getElementById("Email").value = user_profile["emailaddress"];
-      let phone = document.getElementById("Phonenumber").value = user_profile["Phonenumber"];
+      let Firstname = document.getElementById("First-name").value = user_profile["Firstname"];
+      let Lastname = document.getElementById("Last-name").value = user_profile["Lastname"];
+      let Emailaddress = document.getElementById("Email").value = user_profile["emailaddress"];
+      let Phonenumber = document.getElementById("Phonenumber").value = user_profile["Phonenumber"];
+      let Address = document.getElementById("Address").value = user_profile["Address"];
       
     let form = document.getElementById("profile-form");
 
     form.addEventListener("submit",function(event){
 
-    let first = document.getElementById("first-name");
-    let last = document.getElementById("last-name");
-    let email = document.getElementById("Email");
-    let phone= document.getElementById("Phonenumber");
-    let Address = document.getElementById("Address");    
+    let Firstname = document.getElementById("First-name").value;
+    let Lastname = document.getElementById("Last-name").value;
+    let Emailaddress = document.getElementById("Email").value;
+    let Phonenumber = document.getElementById("Phonenumber").value;
+    let Address = document.getElementById("Address").value;    
 
-    let edited_details = {first,last,email,phone,Address}
+    let edited_details = {Firstname,Lastname,Emailaddress,Phonenumber,Address}
 
     
-    if(email_check === email){
-      // alert("You can't change the email")
+    if(email_check != Emailaddress){
+      alert("You can't change the email")
     }else{
       let combine = Object.assign(user_profile,edited_details);
 
@@ -129,11 +130,26 @@
 
     // window.localStorage.setItem("updated_user_details",JSON.stringify(details))
     alert("Successfully updated your profile")
-    }
-
-    
-
+    } 
     });
+
+let deletes =document.getElementById("deletes")
+
+deletes.addEventListener("click", function (event){
+ event.preventDefault();
+
+ let indexof = details.indexOf(user_profile);
+ let failed = confirm("Cofirm to delete this");
+ if(failed !== true){
+  return;
+ }else{
+  details.splice(indexof, 1);
+  localStorage.setItem("userdata", JSON.stringify(details));
+  window.location.href = "./home-page.html"
+ }
+
+});
+
 
 
   </script>

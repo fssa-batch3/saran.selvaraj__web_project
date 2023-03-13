@@ -24,7 +24,21 @@
         <hr />
         <button class="create" onclick="window.location.href='./pages/create-account.html'">Create New Account</button>
     </form>
-    </div>
+
+
+<body>
+    <label for="accept">
+        <input type="checkbox" id="accept" name="accept" value="yes"> Accept
+    </label>
+
+    <script>
+        const checked = document.querySelector('#accept:checked') !== null;
+        console.log(checked); // false
+    </script>
+
+</body>
+</html>
+    </div>  qa  
   <script>
 
 

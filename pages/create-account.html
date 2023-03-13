@@ -42,7 +42,7 @@
             </div>
           </div>
        
-          <button id="submit" class="">submit</button>
+          <button id="submit" class="submit">SUBMIT</button>
         </div>
         <a href="./home-page.html"></a>
       </div>
@@ -107,18 +107,21 @@
 </html>
 <style>
   body {
-    margin: 100px 600px;
+    margin: 80px 500px;
+    justify-content: center;
+    text-align: center;
+    background:linear-gradient(to bottom right, #7b1497, #dc5430);
   }
   .create-account {
     width: 500px;
   }
   input:valid,
   select:valid{
-     background-color: rgb(238, 255, 238);
+     color:green;
   }
   input:invalid,
   select:invalid{
-    background-color: rgb(255, 232, 232);
+    color:red;
   }
   .whole-gender {
     display: flex;
@@ -129,7 +132,7 @@
     height: 50px;
     font-size: 30px;
     text-align: center;
-    margin: 10px;
+    margin:0px 10px;
     border-radius: 10px;
   }
   .email-address,
@@ -152,5 +155,16 @@
   .gender {
     display: flex;
     flex-direction: row;
+  }
+  .submit{
+    background-color: #569dfa;
+    color:white;
+    border: none;
+    box-shadow: 0px 0px 5px 5px #569dfa;
+    width: 460px;
+    height: auto;
+    padding:5px;
+    border-radius: 7px;
+    margin-left: 20px;
   }
 </style>

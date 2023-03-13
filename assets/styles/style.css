@@ -1,5 +1,4 @@
 body {
-    background-color: rgba(255, 255, 255, 0.432);
     margin: 50px 500px;
 }
 
@@ -8,7 +7,6 @@ body {
       flex-direction: column;
       width:505px;
       height:500px;
-      background-color: aliceblue;
       border-radius: 10px 10px 0px 0px ;
       justify-content: center;
   }

@@ -56,10 +56,10 @@
 
     let form = document.getElementById("seller_form");
       form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        event.preventDefault(); 
         let updates = {};
         let pet_img = document.getElementById("pet_img").value;
-        updates["src"] = pet_img;
+        updates["source"] = pet_img;
         let pet_name_alt = document.getElementById("pet_name_alt").value;
         updates["pet_name_alt"] = pet_name_alt;
         let personal_name = document.getElementById("pet_personal_name").value;
