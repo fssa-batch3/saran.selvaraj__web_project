@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="../assets/styles/create_new_account.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="Whole-div">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="#" id="login_form">
+        <div class="admin-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" id="adm_full_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,30}$" required >
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" id="adm_user_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter your email" id="adm_email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" id="adm_phone" pattern="[0-9]{5}[0-9]{5}" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" id="adm_pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" id="adm_conpass" required>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="select_submit">
+        <select id="slt">  
+          <option value="user" id="user">User</option>
+          <option value="admin" id="admin">Admin</option> 
+          <option value="seller" id="seller">Seller</option> 
+      </select>
+          <button id="submit" class="submit">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+<script>
+  let Admin_data = [];
+  let User_data = [];
+  let Seller_data = []
+    let form = document.getElementById("login_form")
+    form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let data = {}
+    const firstname = document.getElementById("adm_full_name").value;
+    const lastname = document.getElementById("adm_user_name").value;
+    const phonenumber = document.getElementById("adm_phone").value;
+    const emailaddress = document.getElementById("adm_email").value;
+    const newpassword = document.getElementById("adm_pass").value;
+    const confirmpassword = document.getElementById("adm_conpass").value;
+    const select = document.getElementById("slt").value;
+    
+    data["full_name"] = firstname
+    data["user_name"] =  lastname
+    data["phone"] = phonenumber
+    data["email"] =emailaddress.toLowerCase()
+    data["password"] = newpassword
+    data["slt_value"] = select
+
+
+    
+
+let slt = document.getElementById("slt")
+
+let admin = document.getElementById("admin")
+let user = document.getElementById("user")
+let seller = document.getElementById("seller")
+
+let ismatch = false
+if(newpassword === confirmpassword ){
+  ismatch = true;
+ }else{
+  ismatch = false;
+ }
+
+    if(slt.value === "admin"){
+    if(ismatch !== false){
+      Admin_data.push(data);
+    if(window.localStorage.getItem("Admin_data") === null){
+      window.localStorage.setItem("Admin_data",JSON.stringify(Admin_data));  
+    }else{
+      // let local = ;
+      let json = JSON.parse(window.localStorage.getItem("Admin_data"));
+      json.push(data);
+     
+      window.localStorage.setItem("Admin_data",JSON.stringify(json));
+
+    }
+    alert("Successfully registered")
+    window.location.href="./admin.html"
+ }else{
+  return alert("password and confirm password does not match")
+ }
+    }else if(slt.value === "user"){
+      if(ismatch === true){
+        User_data.push(data); 
+    if(window.localStorage.getItem("User_data") === null){
+      window.localStorage.setItem("User_data",JSON.stringify(User_data));  
+    }else{
+      let json = JSON.parse(window.localStorage.getItem("User_data"));
+      json.push(data);
+     
+      window.localStorage.setItem("User_data",JSON.stringify(json));
+
+    }
+    alert("Successfully registered")
+    window.location.href="../index.html"
+}else{
+  return alert("password and confirm password does not match")
+} 
+    }else{
+      if(ismatch === true){ 
+        Seller_data.push(data);
+    if(window.localStorage.getItem("Seller_data") === null){
+      window.localStorage.setItem("Seller_data",JSON.stringify(Seller_data));
+      
+    }else{
+      let json = JSON.parse(window.localStorage.getItem("Seller_data"));
+      json.push(data);
+      window.localStorage.setItem("Seller_data",JSON.stringify(json));
+
+    }
+    alert("Successfully registered")
+    window.location.href="./seller.html"
+}else{
+  return alert("password and confirm password does not match")
+}
+    }
+
+
+
+// let validation = JSON.parse(window.localStorage.getItem("Admin_data"));
+//         let is = false;
+//         for (let i = 0; i < validation.length; i++) {
+//           if (emailaddress === validation[i].Emailaddress) {
+//             alert("Email is already in use");
+//             is = true;
+//           break;
+//           }
+//         }
+
+        
+//     if(data["adm_pass"] ===data["adm_conpass"]){ 
+//     if(window.localStorage.getItem("Admin_data") === null){
+//       window.localStorage.setItem("Admin_data",JSON.stringify(Admin_data));
+      
+//     }else{
+//       let local = window.localStorage.getItem("Admin_data");
+//       let json = JSON.parse(local);
+//       json.push(data);
+//       window.localStorage.setItem("Admin_data",JSON.stringify(json));
+
+//     }
+//     alert("Successfully registered")
+//     window.location.href="../index.html"
+// }  else{
+//   alert("password and confirm password does not match")
+
+// }
+  });
+</script>
+</html>

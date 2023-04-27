@@ -1,158 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login to PET MALL</title>
-    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Login Form | CodingLab</title> -->
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   </head>
   <body>
-    <img
-      src="./assets/images/image.logo.png"
-      alt="logo"
-      height="200px"
-      width="400px"
-      style="margin-left: 40px;"
-    />
+    
+    <div class="container">
+        <div><img src="./assets/images/image.logo.png" height="150px" width="300px"></div>
+      <div class="wrapper">
+        <div class="title"><span>Login Form</span></div>
+        <form action="#" id="form">
+            
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="text" id="email" placeholder="Email or Phone" required>
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required>
+          </div>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" value="Login">
+          </div>
+          <div class="signup-link">Not a member? <a href="./pages/create-new-account.html">Signup now</a></div>
+        </form>
+      </div>
     </div>
-    <form id = "login" class="login-form">
-        <input class="email"type="email" id="email" placeholder="Email address" required/>
-        <input class="password" type="password" id="password" placeholder="Password"required>
-        <button class="login" type="submit"  >Log in</button>
-        <a class="forget" href="./pages/forgot-password.html">Forgotten password?</a>
-        <hr />
-        <button class="create" onclick="window.location.href='./pages/create-account.html'">Create New Account</button>
-    </form>
 
-
-<body>
-    <label for="accept">
-        <input type="checkbox" id="accept" name="accept" value="yes"> Accept
-    </label>
-
-    <script>
-        const checked = document.querySelector('#accept:checked') !== null;
-        console.log(checked); // false
-    </script>
-
-</body>
-</html>
-    </div>  qa  
-  <script>
-
-
-        let logIn = document.getElementById("login");
-        logIn.addEventListener("submit", (event) => {
-        event.preventDefault();
-        // let user_arr = [] 
-        let defaultData = JSON.parse(localStorage.getItem("userdata"));
-        console.log(defaultData);
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-        console.log(email, password);
-
-        let isMatch = false;
-        for (let i = 0; i < defaultData.length; i++) {
-          if (
-            email == defaultData[i].emailaddress &&
-            password == defaultData[i].Newpassword
-          ) {
-            isMatch = true;
-            // user_arr.push(defaultData[i]);
-            window.localStorage.setItem("user_data",JSON.stringify(defaultData[i].emailaddress))
-            break;
-            // i = i + defaultData.length;
-          } else {
-            isMatch = false;
-          }
-        }
-        if (isMatch === true) {
-          alert("Successfully logged in");
-          window.location.href = "./pages/home-page.html";
-        } else {
-          alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
-        }
-
-      });
-
-
-
-
-
-
-// function submit() {
-
-//     const email = document.getElementById("loginemail").value   
-//     const password = document.getElementById("loginpassword").value   
-
-//     console.log(email)
-//     console.log(password)
-     
-//     //localStorage.setItem("key",value)
-//     localStorage.setItem("user_email",email)
-//     localStorage.setItem("password",password)
-
-//     window.location.href = "./pages/home-page.html"
-// }
-
-// function sign(){
-//      const email = document.getElementById("loginemail").value   
-//      const password = document.getElementById("loginpassword").value
-//      const check = log.find((e) => e.email == email);
-//      console.log(check);
-
-
-//       form.addEventListener("submit", (e) =>{
-//       event.preventDefault();
-//       submit();
-//      });
-//       function submit(){
-
-//       let login =JSON.parse( localStorage.getItem("data"));
-//       console.log(login);
-//       let useremail = document.getElementById("loginemail").value;
-//       let userpassword = document.getElementById("loginpassword").value;
-      
-      
-//       for(let i = 0; i < login.length; i++){
-
-//       if (
-//         useremail == login[i].Emailaddress &&
-//         userpassword == login[i].Newpassword
-//       ){
-//       alert("Success you are now our customer")
-//       }
-//     else{
-//       alert("Failed to login retry again in 5 secs")}
-      
-//       }
-//     }
-
-//     let logIn = document.getElementById("form");
-//       logIn.addEventListener("submit", (event) => {
-//         event.preventDefault();
-//         let Data = JSON.parse(localStorage.getItem("user"));
-//         console.log(Data);
-//         let Email = document.getElementById("loginemail").value;
-//         let Password = document.getElementById("loginpassword").value;
-//         // const selectUser = Data.find(function (event) {
-//         //   const email = event["email"];
-//         //   const password = event["password"];
-//           if (Email == loginemail && Password === loginpassword) {
-//             alert("Success");
-//             window.location.href = "/home-page.html";
-//           } else {
-//             alert("failed");
-//           }
-//           // window.location.href = "\page\sign-up\sign-up.html";
-//         });
-
-
-//     //  window.location.href = "/home-page.html";
-
-
-  </script>
-<a href="./pages/home-page.html"></a>
   </body>
+  <script>
+    let form = document.getElementById("form");
+
+    let user = JSON.parse(localStorage.getItem("User_data"));
+console.log(user)
+
+    form.addEventListener("submit",function (event){
+        event.preventDefault();
+let email = document.getElementById("email").value
+let password = document.getElementById("password").value
+// console.log(email,password)
+
+
+
+for(let i = 0; i < user.length; i++){
+if(email === user[i]["email"] && password === user[i]["password"]){
+  alert("Successfully logged in");
+  window.localStorage.setItem("useremail",JSON.stringify(email));
+    window.location.href = "./pages/home-page.html";
+    // window.localStorage.setItem("useremail",JSON.stringify(user[i].email))
+    break;
+}else{
+  alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
+}
+}
+
+
+
+
+    });
+  </script>
 </html>
