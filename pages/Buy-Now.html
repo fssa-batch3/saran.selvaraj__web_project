@@ -1,139 +1,140 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <!----<title> Product Card | CodingLab </title>---->
-    <link rel="stylesheet" href="../assets/styles/buy-now.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
-  <div class="container">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PET MALL</title>
+    <link rel="stylesheet" href="../assets/styles/sell-page.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>Update your Pet's Detail</header>
 
+      <form id="seller_form">
+          <div class="form first">
+              <div class="details personal">
+                  <span class="title">Personal Details</span>
+
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>Debit card number : </label>
+                          <input type="number"  id="pet_img" pattern="[0-9]{16}" required>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Cvv</label>
+                          <input type="text" id="pet_name_alt" pattern="[0-9]{3}" required>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Flat/door no :</label>
+                          <input type="text" id="pet_personal_name" pattern="[0-9]{16}" required>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Street : </label>
+                          <input type="text" id="dob_pet" pattern="[a-zA-Z]{1-100}"  required>
+                      </div>
+
+                      <div class="input-field">
+                          <label>State : </label>
+                          <input type="text" id="special_talent">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Country : </label>
+                          <input type="text" id="behavior">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="details ID">
+
+                  <div class="fields">
+                     
+
+                      <div class="input-field">
+                          <label>Contact</label>
+                          <input type="text" id="seller_contact">
+                      </div>
+
+                      
+                  </div>
+                  <div class="buttons">
+                  <button class="nextBtn" type="submit">
+                      <span class="btnText">Buy</span>
+                      <i class="uil uil-navigator"></i>
+                  </button>
+              </div>
+              </div> 
+          </div>
+
+          
+
+          </div>
+      </form>
   </div>
-</body>
-<script>
-        let detail = JSON.parse(localStorage.getItem("new_card"));
+  </body>
+  <style>
+    .form.first .input-box input:valid{
+  border-color: #00ff2a;
+}
 
-      let urlparams = new URLSearchParams(window.location.search);
-      let thisid = urlparams.get('id');
-      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.id == thisid);
+.form.first .input-box input:invalid{
+  border-color: #ff0000;
+}
+  </style>
+  <script>
 
-      let div_box_one = document.createElement("div");
-      div_box_one.setAttribute("class","box one");
-      document.querySelector("div.container").append(div_box_one);
 
-      let div_details = document.createElement("div");
-      div_details.setAttribute("class","details");
-      div_box_one.append(div_details);
+    let form = document.getElementById("seller_form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); 
+  
 
-      let div_topic = document.createElement("div");
-      div_topic.setAttribute("class","topic");
-      div_topic.innerHTML = "Description";
-      div_details.append(div_topic);
+        let updates = {};
+        let pet_img = document.getElementById("pet_img").value;
+        let pet_name_alt = document.getElementById("pet_name_alt").value;
+        let personal_name = document.getElementById("pet_personal_name").value;
+        let dob_pet = document.getElementById("dob_pet").value;
+        let special_talent = document.getElementById("special_talent").value;
+        let behavior = document.getElementById("behavior").value;
+        let contact = document.getElementById("seller_contact").value;
+        let uuid = self.crypto.randomUUID()
 
-      let div_discription1 = document.createElement("div");
-      div_discription1.setAttribute("class","discription");
-      div_discription1.innerHTML = thispet["special_talent"] + ".  " ;
-      div_details.append(div_discription1);
+        updates["source"] = pet_img;
+        updates["pet_name_alt"] = pet_name_alt;
+        updates["personal_name"] = personal_name;
+        updates["dob_pet"] = dob_pet;
+        updates["special_talent"] = special_talent;
+        updates["behavior"] = behavior;
+        updates["contact"] = contact;
 
-      let div_discription2 = document.createElement("div");
-      div_discription2.setAttribute("class","discription");
-      div_discription2.innerHTML =  thispet["behavior"]+". " ;
-      div_details.append(div_discription2);
+        updates["uuid"]= uuid;
+        
+        console.log(uuid)
+        console.log(updates);
+        let whole = [];
+        whole.push(updates);
+        if (localStorage.getItem("Shipping_details") === null) {
+          window.localStorage.setItem("Shipping_details",JSON.stringify(whole));
+          location.href = "./home-page.html";
+          console.log(whole);
+        }else{
+          let local = window.localStorage.getItem("Shipping_details");
+            let json = JSON.parse(local);
+            json.push(updates);
 
-      let div_discription3 = document.createElement("div");
-      div_discription3.setAttribute("class","discription");
-      div_discription3.innerHTML = thispet["character"] + ".";
-      div_details.append(div_discription3);
-
-      let div_discription4 = document.createElement("div");
-      div_discription4.setAttribute("class","discription");
-      div_discription4.innerHTML = "Contact : " + thispet["contact"] + ". ";
-      div_details.append(div_discription4);
-
-      let div_discription5 = document.createElement("div");
-      div_discription5.setAttribute("class","discription");
-      div_discription5.innerHTML = "Date-Of-Birth : " + thispet["dob_pet"];
-      div_details.append(div_discription5);
-
-      let div_ratings = document.createElement("div");
-      div_ratings.setAttribute("class","rating");
-      div_details.append(div_ratings);
-
-      for(let i = 0; i < 5; i++){
-        let i_rating = document.createElement("i");
-        i_rating.setAttribute("class","fas fa-star");
-        div_ratings.append(i_rating);
-        if(i === 3  || i===4){
-          i_rating.setAttribute("class","far fa-star");
+            window.localStorage.setItem("Shipping_details", JSON.stringify(json));
+            location.href = "./home-page.html";
         }
-      }
+       
+        // localStorage.setItem("new_card", JSON.stringify(whole));
+        
+      });
 
-      let div_price_box = document.createElement("div");
-      div_price_box.setAttribute("class","price-box");
-      div_details.append(div_price_box);
-
-      let div_discount = document.createElement("div");
-      div_discount.setAttribute("class","discount");
-      div_discount.innerHTML = "Rs.15999";
-      div_price_box.append(div_discount);
-
-      let div_price = document.createElement("div");
-      div_price.setAttribute("class","price");
-      div_price.innerHTML = thispet["pet_price"];
-      div_price_box.append(div_price);
-
-      let div_button1 = document.createElement("div");
-      div_button1.setAttribute("class","button1");
-      div_box_one.append(div_button1);
-
-      let button1 = document.createElement("a");
-      button1.setAttribute("href","#")
-      button1.innerText = "Buy Now";
-      div_button1.append(button1);
-
-      let button2 = document.createElement("a");
-      button2.setAttribute("href","../pages/add-to-cart.html")
-      button2.innerText = "Add To Cart";
-      div_button1.append(button2);
-
-      let div_box_two = document.createElement("div");
-      div_box_two.setAttribute("class","box two");
-      document.querySelector("div.container").append(div_box_two);
-
-      let div_image_box =document.createElement("div");
-      div_image_box.setAttribute("class","image-box");
-      div_box_two.append(div_image_box);
-
-      let div_image =document.createElement("div");
-      div_image.setAttribute("class","image");
-      div_box_two.append(div_image);
-
-      let image = document.createElement("img");
-      image.setAttribute("src",thispet["source"]);
-      div_image.append(image);
-
-      let div_info =document.createElement("div");
-      div_info.setAttribute("class","info");
-      div_box_two.append(div_info);
-
-      let div_name = document.createElement("div");
-      div_name.setAttribute("class","brand");
-      div_name.innerHTML = thispet["personal_name"];
-      div_info.append(div_name);
-
-      let div_petname = document.createElement("div");
-      div_petname.setAttribute("class","name");
-      div_petname.innerHTML = thispet["pet_name_alt"].toUpperCase();
-      div_info.append(div_petname);
-
-      let div_shipping = document.createElement("div");
-      div_shipping.setAttribute("class","shipping");
-      div_shipping.innerHTML = "Free shipping";
-      div_info.append(div_shipping);
-
-      
-</script>
+  </script>
+ 
 </html>
+ 

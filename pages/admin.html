@@ -47,17 +47,22 @@ let password = document.getElementById("password").value
 // console.log(email,password)
 
 
-
-for(let i = 0; i < admin.length; i++){
+let ismatch = false
+for(let i = 0; i <= admin.length-1; i++){
 if(email === admin[i]["email"] && password === admin[i]["password"]){
+    ismatch = true
+}else{
+  ismatch = false
+}
+}
+if(ismatch === true){
   alert("Successfully logged in");
+  window.localStorage.setItem("adminemail",JSON.stringify(email))
     window.location.href = "./home-page.html";
-    window.localStorage.setItem("useremail",JSON.stringify(user[i].email))
-    break;
 }else{
   alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
 }
-}
+
 
 
 

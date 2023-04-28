@@ -2,66 +2,91 @@
 <!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <title>Login Form | CodingLab</title> -->
-    <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
   </head>
   <body>
-    
     <div class="container">
-        <div><img src="../images/image.logo.png" height="150px" width="300px"></div>
+      <div>
+        <img
+          src="../assets/images/image.logo.png"
+          height="150px"
+          width="300px"
+          alt="logo_img"
+        />
+      </div>
       <div class="wrapper">
         <div class="title"><span>Seller Login Form</span></div>
         <form action="#" id="form">
-            
           <div class="row">
             <i class="fas fa-user"></i>
-            <input type="text" id="email" placeholder="Email or Phone" required>
+            <input
+              type="text"
+              id="email"
+              placeholder="Email or Phone"
+              required
+            />
           </div>
           <div class="row">
             <i class="fas fa-lock"></i>
-            <input type="password" id="password" placeholder="Password" required>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
           </div>
           <div class="pass"><a href="#">Forgot password?</a></div>
           <div class="row button">
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" />
           </div>
-          <div class="signup-link">Not a member? <a href="./sign-up.html">Signup now</a></div>
+          <div class="signup-link">
+            Not a member? <a href="./sign-up.html">Signup now</a>
+          </div>
         </form>
       </div>
     </div>
-
   </body>
   <script>
     let form = document.getElementById("form");
 
     let seller = JSON.parse(localStorage.getItem("Seller_data"));
+    // let logged_seller_email = localStorage.getItem("selleremail")
 
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
 
-    form.addEventListener("submit",function (event){
-        event.preventDefault();
-let email = document.getElementById("email").value
-let password = document.getElementById("password").value
-// console.log(email,password)
+      let ismatch = false
+      for (let i = 0; i < seller.length; i++) {
+        if (
+          email === seller[i]["email"] &&
+          password === seller[i]["password"]
+        ) {
+          ismatch = true
+        } else {
+          ismatch = false
+        }
+      }
 
+      if(ismatch === true){
+        alert("Successfully logged in");
+          window.location.href = "./home-page.html";
+          // window.localStorage.setItem("selleremail",JSON.stringify(email));
+      }else{
+        alert( "                          User_email\n                                OR \n                PASSWORD INCORRECT" );
+      }
 
-
-for(let i = 0; i < seller.length; i++){
-if(email === seller[i]["email"] && password === seller[i]["password"]){
-  alert("Successfully logged in");
-    window.location.href = "./home-page.html";
-    window.localStorage.setItem("useremail",JSON.stringify(user[i].email))
-    break;
-}else{
-  alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
-}
-}
-
-
-
-
+      window.localStorage.setItem("selleremail",email);
+      
     });
+
   </script>
 </html>

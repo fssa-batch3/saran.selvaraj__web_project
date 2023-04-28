@@ -67,7 +67,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="./profile.html">
+                        <a id="account">
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Account</span>
                         </a>
@@ -176,8 +176,17 @@
     
     <script>
 
+        
 
-
+    let account_href = document.getElementById("account")
+    let personas_verify = localStorage.getItem("User_Personas");
+    if(personas_verify ===  "user"){
+        account_href.setAttribute("href","./profile.html")
+    }else if(personas_verify === "seller"){
+        account_href.setAttribute("href","./seller-profile.html")
+    }else{
+        account_href.setAttribute("href","./admin-profile.html")
+    }
 
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
@@ -207,7 +216,9 @@ modeSwitch.addEventListener("click" , () =>{
 });
 
 let new_card = JSON.parse(localStorage.getItem("new_card"))
-
+let pet_sold_seller_email =localStorage.getItem("selleremail")
+console.log(pet_sold_seller_email);
+console.log(new_card)
 for(let i = 0; i < new_card.length; i++){
 
 
@@ -236,37 +247,52 @@ div_contentBox.append(head3)
 
 let head2 = document.createElement("h2")
 head2.setAttribute("class","price")
-head2.innerText ="Rs : " +new_card[i]["pet_price"]
+head2.innerText ="Rs : " + new_card[i]["pet_price"]
 div_contentBox.append(head2)
 
 let anchor = document.createElement("a")
-anchor.setAttribute("href",`./buy-now.html?id=${new_card[i]["id"]}`);
+anchor.setAttribute("href",`./details.html?uuid=${new_card[i]["uuid"]}`);
 anchor.setAttribute("class","buy")
 anchor.innerText = "Buy Now"
 div_contentBox.append(anchor)
+
+
+if(pet_sold_seller_email === new_card[i]["card_created_email"]){
 
 let button_div = document.createElement("div")
 button_div.setAttribute("class","edit_delete")
 div_contentBox.append(button_div)
 
 let edit = document.createElement("a")
-edit.setAttribute("href",`./update.html?id=${new_card[i]["id"]}`);
+edit.setAttribute("href",`./update_pet_card.html?uuid=${new_card[i]["uuid"]}`);
 edit.setAttribute("class","update")
 edit.innerText = "Edit"
 button_div.append(edit)
 
 let deletes = document.createElement("a")
-deletes.setAttribute("href",`./update.html?id=${new_card[i]["id"]}`);
+deletes.setAttribute("href","./home-page.html");
 deletes.setAttribute("class","delete")
+deletes.setAttribute("uuid",new_card[i]["uuid"])
 deletes.innerText = "Delete"
 button_div.append(deletes)
 
+deletes.addEventListener("click", function () {
+          if (confirm("Are you sure?")) {
+            let jsonData = JSON.parse(window.localStorage.getItem("new_card"));
+            let uuid = deletes.getAttribute("uuid");
+            console.log(uuid);
+            let indexOf = jsonData.findIndex((obj) => obj.uuid === uuid);
+            console.log(indexOf);
+            jsonData.splice(indexOf, 1);
+
+            window.localStorage.setItem("new_card",JSON.stringify(jsonData));
+            window.location.href = "./home-page.html";
+          }
+        });
+        break;
+}
 }
 
-let dlt = document.querySelector("a.update")
-dlt.addEventListener("click", function (event){
-    
-});
 
 // let buy_now = document.getElementByClassName("buy");
 // buy_now.addEventListener("click",fuction(event){

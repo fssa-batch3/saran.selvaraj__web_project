@@ -5,51 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PET MALL</title>
-    <header>
-      <nav class="navbar">
-        <img class="logo-image" src="../../assets/images/image.logo.png" alt="image"/>
-        <div class="nav-bar">
-          <div style="display: flex">
-            <input class="search-bar" type="text" placeholder="search..." style="margin: 0px 0px 0px 100px;width: 210px;height: 45px;flex: 1;padding-right: 500px;"/>
-            <button class="searchbar">
-              <img class="searchicon" src="../../assets/images/search-icon.png" alt="image"/>
-            </button>
-          </div>
-          <div>
-            <button class="button" style="margin: 0px 0px 0px 100px" onclick="window.location.href ='./home-page.html'">HOMEPAGE</button>
-            <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
-            <button class="button" onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
-            <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
-            <button class="button" onclick="window.location.href ='./account-page.html'">ACCOUNT</button>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <link rel="stylesheet" href="../assets/styles/sell-page.css">
   </head>
   <body>
-    <form id="seller_form" class="sell-page">
-    <div class="amount"><a style="padding-bottom: 100px;">PET DETAILS</a><br><br><br><br>
-      <a class="text">ADD IMAGE    
-      <input id="pet_img" type="text" value="Image url"/></a>
-      <a class="text">Real Name  : </a><br>
-      <input id="pet_name_alt" type="text" value="REAL NAME "/>
-      <a class="text">Pets Personal Name</a><br>
-      <input id="pet_personal_name" type="text" value="Pets name "/>
-      <a class="text">DOB of the pet</a><br>
-      <input id="dob_pet" type="date" value="DOB of pet"/>
-      <a class="text">Special talent</a><br>
-      <input id="special_talent" type="text" value="special talent"/>
-      <a class="text">Behavior</a><br>
-      <input id="behavior" type="text" value="Child friendly or not"/>
-      <a class="text">Character</a><br>
-      <input id="character" type="text" value="Active or Lazy"/>
-      <a class="text">Pets price</a><br>
-      <input id="pet_price" type="text" value="Pets price "/>
-      <a class="text">Contact</a><br>
-      <input id="seller_contact" type="number" value="contact"/>
-      <button class="submit" type="submit">submit</button>
-    </div>
-  </form>
+    <div class="container">
+      <header>Update your Pet's Detail</header>
+
+      <form id="seller_form">
+          <div class="form first">
+              <div class="details personal">
+                  <span class="title">Personal Details</span>
+
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>ADD IMAGE</label>
+                          <input type="url"  id="pet_img">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Real Name : </label>
+                          <input type="text" id="pet_name_alt">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Personal Name</label>
+                          <input type="text" id="pet_personal_name">
+                      </div>
+
+                      <div class="input-field">
+                          <label>DOB of the pet</label>
+                          <input type="text" id="dob_pet">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Special talent</label>
+                          <input type="text" id="special_talent">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Behavior</label>
+                          <input type="text" id="behavior">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="details ID">
+
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>Character</label>
+                          <input type="text" id="character">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Pets price</label>
+                          <input type="text" id="pet_price">
+                      </div>
+
+                      <div class="input-field">
+                          <label>Contact</label>
+                          <input type="text" id="seller_contact">
+                      </div>
+
+                      
+                  </div>
+                  <div class="buttons">
+                  <button class="nextBtn" type="submit">
+                      <span class="btnText">submit</span>
+                      <i class="uil uil-navigator"></i>
+                  </button>
+              </div>
+              </div> 
+          </div>
+
+          
+
+          </div>
+      </form>
+  </div>
   </body>
   <script>
 
@@ -57,158 +90,57 @@
     let form = document.getElementById("seller_form");
       form.addEventListener("submit", function (event) {
         event.preventDefault(); 
+
+        let logged_seller_email = localStorage.getItem("selleremail");
+        let Seller_data = JSON.parse(localStorage.getItem("Seller_data"))
+  
+
         let updates = {};
         let pet_img = document.getElementById("pet_img").value;
-        updates["source"] = pet_img;
         let pet_name_alt = document.getElementById("pet_name_alt").value;
-        updates["pet_name_alt"] = pet_name_alt;
         let personal_name = document.getElementById("pet_personal_name").value;
-        updates["personal_name"] = personal_name;
         let dob_pet = document.getElementById("dob_pet").value;
-        updates["dob_pet"] = dob_pet;
         let special_talent = document.getElementById("special_talent").value;
-        updates["special_talent"] = special_talent;
         let behavior = document.getElementById("behavior").value;
-        updates["behavior"] = behavior;
         let character = document.getElementById("character").value;
-        updates["character"] = character;
         let pet_price = document.getElementById("pet_price").value;
-        updates["pet_price"] = pet_price;
         let contact = document.getElementById("seller_contact").value;
+        let uuid = self.crypto.randomUUID()
+
+        updates["source"] = pet_img;
+        updates["pet_name_alt"] = pet_name_alt;
+        updates["personal_name"] = personal_name;
+        updates["dob_pet"] = dob_pet;
+        updates["special_talent"] = special_talent;
+        updates["behavior"] = behavior;
+        updates["character"] = character;
+        updates["pet_price"] = pet_price;
         updates["contact"] = contact;
+        updates["card_created_email"] = logged_seller_email
+        updates["uuid"]= uuid;
+        
+        console.log(uuid)
         console.log(updates);
         let whole = [];
-        if (localStorage.getItem("new_card") != null) {
-          whole = JSON.parse(localStorage.getItem("new_card"));
-          console.log(whole);
-        }
         whole.push(updates);
-        localStorage.setItem("new_card", JSON.stringify(whole));
-        location.href = "./home-page.html";
+        if (localStorage.getItem("new_card") === null) {
+          window.localStorage.setItem("new_card",JSON.stringify(whole));
+          location.href = "./home-page.html";
+          console.log(whole);
+        }else{
+          let local = window.localStorage.getItem("new_card");
+            let json = JSON.parse(local);
+            json.push(updates);
+
+            window.localStorage.setItem("new_card", JSON.stringify(json));
+            location.href = "./home-page.html";
+        }
+       
+        // localStorage.setItem("new_card", JSON.stringify(whole));
+        
       });
 
   </script>
-  <footer style="display:flex; flex-direction:row;">
-    <a class="footer" href="">About us</a>
-    <a class="footer" href="">Contact us</a>
-    <a class="footer" href="">visit us</a>
-    <a class="footer" href="">Instagram</a>
-    <a class="footer" href="">Youtube</a>
-  </footer>
+ 
 </html>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
-}
-     body {
-    background-color: white;
-    background-size: 1670px 2100px;
-    background-repeat: no-repeat;
-    margin: 0px;
-
-    text-align: center;
-  }
-  :root{
-    background-color: rgb(255, 255, 255);
-  }
-  .logo-image {
-    width: 200px;
-    height: 100px;
-    border-radius: 5px;
-  }
-  .search-bar {
-    background-color: white;
-    border: 2px solid black;
-    align-items: center;
-  }
-  .searchbar {
-    height: 30px;
-    border-radius: 5px;
-  }
-  .searchicon {
-    height: 46px;
-    width: 50px;
-    border: 2px solid black;
-    margin-left: -7px;
-  }
-  .navbar {
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(230, 229, 232);
-    width: 1635px;
-    z-index: 100;
-    border-radius: 5px;
-  }
-  .nav-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  button {
-    border: none;
-    background-color: rgb(230, 229, 232);
-    cursor:pointer;
-  }
-  .button:hover {
-    border-bottom: 5px solid rgb(130, 245, 220);
-  }
-  :placeholder-shown{
-    font-size: 30px;
-  }
-  .text{
-    margin-left: 10px;
-  }
-  input{
-    display:flex;
-    flex-direction:row;
-    width: 300px ;
-    height: 30px;
-    margin:10px;
-    text-align: center;
-  } 
-  .submit{
-    margin-left: 130px;
-    font-size: 20px;
-    border:1px solid black;
-    border-radius: 5px;
-  }
-  .amount{
-    margin: 50px 150px 50px 150px ;
-    border:3px solid cyan;
-    border-radius: 20px;
-    padding: 50px;
-  }
-  .add-image{
-    width:500px;
-    height: 500px;
-  }
-  .sell-page{
-display: flex;
-flex-direction: row;
-justify-content: center;
-  }
-  footer {
-    padding: 50px;
-    display: flex;
-   padding-left:500px;
-    flex-direction: column;
-    font-size: 30px;
-    background-color: rgb(130, 245, 220);
-  }
-  .footer{
-    padding:0px 10px 0px 10px;
-    text-decoration: none;
-  }
-
-  .account {
-    border: 5px solid rgb(130, 245, 220);
-    border-radius: 20px;
-    margin:100px 600px 200px 600px;
-    width: 450px;
-  }
-  </style>
+ 

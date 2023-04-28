@@ -88,9 +88,9 @@
 
       // let profile = localStorage.getItem();
       // console.log(user_email);
-      let Email =JSON.parse(window.localStorage.getItem("useremail"))
+      let Email =JSON.parse(window.localStorage.getItem("adminemail"))
       console.log(Email);
-      let details = JSON.parse(window.localStorage.getItem("User_data"))//if (userpers===seller){
+      let details = JSON.parse(window.localStorage.getItem("Admin_data"))//if (userpers===seller){
 
       // details = JSON.parse(window.localStorage.getItem("Seller_data"))}Else if(userpers===admin){ details = JSON.parse(window.localStorage.getItem("admin_data"))}
      console.log(details)
@@ -123,7 +123,13 @@
         document.getElementById("Address").disabled = false;
 
     }
-    
+    else {
+      document.getElementById("Full-name").disabled = true;
+        document.getElementById("User-name").disabled = true;
+        document.getElementById("Email").disabled = true;
+        document.getElementById("Phonenumber").disabled = true;
+        document.getElementById("Address").disabled = true;
+    }
 
     save.addEventListener("click",function(event){
     event.preventDefault()
@@ -152,7 +158,7 @@
     console.log(userindex)
     details[userindex] = combine;
 
-    window.localStorage.setItem("User_data",JSON.stringify(details))
+    window.localStorage.setItem("Admin_data",JSON.stringify(details))
 
     // window.localStorage.setItem("updated_user_details",JSON.stringify(details))
     alert("Successfully updated your profile")

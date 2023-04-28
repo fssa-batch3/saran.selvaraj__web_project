@@ -19,7 +19,7 @@
           </div>
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" id="adm_user_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+            <input type="text" placeholder="Enter your username" id="adm_user_name" pattern="^[a-zA-Z][a-zA-Z0-9]{1,20}$" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
@@ -75,6 +75,9 @@
   let Admin_data = [];
   let User_data = [];
   let Seller_data = []
+
+  let user_persona = localStorage.getItem("User_Personas")
+  
     let form = document.getElementById("login_form")
     form.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -86,14 +89,16 @@
     const newpassword = document.getElementById("adm_pass").value;
     const confirmpassword = document.getElementById("adm_conpass").value;
     const select = document.getElementById("slt").value;
-    
+    const uuid = self.crypto.randomUUID()
+    console.log(uuid)
     data["full_name"] = firstname
     data["user_name"] =  lastname
     data["phone"] = phonenumber
     data["email"] =emailaddress.toLowerCase()
     data["password"] = newpassword
     data["slt_value"] = select
-
+    data["user_persona"] = user_Persona 
+    data["uuid"] = uuid
 
     
 
@@ -132,12 +137,15 @@ if(newpassword === confirmpassword ){
       if(ismatch === true){
         User_data.push(data); 
     if(window.localStorage.getItem("User_data") === null){
-      window.localStorage.setItem("User_data",JSON.stringify(User_data));  
+      window.localStorage.setItem("User_data",JSON.stringify(User_data));
+      window.localStorage.setItem("User_Personas",select);
+
     }else{
       let json = JSON.parse(window.localStorage.getItem("User_data"));
       json.push(data);
      
       window.localStorage.setItem("User_data",JSON.stringify(json));
+      window.localStorage.setItem("User_Personas",select);
 
     }
     alert("Successfully registered")

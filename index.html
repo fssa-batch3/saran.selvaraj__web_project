@@ -48,16 +48,22 @@ let password = document.getElementById("password").value
 
 
 
+
+let ismatch = false
 for(let i = 0; i < user.length; i++){
 if(email === user[i]["email"] && password === user[i]["password"]){
+    ismatch = true
+}else{
+  ismatch = false
+}
+}
+if(ismatch === true){
   alert("Successfully logged in");
-  window.localStorage.setItem("useremail",JSON.stringify(email));
+  window.localStorage.setItem("useremail",JSON.stringify(email))
     window.location.href = "./pages/home-page.html";
-    // window.localStorage.setItem("useremail",JSON.stringify(user[i].email))
-    break;
+  
 }else{
   alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
-}
 }
 
 
