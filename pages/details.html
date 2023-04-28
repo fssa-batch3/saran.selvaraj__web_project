@@ -98,6 +98,11 @@
       button2.setAttribute("href",`../pages/add-to-cart.html?uuid=${thispet["uuid"]}`)
       button2.innerText = "Add To Cart";
       div_button1.append(button2);
+      
+      let button3 = document.createElement("a");
+      button3.setAttribute("href","home-page.html")
+      button3.innerText = "Back";
+      div_button1.append(button3);
 
       let div_box_two = document.createElement("div");
       div_box_two.setAttribute("class","box two");
