@@ -19,5 +19,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
