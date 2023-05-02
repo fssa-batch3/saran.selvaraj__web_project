@@ -71,9 +71,15 @@ form .input-box span.details{
 .admin-details .input-box input:invalid{
   border-color: #ff0000;
 }
- form .gender-details .gender-title{
+ form .gender-details {
   font-size: 20px;
   font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
  }
  form .category{
    display: flex;
@@ -143,6 +149,19 @@ form .input-box span.details{
 }
 #user,#admin,#seller{
   background: black;
+}
+#gender{
+  
+  width:500px;
+  height: 35px;
+  background: linear-gradient(-135deg, #9b59b6, #71b7e6);
+  border: none;
+  color:white;
+  border-radius: 5px;
+
+}
+#Male,#Female,#Others{
+background: black;
 }
 .submit{
   width:500px;

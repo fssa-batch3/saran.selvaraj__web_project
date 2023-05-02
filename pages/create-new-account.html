@@ -39,23 +39,12 @@
           </div>
         </div>
         <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
           <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
+          <select id="gender">
+            <option value="Male" id="Male">Male</option>
+            <option value="Female" id="Female">Female</option>
+            <option value="Others" id="Others">Others</option>
+          </select>
           </div>
         </div>
         <div class="select_submit">
@@ -64,6 +53,7 @@
           <option value="admin" id="admin">Admin</option> 
           <option value="seller" id="seller">Seller</option> 
       </select>
+      <input type="text" placeholder="other gender" id="other_gender" style="display: none;">
           <button id="submit" class="submit">SUBMIT</button>
         </div>
       </form>
@@ -91,6 +81,16 @@
     const select = document.getElementById("slt").value;
     const uuid = self.crypto.randomUUID()
     console.log(uuid)
+
+
+    let gender = document.getElementById("gender");
+      if(gender.value === "Male"){
+        data["Gender"] = gender.value;
+      }else if(gender.value === "Female"){
+        data["Gender"] = gender.value;
+      }else{  
+        data["Gender"] = gender.value;
+      }
     data["full_name"] = firstname
     data["user_name"] =  lastname
     data["phone"] = phonenumber
