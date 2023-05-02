@@ -38,7 +38,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+
 }
 
 ::selection{
@@ -211,7 +211,7 @@ body.dark .sidebar header .toggle{
     background-color: transparent;
     display: flex;
     align-items: center;
-    height: 100%;
+
     width: 100%;
     border-radius: 6px;
     text-decoration: none;
@@ -358,7 +358,7 @@ body.dark .home .text{
   background-color: var(--card-background2);
   transition: var(--tran-05);
   transform: skewY(345deg);
-  transition: 0.5s;
+
 }
 
 .card:hover::before {
