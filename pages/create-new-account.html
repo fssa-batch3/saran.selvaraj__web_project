@@ -6,6 +6,9 @@
     <!---<title> Responsive Registration Form | CodingLab </title>--->
     <link rel="stylesheet" href="../assets/styles/create_new_account.css">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Pet Mall</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
    </head>
 <body>
   <div class="Whole-div">
@@ -61,13 +64,64 @@
   </div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCzUfcRW9gJHvotcnn9Ux4FOCk6i0UPgU0",
+    authDomain: "pet-mall-f0291.firebaseapp.com",
+    projectId: "pet-mall-f0291",
+    storageBucket: "pet-mall-f0291.appspot.com",
+    messagingSenderId: "189746601669",
+    appId: "1:189746601669:web:ee94c467dad09aa8c8daac"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+
+const database = getDatabase();
+console.log(database)
+
+function writeUserData(userId, name, email, imageUrl) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+
+  
+const starCountRef = ref(database, 'name/' );
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  updateStarCount(postElement, data);
+});
+}
+
+const dbRef = ref(getDatabase());
+get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val());
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
+
+
+
+</script>
 <script>
+
+  
   let Admin_data = [];
   let User_data = [];
   let Seller_data = []
 
   let user_persona = localStorage.getItem("User_Personas")
-  
+  console.log(user_persona)
     let form = document.getElementById("login_form")
     form.addEventListener("submit", function(event) {
     event.preventDefault();

@@ -1,141 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PET MALL</title>
-    <link rel="stylesheet" href="../assets/styles/sell-page.css">
-  </head>
-  <body>
-    <div class="container">
-      <header>Update your Pet's Detail</header>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/styles/buy-now.css">
 
-      <form id="seller_form">
-          <div class="form first">
-              <div class="details personal">
-                  <span class="title">Personal Details</span>
-
-                  <div class="fields">
-                      <div class="input-field">
-                          <label>Debit card number : </label>
-                          <input type="number"  id="pet_img" pattern="[0-9]{16}" required>
-                      </div>
-
-                      <div class="input-field">
-                          <label>Cvv</label>
-                          <input type="text" id="pet_name_alt" pattern="[0-9]{3}" required>
-                      </div>
-
-                      <div class="input-field">
-                          <label>Flat/door no :</label>
-                          <input type="text" id="pet_personal_name" pattern="[0-9]{16}" required>
-                      </div>
-
-                      <div class="input-field">
-                          <label>Street : </label>
-                          <input type="text" id="dob_pet" pattern="[a-zA-Z]{1-100}"  required>
-                      </div>
-
-                      <div class="input-field">
-                          <label>State : </label>
-                          <input type="text" id="special_talent">
-                      </div>
-
-                      <div class="input-field">
-                          <label>Country : </label>
-                          <input type="text" id="behavior">
-                      </div>
-                  </div>
-              </div>
-
-              <div class="details ID">
-
-                  <div class="fields">
-                     
-
-                      <div class="input-field">
-                          <label>Contact</label>
-                          <input type="text" id="seller_contact">
-                      </div>
-
-                      
-                  </div>
-                  <div class="buttons">
-                  <button class="nextBtn" type="submit">
-                      <span class="btnText">Buy</span>
-                      <i class="uil uil-navigator"></i>
-                  </button>
-                  <button class="nextBtn" onclick="window.location.href='./home-page.html'" class="edit-save-delete">Back</button>
-              </div>
-              </div> 
-          </div>
-
-          
-
-          </div>
-      </form>
-  </div>
+</head>
+<body>
+ 
+  <div class="modal">
+    <form class="form">
+      <div class="payment--options"> 
+      </div>
+      <div class="credit-card-info--form">
+        <div class="input_container">
+          <label for="password_field" class="input_label">Card holder full name</label>
+          <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
+        </div>
+        <div class="input_container">
+          <label for="password_field" class="input_label">Card Number</label>
+          <input id="password_field" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
+        </div>
+        <div class="input_container">
+          <label for="password_field" class="input_label">Expiry Date / CVV</label>
+          <div class="split">
+          <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
+          <input id="password_field" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
+        </div>
+        </div>
+      </div>
+        <button class="purchase--btn" onclick="window.location.href='../pages/home-page.html'">Checkout</button>
+    </form>
+    </div>
   </body>
-  <style>
-    .form.first .input-box input:valid{
-  border-color: #00ff2a;
-}
+  </html>
 
-.form.first .input-box input:invalid{
-  border-color: #ff0000;
-}
-  </style>
-  <script>
-
-
-    let form = document.getElementById("seller_form");
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); 
-  
-
-        let updates = {};
-        let pet_img = document.getElementById("pet_img").value;
-        let pet_name_alt = document.getElementById("pet_name_alt").value;
-        let personal_name = document.getElementById("pet_personal_name").value;
-        let dob_pet = document.getElementById("dob_pet").value;
-        let special_talent = document.getElementById("special_talent").value;
-        let behavior = document.getElementById("behavior").value;
-        let contact = document.getElementById("seller_contact").value;
-        let uuid = self.crypto.randomUUID()
-
-        updates["source"] = pet_img;
-        updates["pet_name_alt"] = pet_name_alt;
-        updates["personal_name"] = personal_name;
-        updates["dob_pet"] = dob_pet;
-        updates["special_talent"] = special_talent;
-        updates["behavior"] = behavior;
-        updates["contact"] = contact;
-
-        updates["uuid"]= uuid;
-        
-        console.log(uuid)
-        console.log(updates);
-        let whole = [];
-        whole.push(updates);
-        if (localStorage.getItem("Shipping_details") === null) {
-          window.localStorage.setItem("Shipping_details",JSON.stringify(whole));
-          location.href = "./home-page.html";
-          console.log(whole);
-        }else{
-          let local = window.localStorage.getItem("Shipping_details");
-            let json = JSON.parse(local);
-            json.push(updates);
-
-            window.localStorage.setItem("Shipping_details", JSON.stringify(json));
-            location.href = "./home-page.html";
-        }
-       
-        // localStorage.setItem("new_card", JSON.stringify(whole));
-        
-      });
-
-  </script>
- 
-</html>
- 

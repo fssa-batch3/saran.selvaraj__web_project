@@ -21,6 +21,7 @@
     "@commitlint/config-conventional": "^17.4.4"
   },
   "dependencies": {
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "sweetalert": "^2.1.2"
   }
 }

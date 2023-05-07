@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <title>Login Form | CodingLab</title> -->
     <link rel="stylesheet" href="../assets/styles/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    /><title>Pet Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link><title>Pet Mall</title>
   </head>
   <body>
     <div class="container">
@@ -30,7 +28,7 @@
               type="text"
               id="email"
               placeholder="Email or Phone"
-              required
+              
             />
           </div>
           <div class="row">
@@ -39,7 +37,7 @@
               type="password"
               id="password"
               placeholder="Password"
-              required
+              
             />
           </div>
           <div class="pass"><a href="#">Forgot password?</a></div>
@@ -53,11 +51,25 @@
       </div>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyCzUfcRW9gJHvotcnn9Ux4FOCk6i0UPgU0",
+      authDomain: "pet-mall-f0291.firebaseapp.com",
+      projectId: "pet-mall-f0291",
+      storageBucket: "pet-mall-f0291.appspot.com",
+      messagingSenderId: "189746601669",
+      appId: "1:189746601669:web:ee94c467dad09aa8c8daac"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script>
     let form = document.getElementById("form");
 
     let seller = JSON.parse(localStorage.getItem("Seller_data"));
-    // let logged_seller_email = localStorage.getItem("selleremail")
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -75,16 +87,19 @@
           ismatch = false
         }
       }
-
+     if(email === "" || password === ""){
+      swal("Opps..!","There is no input value","error");
+}else{
       if(ismatch === true){
-        alert("Successfully logged in");
+        swal("Good job","Login successfully completed !","success");
           window.location.href = "./home-page.html";
           // window.localStorage.setItem("selleremail",JSON.stringify(email));
       }else{
-        alert( "                          User_email\n                                OR \n                PASSWORD INCORRECT" );
+        swal("Opps..!","Email or password incorrect","error");
+        // alert( "                          User_email\n                                OR \n                PASSWORD INCORRECT" );
       }
-
-      window.localStorage.setItem("selleremail",email);
+} 
+      window.localStorage.setItem("selleremail",JSON.stringify(email));
       
     });
 

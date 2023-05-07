@@ -7,6 +7,8 @@
     <!-- <title>Login Form | CodingLab</title> -->
     <link rel="stylesheet" href="../assets/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
     <title>Pet Mall</title>
   </head>
   <body>
@@ -35,7 +37,29 @@
     </div>
 
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCzUfcRW9gJHvotcnn9Ux4FOCk6i0UPgU0",
+      authDomain: "pet-mall-f0291.firebaseapp.com",
+      projectId: "pet-mall-f0291",
+      storageBucket: "pet-mall-f0291.appspot.com",
+      messagingSenderId: "189746601669",
+      appId: "1:189746601669:web:ee94c467dad09aa8c8daac"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script>
+
+    
     let form = document.getElementById("form");
 
     let admin = JSON.parse(localStorage.getItem("Admin_data"));
@@ -49,7 +73,7 @@ let password = document.getElementById("password").value
 
 
 let ismatch = false
-for(let i = 0; i <= admin.length-1; i++){
+for(let i = 0; i < admin.length; i++){
 if(email === admin[i]["email"] && password === admin[i]["password"]){
     ismatch = true
 }else{
@@ -61,6 +85,7 @@ if(ismatch === true){
   window.localStorage.setItem("adminemail",JSON.stringify(email))
     window.location.href = "./home-page.html";
 }else{
+  window.localStorage.setItem("adminemail",JSON.stringify(email))
   alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
 }
 

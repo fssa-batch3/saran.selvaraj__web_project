@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+    <link rel="stylesheet" href="../assets/styles/profile.css">
+
     <header>
         
     </header>
   </head>
   <body>
+
     <div class="customer-details">
+      
       <form id = "profile-form" class="account">
+        <img src="../assets/images/image.logo.png">
         <div class="profile">
             <div> 
                 <div class="first-name">First-name</div>
@@ -44,23 +51,31 @@
     </div>
     
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCzUfcRW9gJHvotcnn9Ux4FOCk6i0UPgU0",
+      authDomain: "pet-mall-f0291.firebaseapp.com",
+      projectId: "pet-mall-f0291",
+      storageBucket: "pet-mall-f0291.appspot.com",
+      messagingSenderId: "189746601669",
+      appId: "1:189746601669:web:ee94c467dad09aa8c8daac"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script>
 
-      // let profile = localStorage.getItem();
-      // console.log(user_email);
       let Email =JSON.parse(window.localStorage.getItem("selleremail"))
-      console.log(Email);
-      let details = JSON.parse(window.localStorage.getItem("Seller_data"))//if (userpers===seller){
-
-      // details = JSON.parse(window.localStorage.getItem("Seller_data"))}Else if(userpers===admin){ details = JSON.parse(window.localStorage.getItem("admin_data"))}
-     console.log(details)
-      let user_profile = details.find(function(event){
-      let mailcheck = event["email"];
-        if (Email["email"]===mailcheck["email"]){
-        return true;
-       }
-    });
-    console.log(user_profile);
+      let details = JSON.parse(window.localStorage.getItem("Seller_data"))
+     let user_profile = details.find(e => e["email"] == Email)
       
       let save = document.getElementById("save");
       let edit = document.getElementById("edit");
@@ -145,230 +160,5 @@ deletes.addEventListener("click", function (event){
 
 
   </script>
-  <footer style="display: flex; flex-direction: row">
-    <a class="footer" href="">About us</a>
-    <a class="footer" href="">Contact us</a>
-    <a class="footer" href="">visit us</a>
-    <a class="footer" href="">Instagram</a>
-    <a class="footer" href="">Youtube</a>
-  </footer>
+
 </html>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
-}
-  body {
-    background-color: white;
-    margin: 0px;
-  }
-  :root {
-    background-color: rgb(255, 255, 255);
-  }
-  .logo-image {
-    width: 200px;
-    height: 100px;
-    border-radius: 5px;
-    margin-left: 20px;
-  }
-  .btns{
-    margin-left:0px;
-    display:flex;
-    }
-  .searchbar {
-  font-size: 14px;
-  font-family: arial, sans-serif;
-  color: #202124;
-  display: flex;
-  z-index: 3;
-  height: 44px;
-  background: white;
-  border: 1px solid #dfe1e5;
-  box-shadow: none;
-  border-radius: 24px;
-  margin: 0 130px;
-  width:500px;
-}
-
-.searchbar:hover {
-  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
-  border-color: rgba(223,225,229,0);
-}
-
-.searchbar-wrapper {
-  flex: 1;
-  display: flex;
-  padding: 5px 8px 0 14px;
-}
-
-.searchbar-left {
-  font-size: 14px;
-  font-family: arial, sans-serif;
-  color: #202124;
-  display: flex;
-  align-items: center;
-  padding-right: 13px;
-  margin-top: -5px;
-}
-
-.search-icon-wrapper {
-  margin: auto;
-}
-
-.search-icon {
-  margin-top: 3px;
-  color: #1877f2;
-  height:0px;
-  line-height: 20px;
-  width: 0px;
-}
-
-.searchbar-icon {
-  display: inline-block;
-  fill: currentColor;
-  height: 24px;
-  line-height: 24px;
-  width: 24px;
-}
-
-.searchbar-center {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-}
-
-.searchbar-input-spacer {
-  color: transparent;
-  flex: 100%;
-  white-space: pre;
-  height: 34px;
-  font-size: 16px;
-}
-
-.searchbar-input {
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  color: rgba(0, 0, 0, .87);
-  word-wrap: break-word;
-  outline: none;
-  display: flex;
-  flex: 100%;
-  margin-top: -37px;
-  height: 34px;
-  font-size: 16px;
-  max-width: 100%;
-  width:auto;
-}
-
-.searchbar-right {
-  display: flex;
-  flex: 0 0 auto;
-  margin-top: -5px;
-  align-items: stretch;
-  flex-direction: row
-}
-
-.searchbar-clear-icon {
-  margin-right: 12px
-}
-
-.voice-search {
-  flex: 1 0 auto;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  border: 0;
-  background: transparent;
-  outline: none;
-  padding: 0 8px;
-  width: 2.8em;
-}
-  .navbar {
-    height: 100px;
-    display: flex;
-    background-color: rgb(230, 229, 232);
-    width:1460px;
-    z-index: 100;
-    border-radius: 100px;
-    margin:25px 0px 0px 10px;
-  }
-  .nav-bar {
-    display: flex;
-    align-items: center;
-  }
-  .button {
-    border: none;
-    background-color:transparent;
-    cursor:pointer;
-    font-size: 19px;
-    color:#1877f2;
-  }
-  .button:hover {
-    border-bottom: 5px solid #1877f2;
-  }
-  .image {
-    border-radius: 200px;
-  }
-  .profile {
-    display: flex;
-    align-items: center;
-    font-size: 40px;
-  }
-  .change-profile-picture {
-    height: 50px;
-    width: auto;
-    border-radius: 10px;
-    font-size: 30px;
-  }
-  .first-name {
-    font-size: 30px;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .first-nam {
-    font-size: 30px;
-    border-radius: 5px;
-    width: 450px;
-    margin-bottom: 20px;
-  }
-  footer {
-    padding: 50px;
-    display: flex;
-    padding-left: 500px;
-    flex-direction: column;
-    font-size: 30px;
-    background-color: rgb(130, 245, 220);
-  }
-  .footer {
-    padding: 0px 10px 0px 10px;
-    text-decoration: none;
-  }
-
-  .account {
-    border: 5px solid rgb(130, 245, 220);
-    border-radius: 20px;
-    margin: 100px 600px 200px 475px;
-    text-align: center;
-    width: 600px;
-    height: auto;
-  }
-  input {
-    font-size: 30px;
-    width: 250px;
-  }
-  .edit-save-delete {
-    width:100px;
-    margin-bottom: 100px;
-    background-color: #1877f2;
-    text-decoration: none;
-    padding: 2px 0px;
-    color:white;
-    border-radius: 25px;
-  }
-</style>

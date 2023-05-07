@@ -303,7 +303,7 @@ body.dark .switch::before{
 }
 
 .home{
-    position: absolute;
+    position: relative;
     top: 0px;
     left: 0px;
     height: 100vh;
