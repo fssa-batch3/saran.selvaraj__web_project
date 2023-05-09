@@ -6,34 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../assets/styles/buy-now.css">
+  <link rel="stylesheet" href="../assets/styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
+
 
 </head>
 <body>
  
   <div class="modal">
-    <form class="form">
+    <form class="form" id="form">
       <div class="payment--options"> 
       </div>
       <div class="credit-card-info--form">
         <div class="input_container">
           <label for="password_field" class="input_label">Card holder full name</label>
-          <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
+          <input id="card_holder_name" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
         </div>
         <div class="input_container">
           <label for="password_field" class="input_label">Card Number</label>
-          <input id="password_field" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
+          <input id="card_Number" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
         </div>
         <div class="input_container">
           <label for="password_field" class="input_label">Expiry Date / CVV</label>
           <div class="split">
-          <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
-          <input id="password_field" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
+          <input id="expiry_Date" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
+          <input id="cvv" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
         </div>
         </div>
       </div>
-        <button class="purchase--btn" onclick="window.location.href='../pages/home-page.html'"`>Checkout</button>
+        <button class="purchase--btn" type="submit" id="checkout">Checkout</button>
+        <button class="purchase--btn" id="buy_with_emi">Buy with EMI</button>
     </form>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<script>
+
+      let form = document.getElementById("form")
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        let card_holder_name = document.getElementById("card_holder_name").value;
+        let card_number = document.getElementById("card_Number").value;
+        let expiry_Date =document.getElementById("expiry_Date").value;
+        let cvv = document.getElementById("cvv").value;
+
+
+        if (card_holder_name === "") {
+          swal("Oops...!","Your name should not null","error")
+
+        }else if(card_number === "" ){
+          swal("Oops...!","card number should not be null","error")
+        }else if(card_number < 16 ){
+          swal("Oops...!","card number should not be less than 16","error")
+        }else if(expiry_Date === ""){
+          swal("Oops...!","Expiry date should not be null","error")
+        }else if(cvv === ""){
+          swal("Oops...!","Cvv should not be null","error")
+        }else if(cvv < 3){
+          swal("Oops...!","Cvv should not be less than or greater than 3","error")
+        }else{
+           alert("Successfully bought the pet!")
+           window.location.href="../pages/home-page.html"
+        }
+
+     
+    });
+
+    let buy_with_emi = document.getElementById("buy_with_emi");
+    buy_with_emi.addEventListener("click",function(e) {
+      window.location.href="../pages/EMI.html"
+    })
+
+  </script>
   </html>
 

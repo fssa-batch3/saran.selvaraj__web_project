@@ -26,7 +26,7 @@
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="email" placeholder="Enter your email" id="adm_email" required>
+            <input type="email" placeholder="Enter your email"  title="Email should contain @ and .com to proceed"  id="adm_email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
@@ -34,7 +34,7 @@
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" placeholder="Enter your password" id="adm_pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+            <input type="password" placeholder="Enter your password"  title="Password should contain atleast 8 characters and atleast One Capital letter, One Small letter, One Number."  id="adm_pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
@@ -53,7 +53,6 @@
         <div class="select_submit">
         <select id="slt">  
           <option value="user" id="user">User</option>
-          <option value="admin" id="admin">Admin</option> 
           <option value="seller" id="seller">Seller</option> 
       </select>
       <input type="text" placeholder="other gender" id="other_gender" style="display: none;">
@@ -65,54 +64,7 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-  const firebaseConfig = {
-    apiKey: "AIzaSyCzUfcRW9gJHvotcnn9Ux4FOCk6i0UPgU0",
-    authDomain: "pet-mall-f0291.firebaseapp.com",
-    projectId: "pet-mall-f0291",
-    storageBucket: "pet-mall-f0291.appspot.com",
-    messagingSenderId: "189746601669",
-    appId: "1:189746601669:web:ee94c467dad09aa8c8daac"
-  };
 
-  const app = initializeApp(firebaseConfig);
-
-
-const database = getDatabase();
-console.log(database)
-
-function writeUserData(userId, name, email, imageUrl) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
-
-  
-const starCountRef = ref(database, 'name/' );
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});
-}
-
-const dbRef = ref(getDatabase());
-get(child(dbRef, `users/${userId}`)).then((snapshot) => {
-  if (snapshot.exists()) {
-    console.log(snapshot.val());
-  } else {
-    console.log("No data available");
-  }
-}).catch((error) => {
-  console.error(error);
-});
-
-
-
-</script>
 <script>
 
   
@@ -133,6 +85,8 @@ get(child(dbRef, `users/${userId}`)).then((snapshot) => {
     const newpassword = document.getElementById("adm_pass").value;
     const confirmpassword = document.getElementById("adm_conpass").value;
     const select = document.getElementById("slt").value;
+    window.localStorage.setItem("user_persona",JSON.stringify(select));  
+
     const uuid = self.crypto.randomUUID()
     console.log(uuid)
 
@@ -187,7 +141,6 @@ if(newpassword === confirmpassword ){
         User_data.push(data); 
     if(window.localStorage.getItem("User_data") === null){
       window.localStorage.setItem("User_data",JSON.stringify(User_data));
-      window.localStorage.setItem("User_Personas",select);
 
     }else{
       let json = JSON.parse(window.localStorage.getItem("User_data"));

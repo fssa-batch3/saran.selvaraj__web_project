@@ -1,0 +1,127 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:50px;
+}
+ .input_values input:valid{
+  border-color: #00ff2a;
+}
+
+ .input_values input:invalid{
+  border-color: #ff0000;
+}
+.input_values{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding:50px;
+  background-color: aquamarine;
+  border-radius: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  border: 1.9px solid #ccc;
+
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  .single_card{
+      background-color:black;
+      color:white;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 20px;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .pet-image {
+    width: 150px;
+    margin-right: 20px;
+  }
+  
+  .pet-image img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .pet-info {
+    flex: 0.9;
+  }
+  
+  .pet-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px 0px;
+  }
+  
+  .payment-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .amount,
+  .months {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .amount_month{
+      display: flex;
+      gap:30px ;
+  
+  }
+  .amount p,
+  .months p {
+    margin: 0;
+  }
+  
+  .amount-value,
+  .months-value {
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  
+  .pay-emi-btn {
+    background-color: #00b894;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .pay-emi-btn:hover {
+    background-color: #009c77;
+  }
+  
