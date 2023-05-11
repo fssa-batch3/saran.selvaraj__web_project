@@ -98,7 +98,7 @@ li_nav_link3.setAttribute("class","nav-link");
 ul_menu_links.append(li_nav_link3);
 
 let a_Order_details = document.createElement("a");
-a_Order_details.setAttribute("href","../pages/order-details-page.html");
+a_Order_details.setAttribute("href","../pages/order-details-page-2.html");
 li_nav_link3.append(a_Order_details);
 
 let i_bell_icon = document.createElement("i");
@@ -115,7 +115,7 @@ li_nav_link4.setAttribute("class","nav-link");
 ul_menu_links.append(li_nav_link4);
 
 let a_Cart = document.createElement("a");
-a_Cart.setAttribute("href","../pages/about-us-page.html");
+a_Cart.setAttribute("href","../pages/add-to-cart-2.html");
 li_nav_link4.append(a_Cart);
 
 let i_cart_add_icon = document.createElement("i");
@@ -124,7 +124,7 @@ a_Cart.append(i_cart_add_icon);
 
 let span_cart_add_icon = document.createElement("i")
 span_cart_add_icon.setAttribute("class","text nav-text");
-span_cart_add_icon.innerHTML = "About us";
+span_cart_add_icon.innerHTML = "Cart";
 a_Cart.append(span_cart_add_icon);
 
 let li_nav_link5 = document.createElement("li");
@@ -148,10 +148,10 @@ a_Profile.append(span_user_icon);
 
 let li_nav_link6 = document.createElement("li");
 li_nav_link6.setAttribute("class","nav-link");
-ul_menu_links.append(li_nav_link6);
+ul_menu_links.append(li_nav_link6); 
 
 let a_About_us = document.createElement("a");
-a_About_us.setAttribute("href","../pages/sell-page.html");
+a_About_us.setAttribute("href","../pages/about-us-page.html");
 li_nav_link6.append(a_About_us);
 
 let i_pie_chart_alt_icon = document.createElement("i");
@@ -160,7 +160,7 @@ a_About_us.append(i_pie_chart_alt_icon);
 
 let span_pie_chart_alt_icon = document.createElement("i");
 span_pie_chart_alt_icon.setAttribute("class","text nav-text");
-span_pie_chart_alt_icon.innerHTML = "Wallets";
+span_pie_chart_alt_icon.innerHTML = "About us";
 a_About_us.append(span_pie_chart_alt_icon);
 
 let div_bottom_content = document.createElement("div");

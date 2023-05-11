@@ -55,12 +55,10 @@ body.dark{
     --text-color: #ccc;
     --card-background1:#3a3b3c;
     --card-background2:#242526;
-
-
-  --footer-color:#3a3b3c;
-  --sec-color:#3a3b3c;
-  --bottom-content:#2c2c2c;
-  --botttom-text:#ccc;
+    --footer-color:#3a3b3c;
+    --sec-color:#3a3b3c;
+    --bottom-content:#2c2c2c;
+    --botttom-text:#ccc;
 }
 
 /* ===== Sidebar ===== */
@@ -284,7 +282,13 @@ body.dark .mode .sun-moon i.moon{
     background-color: var(--toggle-color);
     transition: var(--tran-05);
 }
-
+.no_item{
+  position: relative;
+  margin-left: 340px;
+  font-size: 80px;
+  transition: var(--tran-05);
+  color:var(--text-color);
+}
 .switch::before{
     content: '';
     position: absolute;
@@ -301,6 +305,7 @@ body.dark .mode .sun-moon i.moon{
 body.dark .switch::before{
     left: 20px;
 }
+
 
 .home{
     position: relative;

@@ -29,32 +29,19 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
   <script src="../JS_files/navbar.js"></script>
   <script>
-          let urlparams = new URLSearchParams(window.location.search);
-          console.log(urlparams)
-      let thisid = urlparams.get("uuid");
-      console.log(thisid)
-      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
-      console.log(thispet)
-      let checking = JSON.parse(localStorage.getItem("bought_pets"));
-      let boughtpets = [];
-      boughtpets.push(thispet);
-      if (checking === null || checking === undefined) {
-        window.localStorage.setItem("bought_pets", JSON.stringify(boughtpets));
-      } else {
-        let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid );
-        if (check === null || check === undefined) {
-            let json = JSON.parse(window.localStorage.getItem("bought_pets"));
-            json.push(thispet);
-            window.localStorage.setItem("bought_pets", JSON.stringify(json));
-          }else if(thispet["uuid"] === check["uuid"] ){
-           let div_not_item = document.getElementsByClassName("div.not_item");
-           div_not_item.innerText = "No item in the cart"
-          }
-        }
+       
+
 
       let bought_pets = JSON.parse(localStorage.getItem("bought_pets"));
-
       let whole_card = document.getElementById('div');
+
+      if(bought_pets === null || bought_pets === undefined ){
+        let no_item_bought = document.createElement("div");
+        no_item_bought.setAttribute("class","no_item_bought")
+        no_item_bought.innerText = "No items you bought !"
+        whole_card.append(no_item_bought)
+      }
+
       for(let i = 0; i < bought_pets.length; i++){
 
      

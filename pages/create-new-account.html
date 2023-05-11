@@ -18,27 +18,27 @@
         <div class="admin-details">
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" id="adm_full_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,30}$" required >
+            <input type="text" value="saran" id="full_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,30}$" required >
           </div>
           <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" id="adm_user_name" pattern="^[a-zA-Z][a-zA-Z0-9]{1,20}$" required>
+            <span class="details">Lastname</span>
+            <input type="text" value="selvaraj" id="last_name" pattern="^[a-zA-Z][a-zA-Z0-9]{1,20}$" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="email" placeholder="Enter your email"  title="Email should contain @ and .com to proceed"  id="adm_email" required>
+            <input type="email" value="saran@gmail.com"  title="Email should contain @ and .com to proceed"  id="email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" id="adm_phone" pattern="[0-9]{5}[0-9]{5}" required>
+            <input type="text" value="9876543210" id="phone" pattern="[0-9]{5}[0-9]{5}" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" placeholder="Enter your password"  title="Password should contain atleast 8 characters and atleast One Capital letter, One Small letter, One Number."  id="adm_pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+            <input type="password" value="Saran2004"  title="Password should contain atleast 8 characters and atleast One Capital letter, One Small letter, One Number."  id="pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" placeholder="Confirm your password" id="adm_conpass" required>
+            <input type="password" value="Saran2004" id="conpass" required>
           </div>
         </div>
         <div class="gender-details">
@@ -78,12 +78,12 @@
     form.addEventListener("submit", function(event) {
     event.preventDefault();
     let data = {}
-    const firstname = document.getElementById("adm_full_name").value;
-    const lastname = document.getElementById("adm_user_name").value;
-    const phonenumber = document.getElementById("adm_phone").value;
-    const emailaddress = document.getElementById("adm_email").value;
-    const newpassword = document.getElementById("adm_pass").value;
-    const confirmpassword = document.getElementById("adm_conpass").value;
+    const firstname = document.getElementById("full_name").value;
+    const lastname = document.getElementById("last_name").value;
+    const phonenumber = document.getElementById("phone").value;
+    const emailaddress = document.getElementById("email").value;
+    const newpassword = document.getElementById("pass").value;
+    const confirmpassword = document.getElementById("conpass").value;
     const select = document.getElementById("slt").value;
     window.localStorage.setItem("user_persona",JSON.stringify(select));  
 
@@ -95,7 +95,7 @@
    
       data["Gender"] = gender.value;
     data["full_name"] = firstname
-    data["user_name"] =  lastname
+    data["last_name"] =  lastname
     data["phone"] = phonenumber
     data["email"] =emailaddress.toLowerCase()
     data["password"] = newpassword
@@ -187,7 +187,7 @@ if(newpassword === confirmpassword ){
 //         }
 
         
-//     if(data["adm_pass"] ===data["adm_conpass"]){ 
+//     if(data["pass"] ===data["adm_conpass"]){ 
 //     if(window.localStorage.getItem("Admin_data") === null){
 //       window.localStorage.setItem("Admin_data",JSON.stringify(Admin_data));
       

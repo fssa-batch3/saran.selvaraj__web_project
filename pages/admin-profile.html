@@ -23,7 +23,7 @@
           <input type="text" id="Full-name" class="first-nam" disabled></input>
 
           <div class="first-name">User-name</div>
-          <input type="text" id="User-name" class="first-nam" disabled></input>
+          <input type="text" id="Last-name" class="first-nam" disabled></input>
 
           <div class="first-name">Email</div>
           <input type="email" id="Email" class="first-nam" disabled></input>
@@ -64,7 +64,7 @@
       let deletes = document.getElementById("deletes")
       
       let full_name = document.getElementById("Full-name").value = user_profile["full_name"];
-      let user_name = document.getElementById("User-name").value = user_profile["user_name"];
+      let last_name = document.getElementById("Last-name").value = user_profile["last_name"];
       let email = document.getElementById("Email").value = user_profile["email"];
       let phone = document.getElementById("Phonenumber").value = user_profile["phone"];
       let Address = document.getElementById("Address").value = user_profile["Address"];
@@ -91,7 +91,7 @@
     save.addEventListener("click",function(event){
     event.preventDefault()
     let full_name = document.getElementById("Full-name").value;
-    let user_name = document.getElementById("User-name").value;
+    let last_name = document.getElementById("Last-name").value;
     let email = document.getElementById("Email").value;
     let phone = document.getElementById("Phonenumber").value;
     let Address = document.getElementById("Address").value;    

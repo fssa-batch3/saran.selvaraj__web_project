@@ -63,14 +63,6 @@
       div_ratings.setAttribute("class","rating");
       div_details.append(div_ratings);
 
-      for(let i = 0; i < 5; i++){
-        let i_rating = document.createElement("i");
-        i_rating.setAttribute("class","fas fa-star");
-        div_ratings.append(i_rating);
-        if(i === 3  || i===4){
-          i_rating.setAttribute("class","far fa-star");
-        }
-      }
 
       let div_price_box = document.createElement("div");
       div_price_box.setAttribute("class","price-box");
@@ -91,12 +83,12 @@
       div_box_one.append(div_button1);
 
       let button1 = document.createElement("a");
-      button1.setAttribute("href","./buy-now.html")
+      button1.setAttribute("href",`./buy-now.html?uuid=${thispet["uuid"]}`)
       button1.innerText = "Buy Now";
       div_button1.append(button1);
 
       let button2 = document.createElement("a");
-      button2.setAttribute("href",`../pages/add-to-cart.html?uuid=${thispet["uuid"]}`)
+      button2.setAttribute("href",`./add-to-cart.html?uuid=${thispet["uuid"]}`)
       button2.innerText = "Add To Cart";
       div_button1.append(button2);
 

@@ -44,6 +44,10 @@
 
 <script>
 
+      let urlparams = new URLSearchParams(window.location.search);
+      let thisid = urlparams.get("uuid");
+      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
+
       let form = document.getElementById("form")
       form.addEventListener("submit", function(event){
         event.preventDefault();
@@ -68,7 +72,7 @@
           swal("Oops...!","Cvv should not be less than or greater than 3","error")
         }else{
            alert("Successfully bought the pet!")
-           window.location.href="../pages/home-page.html"
+           window.location.href=`./order-details-page.html?uuid=${thispet["uuid"]}`
         }
 
      
