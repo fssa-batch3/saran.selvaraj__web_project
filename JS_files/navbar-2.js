@@ -73,78 +73,13 @@ span_home_alt_icon.setAttribute("class","text nav-text");
 span_home_alt_icon.innerHTML = "Home";
 a_home_page.append(span_home_alt_icon);
 
-if(user_persona === "seller"){
-    let li_nav_link2 = document.createElement("li");
-    li_nav_link2.setAttribute("class","nav-link");
-    ul_menu_links.append(li_nav_link2);
-    
-    let a_sell_page = document.createElement("a");
-    a_sell_page.setAttribute("href","../pages/sell-page.html");
-    li_nav_link2.append(a_sell_page);
-    
-    let i_bar_chart_alt_2_icon = document.createElement("i");
-    i_bar_chart_alt_2_icon.setAttribute("class","bx bx-bar-chart-alt-2 icon");
-    a_sell_page.append(i_bar_chart_alt_2_icon);
-    
-    let span_bar_chart_alt_2_icon = document.createElement("i")
-    span_bar_chart_alt_2_icon.setAttribute("class","text nav-text");
-    span_bar_chart_alt_2_icon.innerHTML = "Sell Pet";
-    a_sell_page.append(span_bar_chart_alt_2_icon);
-}
 
-if(user_persona !== "seller"){
-let li_nav_link3 = document.createElement("li");
-li_nav_link3.setAttribute("class","nav-link");
-ul_menu_links.append(li_nav_link3);
 
-let a_Order_details = document.createElement("a");
-a_Order_details.setAttribute("href","../pages/order-details-page-2.html");
-li_nav_link3.append(a_Order_details);
 
-let i_bell_icon = document.createElement("i");
-i_bell_icon.setAttribute("class","bx bx-bell icon");
-a_Order_details.append(i_bell_icon);
 
-let span_bell_icon = document.createElement("i")
-span_bell_icon.setAttribute("class","text nav-text");
-span_bell_icon.innerHTML = "Order detials";
-a_Order_details.append(span_bell_icon);
 
-let li_nav_link4 = document.createElement("li");
-li_nav_link4.setAttribute("class","nav-link");
-ul_menu_links.append(li_nav_link4);
 
-let a_Cart = document.createElement("a");
-a_Cart.setAttribute("href","../pages/add-to-cart-2.html");
-li_nav_link4.append(a_Cart);
 
-let i_cart_add_icon = document.createElement("i");
-i_cart_add_icon.setAttribute("class","bx bx-cart add icon");
-a_Cart.append(i_cart_add_icon);
-
-let span_cart_add_icon = document.createElement("i")
-span_cart_add_icon.setAttribute("class","text nav-text");
-span_cart_add_icon.innerHTML = "Cart";
-a_Cart.append(span_cart_add_icon);
-}
-let li_nav_link5 = document.createElement("li");
-li_nav_link5.setAttribute("class","nav-link");
-ul_menu_links.append(li_nav_link5);
-
-let a_Profile = document.createElement("a");
-a_Profile.setAttribute("href","#");
-a_Profile.setAttribute("id","account")
-li_nav_link5.append(a_Profile);
-
-let i_user_icon = document.createElement("i");
-i_user_icon.setAttribute("class","bx bx-user icon");
-a_Profile.append(i_user_icon);
-
-let span_user_icon = document.createElement("i");
-span_user_icon.setAttribute("class","text nav-text");
-span_user_icon.setAttribute("id","account");
-span_user_icon.innerHTML = "Account";
-a_Profile.append(span_user_icon);
 
 let li_nav_link6 = document.createElement("li");
 li_nav_link6.setAttribute("class","nav-link");

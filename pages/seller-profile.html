@@ -22,13 +22,13 @@
       <form id = "profile-form" class="account">
         <div class="profile">
             <div> 
-                <div class="first-name">First-name</div>
+                <div class="first-name">First name</div>
                 <input type="text" id="Full-name" class="first-nam" disabled></input>
             </div>
          
             <div>
-                <div class="first-name">User-name</div>
-                <input type="text" id="User-name" class="first-nam" disabled></input>
+                <div class="first-name">Last name</div>
+                <input type="text" id="Last-name" class="first-nam" disabled></input>
             </div>
             <div>
                 <div class="first-name">Email</div>
@@ -66,7 +66,7 @@
       let deletes = document.getElementById("deletes")
       
       let full_name = document.getElementById("Full-name").value = user_profile["full_name"];
-      let user_name = document.getElementById("User-name").value = user_profile["user_name"];
+      let last_name = document.getElementById("Last-name").value = user_profile["last_name"];
       let email = document.getElementById("Email").value = user_profile["email"];
       let phone = document.getElementById("Phonenumber").value = user_profile["phone"];
       let Address = document.getElementById("Address").value = user_profile["Address"];
@@ -76,14 +76,14 @@
     let inputs = document.getElementById("Full-name");
     if (inputs.disabled) {
         document.getElementById("Full-name").disabled = false;
-        document.getElementById("User-name").disabled = false;
+        document.getElementById("Last-name").disabled = false;
         document.getElementById("Phonenumber").disabled = false;
         document.getElementById("Address").disabled = false;
 
     }
     else {
       document.getElementById("Full-name").disabled = true;
-        document.getElementById("User-name").disabled = true;
+        document.getElementById("Last-name").disabled = true;
         document.getElementById("Phonenumber").disabled = true;
         document.getElementById("Address").disabled = true;
     }
@@ -91,14 +91,14 @@
     save.addEventListener("click",function(event){
     event.preventDefault()
     let full_name = document.getElementById("Full-name").value;
-    let user_name = document.getElementById("User-name").value;
+    let last_name = document.getElementById("Last-name").value;
     let email = document.getElementById("Email").value;
     let phone = document.getElementById("Phonenumber").value;
     let Address = document.getElementById("Address").value;    
 
     let edited_details = {}
     edited_details["full_name"] = full_name;
-    edited_details["user_name"] = user_name;
+    edited_details["last_name"] = last_name;
     edited_details["email"] = email;
     edited_details["phone"] = phone;
     edited_details["Address"] = Address;

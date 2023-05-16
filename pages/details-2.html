@@ -83,16 +83,10 @@
       div_box_one.append(div_button1);
 
       let button1 = document.createElement("a");
-      button1.setAttribute("href",`./buy-now.html?uuid=${thispet["uuid"]}`)
+      button1.setAttribute("href",`./create-new-account.html`)
       button1.classList.add("button2");
       button1.innerText = "Buy Now";
       div_button1.append(button1);
-
-      let button2 = document.createElement("a");
-      button2.setAttribute("href",`./add-to-cart.html?uuid=${thispet["uuid"]}`)
-      button2.classList.add("button2");
-      button2.innerText = "Add To Cart";
-      div_button1.append(button2);
 
       let button3 = document.createElement("a");
       button3.setAttribute("href","./home-page.html")
@@ -135,6 +129,9 @@
       div_shipping.innerHTML = "Free shipping";
       div_info.append(div_shipping);
 
-      
+      button1.addEventListener("click",function(e) {
+        alert("You Don't have an account so plz register to buy the pet")
+      })
+
 </script>
 </html>

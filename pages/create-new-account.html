@@ -21,7 +21,7 @@
             <input type="text" value="saran" id="full_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,30}$" required >
           </div>
           <div class="input-box">
-            <span class="details">Lastname</span>
+            <span class="details">Last name</span>
             <input type="text" value="selvaraj" id="last_name" pattern="^[a-zA-Z][a-zA-Z0-9]{1,20}$" required>
           </div>
           <div class="input-box">
@@ -41,14 +41,7 @@
             <input type="password" value="Saran2004" id="conpass" required>
           </div>
         </div>
-        <div class="gender-details">
-          <span class="gender-title">Gender</span>
-          <select id="gender">
-            <option value="Male" id="Male">Male</option>
-            <option value="Female" id="Female">Female</option>
-            <option value="Others" id="Others">Others</option>
-          </select>
-          </div>
+        
         </div>
         <div class="select_submit">
         <select id="slt">  
@@ -90,10 +83,6 @@
     const uuid = self.crypto.randomUUID()
     console.log(uuid)
 
-
-    let gender = document.getElementById("gender");
-   
-      data["Gender"] = gender.value;
     data["full_name"] = firstname
     data["last_name"] =  lastname
     data["phone"] = phonenumber
@@ -132,7 +121,7 @@ if(newpassword === confirmpassword ){
 
     }
     alert("Successfully registered")
-    window.location.href="./admin.html"
+    window.location.href="./home-page.html"
  }else{
   return alert("password and confirm password does not match")
  }
@@ -151,7 +140,7 @@ if(newpassword === confirmpassword ){
 
     }
     alert("Successfully registered")
-    window.location.href="../index.html"
+    window.location.href="./home-page.html"
 }else{
   return alert("password and confirm password does not match")
 } 
@@ -168,7 +157,7 @@ if(newpassword === confirmpassword ){
 
     }
     alert("Successfully registered")
-    window.location.href="./seller.html"
+    window.location.href="./home-page.html"
 }else{
   return alert("password and confirm password does not match")
 }

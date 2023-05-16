@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../assets/styles/home-page.css">
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Pet Mall</title>
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+</head>
+<body>
+    
+    <section class="home">
+        <div class="text"><img src="../assets/images/image.logo.png" alt="logo-image"></div>
+        <div class="whole-card">
+       
+        </div>
+        <div>
+            <footer>
+              <div class="content">
+                <div class="top">
+                  <div class="logo-details">
+                    <i class="fab fa-slack"></i>
+                    <span class="logo_name">Pet Mall</span>
+                  </div>
+                  <div class="media-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+                <div class="link-boxes">
+                  <ul class="box">
+                    <li class="link_name">Company</li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Get started</a></li>
+                  </ul>
+                  <ul class="box">
+                    <li class="link_name">Services</li>
+                    <li><a href="#">App design</a></li>
+                    <li><a href="#">Web design</a></li>
+                    <li><a href="#">Logo design</a></li>
+                    <li><a href="#">Banner design</a></li>
+                  </ul>
+                  <ul class="box">
+                    <li class="link_name">Account</li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">My account</a></li>
+                    <li><a href="#">Prefrences</a></li>
+                    <li><a href="#">Purchase</a></li>
+                  </ul>
+                  <ul class="box">
+                    <li class="link_name">Courses</li>
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Photography</a></li>
+                    <li><a href="#">Photoshop</a></li>
+                  </ul>
+                  
+                </div>
+              </div>
+              <div class="bottom-details">
+                <div class="bottom_text">
+                  <span class="copyright_text">Copyright © 2021 <a href="#">CodingLab.</a>All rights reserved</span>
+                  <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                  </span>
+                </div>
+              </div>
+            </footer>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
+    <script src="../JS_files/navbar-2.js"></script>
+    <script>
+
+        // let data = 
+
+
+
+  
+
+let new_card = JSON.parse(localStorage.getItem("new_card"))
+let pet_sold_seller_email =localStorage.getItem("selleremail");
+let user_email =localStorage.getItem("useremail")
+let admin_email =localStorage.getItem("adminemail")
+
+console.log(pet_sold_seller_email);
+console.log(new_card)
+for(let i = 0; i < new_card.length; i++){
+
+
+
+let div_card = document.createElement("div");
+div_card.setAttribute("class","card");
+document.querySelector("div.whole-card").append(div_card);
+
+let div_img = document.createElement("div");
+div_img.setAttribute("class","imgBox");
+div_card.append(div_img);
+
+let image = document.createElement("img");
+image.setAttribute("src",new_card[i]["source"]);
+image.setAttribute("alt","pet");
+image.setAttribute("class","mouse");
+div_img.append(image)
+
+let div_contentBox = document.createElement("div");
+div_contentBox.setAttribute("class","contentBox");
+div_card.append(div_contentBox)
+
+let head3 = document.createElement("h3")
+head3.innerText = new_card[i]["pet_name_alt"]
+div_contentBox.append(head3)
+
+let head2 = document.createElement("h2")
+head2.setAttribute("class","price")
+head2.innerText ="Rs : " + new_card[i]["pet_price"]
+div_contentBox.append(head2)
+
+let anchor = document.createElement("a")
+anchor.setAttribute("href",`./details-2.html?uuid=${new_card[i]["uuid"]}`);
+anchor.setAttribute("class","buy")
+anchor.innerText = "Buy Now"
+div_contentBox.append(anchor)
+
+
+if(pet_sold_seller_email === new_card[i]["card_created_email"] ){
+
+let button_div = document.createElement("div")
+button_div.setAttribute("class","edit_delete")
+div_contentBox.append(button_div)
+
+let edit = document.createElement("a")
+edit.setAttribute("href",`./update_pet_card.html?uuid=${new_card[i]["uuid"]}`);
+edit.setAttribute("class","update")
+edit.innerText = "Edit"
+button_div.append(edit)
+
+let deletes = document.createElement("a")
+deletes.setAttribute("href","./home-page.html");
+deletes.setAttribute("class","delete")
+deletes.setAttribute("uuid",new_card[i]["uuid"])
+deletes.innerText = "Delete"
+button_div.append(deletes)
+
+deletes.addEventListener("click", function () {
+          if (confirm("Are you sure?")) {
+            let jsonData = JSON.parse(window.localStorage.getItem("new_card"));
+            let uuid = deletes.getAttribute("uuid");
+            console.log(uuid);
+            let indexOf = jsonData.findIndex((obj) => obj.uuid === uuid);
+            console.log(indexOf);
+            jsonData.splice(indexOf, 1);
+
+            window.localStorage.setItem("new_card",JSON.stringify(jsonData));
+            window.location.href = "./home-page.html";
+          }
+        });
+        break;
+}
+}
+
+
+// let buy_now = document.getElementByClassName("buy");
+// buy_now.addEventListener("click",fuction(event){
+   
+// });
+
+    </script>
+
+</body>
+</html>

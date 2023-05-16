@@ -18,15 +18,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../assets/styles/order-details.css"/>
+    <link rel="stylesheet" href="../assets/styles/order-details.css" />
     <title>Pet Mall</title>
     <!--<title>Dashboard Sidebar Menu</title>-->
   </head>
   <body>
-   
     <section class="home">
       <div class="text">
         <img src="../assets/images/image.logo.png" alt="logo-image" />
+      </div>
+      <div class="buy_div">
+        <div>Total : <a class="total" id="total"></a></div>
+        <button class="buy_btn" id="buy_btn">Buy All</button>
       </div>
       <div class="no_item" id="no_item"></div>
       <div class="whole-card" id="whole-card"></div>
@@ -96,73 +99,78 @@
     <script src="../JS_files/navbar.js"></script>
 
     <script>
-      // let data =
 
-      
 
       let add_to_cart = JSON.parse(localStorage.getItem("add_to_cart"));
 
-      let no_item = document.getElementById('no_item');
+      let no_item = document.getElementById("no_item");
 
-      if(add_to_cart === null || add_to_cart === undefined ){
+      if (add_to_cart === null || add_to_cart === undefined) {
         let no_item_bought = document.createElement("div");
-        no_item_bought.setAttribute("class","no_item_bought")
-        no_item_bought.innerText = "No items in the cart !"
-        no_item.append(no_item_bought)
-      }else{
-let whole_card = document.getElementById("whole-card")
-      for (let i = 0; i < add_to_cart.length; i++) {
+        no_item_bought.setAttribute("class", "no_item_bought");
+        no_item_bought.innerText = "No items in the cart !";
+        no_item.append(no_item_bought);
+      } else {
+        let whole_card = document.getElementById("whole-card");
+        let total_calculate = 0;
+        for (let i = 0; i < add_to_cart.length; i++) {
+          let petCard_anchor = document.createElement("a");
+          petCard_anchor.setAttribute("class", "petCard_anchor");
+          petCard_anchor.setAttribute(
+            "href",
+            `./details.html?uuid=${add_to_cart[i]["uuid"]}`
+          );
+          whole_card.append(petCard_anchor);
 
+          // Add the pet card to the HTML document
+          let petCard = document.createElement("div");
+          petCard.className = "pet-card";
+          petCard_anchor.append(petCard);
 
-     
-let petCard_anchor = document.createElement('a');
-petCard_anchor.setAttribute("class","petCard_anchor")
-petCard_anchor.setAttribute("href",`./details.html?uuid=${add_to_cart[i]["uuid"]}`)
-whole_card.append(petCard_anchor);
+          let card_div = document.createElement("div");
+          card_div.setAttribute("class", "pet_div");
+          petCard.append(card_div);
 
-// Create a div element to contain the pet card
-let petCard = document.createElement('div');
-petCard.className = 'pet-card';
-petCard_anchor.append(petCard);
+          // Create an image element for the pet
+          let petImage = document.createElement("img");
+          petImage.setAttribute("src", add_to_cart[i]["source"]);
+          petImage.alt = add_to_cart[i]["pet_name_alt"];
+          card_div.append(petImage);
 
-let card_div = document.createElement('div');
-card_div.setAttribute("class","pet_div");
-petCard.append(card_div);
+          // Create a heading element for the pet name
+          let div_name_amount = document.createElement("div");
+          card_div.append(div_name_amount);
 
-// Create an image element for the pet
-let petImage = document.createElement('img');
-petImage.setAttribute("src",add_to_cart[i]["source"]);
-petImage.alt = add_to_cart[i]["pet_name_alt"];
-card_div.append(petImage);
+          let petName = document.createElement("h2");
+          petName.innerText = add_to_cart[i]["pet_name_alt"];
+          div_name_amount.append(petName);
 
-// Create a heading element for the pet name
-let div_name_amount = document.createElement('div');
-card_div.append(div_name_amount);
+          // Create a paragraph element for the pet price
+          let petPrice = document.createElement("p");
+          petPrice.innerText = "Rs : " + add_to_cart[i]["pet_price"];
+          div_name_amount.append(petPrice);
 
-let petName = document.createElement('h2');
-petName.innerText = add_to_cart[i]["pet_name_alt"];
-div_name_amount.append(petName);
+          total_calculate += add_to_cart[i]["pet_price"];
 
-// Create a paragraph element for the pet price
-let petPrice = document.createElement('p');
-petPrice.innerText ='Rs : ' + add_to_cart[i]["pet_price"];
-div_name_amount.append(petPrice);
+          // Create a paragraph element for the free shipping text
+          let freeShipping = document.createElement("p");
+          freeShipping.innerText = "Free shipping";
+          petCard.append(freeShipping);
 
-// Create a paragraph element for the free shipping text
-let freeShipping = document.createElement('p');
-freeShipping.innerText = 'Free shipping';
-petCard.append(freeShipping);
-
-// Create a paragraph element for the delivery date
-let deliveryDate = document.createElement('p');
-deliveryDate.innerText = 'Delivery date: 5/10/2023';
-petCard.append(deliveryDate);
-
-// Add the pet card to the HTML document
-
+          // Create a paragraph element for the delivery date
+          let deliveryDate = document.createElement("p");
+          deliveryDate.innerText = "Delivery date: 5/10/2023";
+          petCard.append(deliveryDate);
         }
       }
-    
+      console.log(total)
+      let totalamount = document.getElementById("total");
+      totalamount.innerHTML = total
+      // console.log(totalamount);
+      let buy_total = document.getElementById("buy_btn");
+      buy_total.addEventListener("click", function (e) {
+        add_to_cart.splice();
+      });
     </script>
   </body>
 </html>

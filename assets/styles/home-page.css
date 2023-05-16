@@ -338,6 +338,7 @@ body.dark .home .text{
 .whole-card{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-left: 60px;
     /* display: flex; */
     /* flex-direction: row; */
     /* gap:50px; */

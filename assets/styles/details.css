@@ -93,6 +93,9 @@ position: relative;
   margin-top: 55px;
 }
 .box.one .button1 button{
+  width : 100px;
+  height: 100px;
+  text-decoration: none;
   outline: none;
   border:none;
   padding: 8px 16px;
@@ -106,6 +109,25 @@ position: relative;
 }
 .button1 button:hover{
   transform: scale(0.98);
+}
+.button2{
+  /* width : 50px;
+  height: 40px; */
+  text-decoration: none;
+  outline: none;
+  border:none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background: #00e6e6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button1{
+  display: flex;
+  gap: 20px;
 }
 .container .box.two .image{
   position: relative;
@@ -157,10 +179,7 @@ position: relative;
     text-align:center;
     /* align-content: end; */
 }
-.button1{
-    display: flex;
-    column-gap: 30px;
-}
+
 .button2 button{
   outline: none;
   color: #fff;
