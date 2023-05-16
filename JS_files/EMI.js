@@ -1,10 +1,10 @@
 
 
 function calculateEMI() {
-var loanAmount = document.getElementById("loanAmount").value;
-var loanTenure = document.getElementById("loanTenure").value;
+let loanAmount = document.getElementById("loanAmount").value;
+let loanTenure = document.getElementById("loanTenure").value;
 
-var emi = (loanAmount / loanTenure).toFixed(2);
+let emi = (loanAmount / loanTenure).toFixed(2);
 
 window.localStorage.setItem("emi_amount", JSON.stringify(emi))
 window.localStorage.setItem("months", JSON.stringify(loanTenure))
