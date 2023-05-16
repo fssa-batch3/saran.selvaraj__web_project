@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!----======== CSS ======== -->
+
     <link rel="stylesheet" href="../assets/styles/home-page.css" />
 
-    <!----===== Boxicons CSS ===== -->
+
     <link
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="../assets/styles/order-details.css" />
     <title>Pet Mall</title>
-    <!--<title>Dashboard Sidebar Menu</title>-->
+
   </head>
   <body>
     <section class="home">
@@ -122,7 +122,7 @@
           );
           whole_card.append(petCard_anchor);
 
-          // Add the pet card to the HTML document
+  
           let petCard = document.createElement("div");
           petCard.className = "pet-card";
           petCard_anchor.append(petCard);
@@ -131,13 +131,12 @@
           card_div.setAttribute("class", "pet_div");
           petCard.append(card_div);
 
-          // Create an image element for the pet
           let petImage = document.createElement("img");
           petImage.setAttribute("src", add_to_cart[i]["source"]);
           petImage.alt = add_to_cart[i]["pet_name_alt"];
           card_div.append(petImage);
 
-          // Create a heading element for the pet name
+         
           let div_name_amount = document.createElement("div");
           card_div.append(div_name_amount);
 
@@ -145,28 +144,28 @@
           petName.innerText = add_to_cart[i]["pet_name_alt"];
           div_name_amount.append(petName);
 
-          // Create a paragraph element for the pet price
+          
           let petPrice = document.createElement("p");
           petPrice.innerText = "Rs : " + add_to_cart[i]["pet_price"];
           div_name_amount.append(petPrice);
 
           total_calculate += add_to_cart[i]["pet_price"];
 
-          // Create a paragraph element for the free shipping text
+          
           let freeShipping = document.createElement("p");
           freeShipping.innerText = "Free shipping";
           petCard.append(freeShipping);
 
-          // Create a paragraph element for the delivery date
+         
           let deliveryDate = document.createElement("p");
           deliveryDate.innerText = "Delivery date: 5/10/2023";
           petCard.append(deliveryDate);
         }
       }
-      console.log(total)
+      
       let totalamount = document.getElementById("total");
       totalamount.innerHTML = total
-      // console.log(totalamount);
+      
       let buy_total = document.getElementById("buy_btn");
       buy_total.addEventListener("click", function (e) {
         add_to_cart.splice();

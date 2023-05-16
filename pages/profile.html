@@ -29,7 +29,6 @@
           <input type="number" id="Phonenumber" class="first-nam" disabled></input>
 
           <div class="first-name">Address</div>
-          <!-- <input type="textarea" id="Address" class="first-nam"></input> -->
           <textarea rows="4" cols="60" id="Address"  disabled>
             </textarea>
         </div>
@@ -44,13 +43,10 @@
   <script src="../JS_files/navbar.js"></script>
   <script>
 
-      // let profile = localStorage.getItem();
-      // console.log(user_email);
       let Email =JSON.parse(window.localStorage.getItem("useremail"))
       console.log(Email);
       let details = JSON.parse(window.localStorage.getItem("User_data"))//if (userpers===seller){
 
-      // details = JSON.parse(window.localStorage.getItem("Seller_data"))}Else if(userpers===admin){ details = JSON.parse(window.localStorage.getItem("admin_data"))}
      console.log(details)
      let user_profile = details.find(e => e["email"] == Email)
     console.log(user_profile);
@@ -92,7 +88,6 @@
     edited_details["email"] = email;
     edited_details["phone"] = phone;
     edited_details["Address"] = Address;
-    // console.log(edited_details);
 
     
     if(Email !== edited_details["email"]){
@@ -107,7 +102,6 @@
 
     window.localStorage.setItem("User_data",JSON.stringify(details))
 
-    // window.localStorage.setItem("updated_user_details",JSON.stringify(details))
     alert("Successfully updated your profile")
     } 
     });

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>Login Form | CodingLab</title> -->
     <link rel="stylesheet" href="../assets/styles/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
@@ -82,10 +80,8 @@
       if(ismatch === true){
         swal("Good job","Login successfully completed !","success");
           window.location.href = "./home-page.html";
-          // window.localStorage.setItem("selleremail",JSON.stringify(email));
       }else{
         swal("Opps..!","Email or password incorrect","error");
-        // alert( "                          User_email\n                                OR \n                PASSWORD INCORRECT" );
       }
 } 
       window.localStorage.setItem("selleremail",JSON.stringify(email));

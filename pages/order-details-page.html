@@ -63,7 +63,6 @@
         petCard_anchor.setAttribute("href",`./details.html?uuid=${bought_pets[i]["uuid"]}`)
 whole_card.append(petCard_anchor);
 
-// Create a div element to contain the pet card
 let petCard = document.createElement('div');
 petCard.className = 'pet-card';
 petCard_anchor.append(petCard);
@@ -72,13 +71,11 @@ let card_div = document.createElement('div');
 card_div.setAttribute("class","pet_div");
 petCard.append(card_div);
 
-// Create an image element for the pet
 let petImage = document.createElement('img');
 petImage.setAttribute("src",bought_pets[i]["source"]);
 petImage.alt = bought_pets[i]["pet_name_alt"];
 card_div.append(petImage);
 
-// Create a heading element for the pet name
 let div_name_amount = document.createElement('div');
 card_div.append(div_name_amount);
 
@@ -86,17 +83,14 @@ let petName = document.createElement('h2');
 petName.innerText = bought_pets[i]["pet_name_alt"];
 div_name_amount.append(petName);
 
-// Create a paragraph element for the pet price
 let petPrice = document.createElement('p');
 petPrice.innerText ='Rs : ' + bought_pets[i]["pet_price"];
 div_name_amount.append(petPrice);
 
-// Create a paragraph element for the free shipping text
 let freeShipping = document.createElement('p');
 freeShipping.innerText = 'Free shipping';
 petCard.append(freeShipping);
 
-// Create a paragraph element for the delivery date
 let deliveryDate = document.createElement('p');
 deliveryDate.innerText = 'Delivery date: 5/10/2023';
 petCard.append(deliveryDate);

@@ -40,7 +40,6 @@
             </div>
             <div>
                 <div class="first-name">Address</div>
-                <!-- <input type="textarea" id="Address" class="first-nam"></input> -->
                 <textarea rows="4" cols="60" id="Address"  disabled></textarea>
             </div>
 
@@ -102,7 +101,6 @@
     edited_details["email"] = email;
     edited_details["phone"] = phone;
     edited_details["Address"] = Address;
-    // console.log(edited_details);
 
     
     if(Email !== edited_details["email"]){
@@ -117,7 +115,6 @@
 
     window.localStorage.setItem("Seller_data",JSON.stringify(details))
 
-    // window.localStorage.setItem("updated_user_details",JSON.stringify(details))
     alert("Successfully updated your profile")
     } 
     });

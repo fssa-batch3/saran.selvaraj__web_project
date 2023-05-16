@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <!---<title> Responsive Registration Form | CodingLab </title>--->
+
     <link rel="stylesheet" href="../assets/styles/create_new_account.css">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Pet Mall</title>
@@ -96,9 +96,6 @@
 
 let slt = document.getElementById("slt")
 
-let admin = document.getElementById("admin")
-let user = document.getElementById("user")
-let seller = document.getElementById("seller")
 
 let ismatch = false
 if(newpassword === confirmpassword ){
@@ -113,7 +110,6 @@ if(newpassword === confirmpassword ){
     if(window.localStorage.getItem("Admin_data") === null){
       window.localStorage.setItem("Admin_data",JSON.stringify(Admin_data));  
     }else{
-      // let local = ;
       let json = JSON.parse(window.localStorage.getItem("Admin_data"));
       json.push(data);
      
@@ -165,34 +161,7 @@ if(newpassword === confirmpassword ){
 
 
 
-// let validation = JSON.parse(window.localStorage.getItem("Admin_data"));
-//         let is = false;
-//         for (let i = 0; i < validation.length; i++) {
-//           if (emailaddress === validation[i].Emailaddress) {
-//             alert("Email is already in use");
-//             is = true;
-//           break;
-//           }
-//         }
 
-        
-//     if(data["pass"] ===data["adm_conpass"]){ 
-//     if(window.localStorage.getItem("Admin_data") === null){
-//       window.localStorage.setItem("Admin_data",JSON.stringify(Admin_data));
-      
-//     }else{
-//       let local = window.localStorage.getItem("Admin_data");
-//       let json = JSON.parse(local);
-//       json.push(data);
-//       window.localStorage.setItem("Admin_data",JSON.stringify(json));
-
-//     }
-//     alert("Successfully registered")
-//     window.location.href="../index.html"
-// }  else{
-//   alert("password and confirm password does not match")
-
-// }
   });
 </script>
 </html>

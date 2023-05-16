@@ -47,17 +47,11 @@
   <script src="../JS_files/navbar.js"></script>
   <script>
 
-      // let profile = localStorage.getItem();
-      // console.log(user_email);
-      let Email = JSON.parse(window.localStorage.getItem("adminemail"))
-      console.log(Email);
-      let details = JSON.parse(window.localStorage.getItem("Admin_data"))//if (userpers===seller){
 
-      // details = JSON.parse(window.localStorage.getItem("Seller_data"))}Else if(userpers===admin){ details = JSON.parse(window.localStorage.getItem("admin_data"))}
-     console.log(details)
+      let Email = JSON.parse(window.localStorage.getItem("adminemail"))
+      let details = JSON.parse(window.localStorage.getItem("Admin_data"))//if (userpers===seller){
       let user_profile = details.find(e => e["email"] == Email)
     
-    console.log(user_profile);
       
       let save = document.getElementById("save");
       let edit = document.getElementById("edit");
@@ -102,9 +96,8 @@
     edited_details["email"] = email;
     edited_details["phone"] = phone;
     edited_details["Address"] = Address;
-    // console.log(edited_details);
 
-    ismatch = false
+    let ismatch = false
     if(Email === edited_details["email"]){
      ismatch = true
     }else{
@@ -119,7 +112,6 @@ details[userindex] = combine;
 
 window.localStorage.setItem("Admin_data",JSON.stringify(details))
 
-// window.localStorage.setItem("updated_user_details",JSON.stringify(details))
 alert("Successfully updated your profile")
        
     }else{
