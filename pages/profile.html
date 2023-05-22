@@ -59,7 +59,11 @@
       let user_name = document.getElementById("Last-name").value = user_profile["last_name"];
       let email = document.getElementById("Email").value = user_profile["email"];
       let phone = document.getElementById("Phonenumber").value = user_profile["phone"];
-      let Address = document.getElementById("Address").value = user_profile["Address"];
+      if(user_profile["Address"] == null || undefined){
+        let Address = document.getElementById("Address").innerText = "Enter your Address"
+      }else{
+        let Address = document.getElementById("Address").value = user_profile["Address"];
+      }
       
     edit.addEventListener("click",function (event){
     event.preventDefault()

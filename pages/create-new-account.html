@@ -60,6 +60,8 @@
 
 <script>
 
+
+let getelement  = JSON.parse(localStorage.getItem("User_data"))
   
   let Admin_data = [];
   let User_data = [];
@@ -92,75 +94,114 @@
     data["user_persona"] = user_persona 
     data["uuid"] = uuid
 
-    
+
+
 
 let slt = document.getElementById("slt")
+let userdatas = JSON.parse(window.localStorage.getItem("User_data"));
+let sellerdatas = JSON.parse(window.localStorage.getItem("Seller_data"));
 
 
-let ismatch = false
-if(newpassword === confirmpassword ){
-  ismatch = true;
- }else{
-  ismatch = false;
- }
+if(slt.value === "user"){
+        useremailmatch()
+        passmatch()
+      }else{
+        selleremailmatch()
+        passmatch()
+      }
 
-    if(slt.value === "admin"){
-    if(ismatch !== false){
-      Admin_data.push(data);
-    if(window.localStorage.getItem("Admin_data") === null){
-      window.localStorage.setItem("Admin_data",JSON.stringify(Admin_data));  
-    }else{
-      let json = JSON.parse(window.localStorage.getItem("Admin_data"));
-      json.push(data);
+
+      function passmatch() {
+      if (newpassword !== confirmpassword) {
+        alert("password and confirm password does not match")
+        return true;
+      }
+    }
+    
+    function selleremailmatch() {
      
-      window.localStorage.setItem("Admin_data",JSON.stringify(json));
-
+if(window.localStorage.getItem("Seller_data") === null){
+  Seller_data.push(data)
+  window.localStorage.setItem("Seller_data", JSON.stringify(Seller_data));
+  alert("Successfully registered")
+window.location.href = "./home-page.html"
+}else{
+  selleremail()
+      }
     }
-    alert("Successfully registered")
-    window.location.href="./home-page.html"
- }else{
-  return alert("password and confirm password does not match")
- }
-    }else if(slt.value === "user"){
-      if(ismatch === true){
-        User_data.push(data); 
-    if(window.localStorage.getItem("User_data") === null){
-      window.localStorage.setItem("User_data",JSON.stringify(User_data));
 
-    }else{
-      let json = JSON.parse(window.localStorage.getItem("User_data"));
-      json.push(data);
+    function selleremail(){
+    let ismatchs = false
+
+      for (let i = 0; i < sellerdatas.length; i++) {
+        if (sellerdatas[i]["email"] !== emailaddress) {
+          ismatchs = true;
+        }else{
+          ismatchs = false; 
+        }
+      }
+      if (ismatchs === false) {
+          alert("Email already exist")
+          return false;
+        }
+          storingasseller()
+        
+    }
+    function storingasseller(){
+ 
+      let Seller = JSON.parse(localStorage.getItem("Seller_data"));
+      Seller.push(data)
+      window.localStorage.setItem("Seller_data", JSON.stringify(Seller));
+      alert("Succesfully registered")
+
+      window.location.href="./home-page.html"
+    
+  }
+
+
+  
+  function useremailmatch() {
      
-      window.localStorage.setItem("User_data",JSON.stringify(json));
-      window.localStorage.setItem("User_Personas",select);
+     if(window.localStorage.getItem("User_data") === null){
+       User_data.push(data)
+       window.localStorage.setItem("User_data", JSON.stringify(User_data));
+  alert("Successfully registered")
+     window.location.href = "./home-page.html"
+     }else{
+       useremail()
+     
+           }
+         }
+     
+         function useremail(){
+     let ismatchs = false
+     
+           for (let i = 0; i < userdatas.length; i++) {
+             if (userdatas[i]["email"] !== emailaddress) {
+               ismatchs = true;
+             }else{
+               ismatchs = false; 
+             }
+           }
+           if (ismatchs === false) {
+               alert("Email already exist")
+               return false;
+             }
+           
+               storingasuser()
+             
+         }
 
-    }
-    alert("Successfully registered")
-    window.location.href="./home-page.html"
-}else{
-  return alert("password and confirm password does not match")
-} 
-    }else{
-      if(ismatch === true){ 
-        Seller_data.push(data);
-    if(window.localStorage.getItem("Seller_data") === null){
-      window.localStorage.setItem("Seller_data",JSON.stringify(Seller_data));
-      
-    }else{
-      let json = JSON.parse(window.localStorage.getItem("Seller_data"));
-      json.push(data);
-      window.localStorage.setItem("Seller_data",JSON.stringify(json));
+  function storingasuser(){
+  
+      let User = JSON.parse(localStorage.getItem("User_data"));
+      User.push(data)
+      window.localStorage.setItem("User_data", JSON.stringify(User));
+      alert("Succesfully registered")
 
-    }
-    alert("Successfully registered")
-    window.location.href="./home-page.html"
-}else{
-  return alert("password and confirm password does not match")
-}
-    }
-
-
-
+      window.location.href="./home-page.html"
+    
+  }
 
   });
 </script>
