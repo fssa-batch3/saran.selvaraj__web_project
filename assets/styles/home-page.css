@@ -339,10 +339,7 @@ body.dark .home .text{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-left: 60px;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* gap:50px; */
-    /* justify-content: center; */
+
 }
 .card {
   position: relative;

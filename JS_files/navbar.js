@@ -55,6 +55,7 @@ li_search_box.append(input_search);
 let ul_menu_links = document.createElement("ul");
 ul_menu_links.setAttribute("class","menu-links");
 div_menu.append(ul_menu_links);
+if(user_persona !== "seller"){
 
 let li_nav_link1 = document.createElement("li");
 li_nav_link1.setAttribute("class","nav-link");
@@ -72,7 +73,7 @@ let span_home_alt_icon = document.createElement("i")
 span_home_alt_icon.setAttribute("class","text nav-text");
 span_home_alt_icon.innerHTML = "Home";
 a_home_page.append(span_home_alt_icon);
-
+}
 if(user_persona === "seller"){
     let li_nav_link2 = document.createElement("li");
     li_nav_link2.setAttribute("class","nav-link");
@@ -90,6 +91,23 @@ if(user_persona === "seller"){
     span_bar_chart_alt_2_icon.setAttribute("class","text nav-text");
     span_bar_chart_alt_2_icon.innerHTML = "Sell Pet";
     a_sell_page.append(span_bar_chart_alt_2_icon);
+
+    let li_nav_link1 = document.createElement("li");
+    li_nav_link1.setAttribute("class","nav-link");
+    ul_menu_links.append(li_nav_link1);
+    
+    let a_sold_page = document.createElement("a");
+    a_sold_page.setAttribute("href","../pages/sold-pets-page.html");
+    li_nav_link1.append(a_sold_page);
+    
+    let i_bar_chart_alt_2_icons = document.createElement("i");
+    i_bar_chart_alt_2_icons.setAttribute("class","bx bx-bell icon");
+    a_sold_page.append(i_bar_chart_alt_2_icons);
+    
+    let span_bar_chart_alt_2_icons = document.createElement("i")
+    span_bar_chart_alt_2_icons.setAttribute("class","text nav-text");
+    span_bar_chart_alt_2_icons.innerHTML = "Sold pets";
+    a_sold_page.append(span_bar_chart_alt_2_icons);
 }
 
 if(user_persona !== "seller"){

@@ -48,9 +48,14 @@ form .admin-details .input-box{
   width: calc(100% / 2 - 20px);
 }
 form .input-box span.details{
-  display: block;
+  display:inline-block;
   font-weight: 500;
   margin-bottom: 5px;
+}
+.icon{
+  display: inline-block;
+  right:20px;
+  bottom:20px;
 }
 .admin-details .input-box input{
   height: 45px;
@@ -194,4 +199,38 @@ form .admin-details .input-box{
   .Whole-div .content .category{
     flex-direction: column;
   }
+}
+
+#foricon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
+  position: absolute;
+}
+
+#foricon i{
+  position:fixed;
+ margin-left: 2em;
+  z-index: 2;
+}
+
+#foricon input[type="password"]{
+  z-index: 1;
+  width:18.7em
+}
+
+#foricon input[type="text"]{
+  z-index: 1;
+  width:18.7em
+}
+
+.uil-eye-slash:before {
+  content: '\ebf8';
+  margin-left: 14em;
+}
+
+.uil-eye:before {
+  content: '\ebaf';
+  margin-left: 14em;
 }

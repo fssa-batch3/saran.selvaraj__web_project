@@ -10,7 +10,66 @@
    </head>
 <body>
   <div class="container">
+    <div class="box one">
+      <div class="details">
+        <div class="topic" id="description">About The pet</div>
+        <p id="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque consequatur </p>
+        <p id="info2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque consequatur </p>
+        <p id="info3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque consequatur </p>
+        <p id="info4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque consequatur </p>
+        <p id="info5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque consequatur </p>
 
+          <div class="price-box">
+            <div class="discount">₹2999</div>
+            <div class="price" id="price"></div>
+          </div>
+      </div>
+      <div class="moreimage">
+       <div >
+       <div>More Images of the pet</div>
+       <div class="moreimages">
+        <img id="image1" width="250px" height="250px">
+        <img id="image2" width="250px" height="250px">
+        <img id="image3" width="250px" height="250px">
+      </div>
+       </div>
+       <div class="moreimages">
+       <div>
+        <div>While playing</div>
+        <img id="image4" width="250px" height="250px">
+      </div>
+      <div>
+        <div>While sleeping</div>
+        <img id="image5" width="250px" height="250px">
+      </div>
+      <div>
+        <div>vaccination certificate</div>
+        <img id="image6" width="250px" height="250px">
+      </div>
+    </div>
+      </div>
+     
+    </div>
+    <div class="box two">
+      <div class="image-box">
+        <div class="image">
+          <img id="real_image" >
+        </div>
+        <div class="info">
+          <div class="brand" id="nick_name"></div>
+          <div class="name" id="real_name"></div>
+          <div class="shipping">FREE SHIPPING</div>
+
+          <div class="button1">
+            <a class="buttons" id="buy_now">Buy Now</a>
+            <a class="buttons" id="add_to_cart">Add To Cart</a>
+            <a class="buttons">Back</a>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+   
   </div>
 </body>
 <script>
@@ -20,120 +79,61 @@
       let thisid = urlparams.get('uuid');
       let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
 
-      let div_box_one = document.createElement("div");
-      div_box_one.setAttribute("class","box one");
-      document.querySelector("div.container").append(div_box_one);
+      document.getElementById("description").innerHTML = "More details about \"" + thispet["pet_name_alt"] + "\""
+      document.getElementById("info1").innerHTML = thispet["special_talent"];
+      document.getElementById("info2").innerHTML = thispet["behavior"];
+      document.getElementById("info3").innerHTML = thispet["character"];
+      document.getElementById("info4").innerHTML = thispet["contact"];
+      document.getElementById("info5").innerHTML = thispet["dob_pet"];
+      document.getElementById("price").innerHTML = "₹ " + thispet["pet_price"];
 
-      let div_details = document.createElement("div");
-      div_details.setAttribute("class","details");
-      div_box_one.append(div_details);
+      let real_image = document.getElementById("real_image")
+      real_image.setAttribute("src",thispet["source"])
 
-      let div_topic = document.createElement("div");
-      div_topic.setAttribute("class","topic");
-      div_topic.innerHTML = "Description";
-      div_details.append(div_topic);
-
-      let div_discription1 = document.createElement("div");
-      div_discription1.setAttribute("class","discription");
-      div_discription1.innerHTML = thispet["special_talent"] + ".  " ;
-      div_details.append(div_discription1);
-
-      let div_discription2 = document.createElement("div");
-      div_discription2.setAttribute("class","discription");
-      div_discription2.innerHTML =  thispet["behavior"]+". " ;
-      div_details.append(div_discription2);
-
-      let div_discription3 = document.createElement("div");
-      div_discription3.setAttribute("class","discription");
-      div_discription3.innerHTML = thispet["character"] + ".";
-      div_details.append(div_discription3);
-
-      let div_discription4 = document.createElement("div");
-      div_discription4.setAttribute("class","discription");
-      div_discription4.innerHTML = "Contact : " + thispet["contact"] + ". ";
-      div_details.append(div_discription4);
-
-      let div_discription5 = document.createElement("div");
-      div_discription5.setAttribute("class","discription");
-      div_discription5.innerHTML = "Date-Of-Birth : " + thispet["dob_pet"];
-      div_details.append(div_discription5);
-
-      let div_ratings = document.createElement("div");
-      div_ratings.setAttribute("class","rating");
-      div_details.append(div_ratings);
+      document.getElementById("nick_name").innerHTML = thispet["personal_name"]
+      document.getElementById("real_name").innerHTML = thispet["pet_name_alt"]
 
 
-      let div_price_box = document.createElement("div");
-      div_price_box.setAttribute("class","price-box");
-      div_details.append(div_price_box);
+      let image1 = document.getElementById("image1");
+      image1.setAttribute("src",thispet["left_view"]);
+      image1.setAttribute("alt",thispet["pet_name_alt"]);
+      let iameg2 = document.getElementById("image2");
+      image2.setAttribute("src",thispet["right_view"]);
+      image2.setAttribute("alt",thispet["pet_name_alt"]);
 
-      let div_discount = document.createElement("div");
-      div_discount.setAttribute("class","discount");
-      div_discount.innerHTML = "Rs.15999";
-      div_price_box.append(div_discount);
+      let image3 = document.getElementById("image3")
+      image3.setAttribute("src",thispet["top_view"]);
+      image3.setAttribute("alt",thispet["pet_name_alt"]);
 
-      let div_price = document.createElement("div");
-      div_price.setAttribute("class","price");
-      div_price.innerHTML = thispet["pet_price"];
-      div_price_box.append(div_price);
+      let image4 = document.getElementById("image4")
+      image4.setAttribute("src",thispet["play_view"])
+      image4.setAttribute("alt",thispet["pet_name_alt"])
 
-      let div_button1 = document.createElement("div");
-      div_button1.setAttribute("class","button1");
-      div_box_one.append(div_button1);
+      let image5 = document.getElementById("image5")
+      image5.setAttribute("src",thispet["sleep_view"])
+      image5.setAttribute("alt",thispet["pet_name_alt"]);
+      let image6 = document.getElementById("image6")
+      image6.setAttribute("src",thispet["vaccination"])
+      image6.setAttribute("alt",thispet["pet_name_alt"]);
 
-      let button1 = document.createElement("a");
-      button1.setAttribute("href",`./buy-now.html?uuid=${thispet["uuid"]}`)
-      button1.classList.add("button2");
-      button1.innerText = "Buy Now";
-      div_button1.append(button1);
-
-      let button2 = document.createElement("a");
-      button2.setAttribute("href",`./add-to-cart.html?uuid=${thispet["uuid"]}`)
-      button2.classList.add("button2");
-      button2.innerText = "Add To Cart";
-      div_button1.append(button2);
-
-      let button3 = document.createElement("a");
-      button3.setAttribute("href","./home-page.html")
-      button3.classList.add("button2");
-      button3.innerText = "Back";
-      div_button1.append(button3);
-
-      let div_box_two = document.createElement("div");
-      div_box_two.setAttribute("class","box two");
-      document.querySelector("div.container").append(div_box_two);
-
-      let div_image_box =document.createElement("div");
-      div_image_box.setAttribute("class","image-box");
-      div_box_two.append(div_image_box);
-
-      let div_image =document.createElement("div");
-      div_image.setAttribute("class","image");
-      div_box_two.append(div_image);
-
-      let image = document.createElement("img");
-      image.setAttribute("src",thispet["source"]);
-      div_image.append(image);
-
-      let div_info =document.createElement("div");
-      div_info.setAttribute("class","info");
-      div_box_two.append(div_info);
-
-      let div_name = document.createElement("div");
-      div_name.setAttribute("class","brand");
-      div_name.innerHTML = thispet["personal_name"];
-      div_info.append(div_name);
-
-      let div_petname = document.createElement("div");
-      div_petname.setAttribute("class","name");
-      div_petname.innerHTML = thispet["pet_name_alt"].toUpperCase();
-      div_info.append(div_petname);
-
-      let div_shipping = document.createElement("div");
-      div_shipping.setAttribute("class","shipping");
-      div_shipping.innerHTML = "Free shipping";
-      div_info.append(div_shipping);
-
+      let buy_now = document.getElementById("buy_now")
+      buy_now.addEventListener("click", function(e){
+      window.location.href=`./buy-now.html?uuid=${thispet["uuid"]}`
+      }) 
+      
+      let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid);
+    
+        let add_to_cart = document.getElementById("add_to_cart")
+      add_to_cart.addEventListener("click", function(e){
+        if(check == null || check == undefined){
+        }else{
+        alert("Pet already in the cart");
+        window.location.href=`./add-to-cart.html?uuid=${thispet["uuid"]}`
+      }
+      window.location.href=`./add-to-cart.html?uuid=${thispet["uuid"]}`
+      })  
+      
+     
       
 </script>
 </html>

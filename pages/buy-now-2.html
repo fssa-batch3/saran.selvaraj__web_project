@@ -35,7 +35,6 @@
         </div>
       </div>
         <button class="purchase--btn" type="submit" id="checkout">Checkout</button>
-        <button class="purchase--btn" id="buy_with_emi">Buy with EMI</button>
     </form>
     </div>
   </body>
@@ -46,6 +45,7 @@
       let thisid = urlparams.get("uuid");
       let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
       let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid);
+
       let form = document.getElementById("form")
       form.addEventListener("submit", function(event){
         event.preventDefault();
@@ -54,29 +54,32 @@
         let expiry_Date =document.getElementById("expiry_Date").value;
         let cvv = document.getElementById("cvv").value;
 
+
+   
 if(check == null || check == undefined ){
 
 
-        if (card_holder_name === "") {
-          alert("Your name should not null")
+if (card_holder_name === "") {
+  alert("Your name should not null")
 
-        }else if(card_number === "" ){
-          alert("card number should not be null")
-        }else if(card_number < 16 ){
-          alert("card number should not be less than 16")
-        }else if(expiry_Date === ""){
-          alert("Expiry date should not be null")
-        }else if(cvv === ""){
-          alert("Cvv should not be null")
-        }else if(cvv < 3){
-          alert("Cvv should not be less than or greater than 3")
-        }else{
-           alert("Successfully bought the pet!")
-           window.location.href=`./order-details-page.html?uuid=${thispet["uuid"]}`
-        }
-      }else{
-        alert("You have already bought this pet!")
-      }
+}else if(card_number === "" ){
+  alert("card number should not be null")
+}else if(card_number < 16 ){
+  alert("card number should not be less than 16")
+}else if(expiry_Date === ""){
+  alert("Expiry date should not be null")
+}else if(cvv === ""){
+  alert("Cvv should not be null")
+}else if(cvv < 3){
+  alert("Cvv should not be less than or greater than 3error")
+}else{
+   alert("Successfully bought the pet!")
+   window.location.href=`./order-details-page.html?uuid=${thispet["uuid"]}`
+}
+}else{
+alert("You have already bought this pet!")
+}
+
      
     });
 

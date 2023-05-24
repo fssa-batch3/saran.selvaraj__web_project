@@ -8,7 +8,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Pet Mall</title>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
    </head>
 <body>
   <div class="Whole-div">
@@ -34,7 +34,10 @@
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" value="Saran2004"  title="Password should contain atleast 8 characters and atleast One Capital letter, One Small letter, One Number."  id="pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+            <div id="foricon">
+            <input type="password" class= "icon" value="Saran2004"  title="Password should contain atleast 8 characters and atleast One Capital letter, One Small letter, One Number."  id="pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+            <i className="icon" class="uil uil-eye-slash toggle" ></i>
+          </div>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
@@ -56,10 +59,21 @@
   </div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
 
 <script>
 
+const toggle = document.querySelector(".toggle"),
+              inputs = document.querySelector("input.icon");
+              toggle.addEventListener("click", () =>{
+                  if(inputs.type ==="password"){
+                    inputs.type = "text";
+                    toggle.classList.replace("uil-eye-slash", "uil-eye");
+                  }else{
+                    inputs.type = "password";
+                    toggle.classList.replace("uil-eye", "uil-eye-slash");
+
+                  }
+              })
 
 let getelement  = JSON.parse(localStorage.getItem("User_data"))
   
@@ -105,9 +119,11 @@ let sellerdatas = JSON.parse(window.localStorage.getItem("Seller_data"));
 if(slt.value === "user"){
         useremailmatch()
         passmatch()
+        localStorage.setItem("useremail", JSON.stringify(emailaddress));
       }else{
         selleremailmatch()
         passmatch()
+        localStorage.setItem("selleremail", JSON.stringify(emailaddress));
       }
 
 
@@ -124,7 +140,7 @@ if(window.localStorage.getItem("Seller_data") === null){
   Seller_data.push(data)
   window.localStorage.setItem("Seller_data", JSON.stringify(Seller_data));
   alert("Successfully registered")
-window.location.href = "./home-page.html"
+window.location.href = "./sold-pets-page.html"
 }else{
   selleremail()
       }
@@ -154,7 +170,7 @@ window.location.href = "./home-page.html"
       window.localStorage.setItem("Seller_data", JSON.stringify(Seller));
       alert("Succesfully registered")
 
-      window.location.href="./home-page.html"
+      window.location.href="./sold-pets-page.html"
     
   }
 

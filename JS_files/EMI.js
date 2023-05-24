@@ -1,4 +1,8 @@
 
+let urlparams = new URLSearchParams(window.location.search);
+let thisid = urlparams.get("uuid");
+let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
+let loanamount = document.getElementById("loanAmount").value = thispet["pet_price"]
 
 function calculateEMI() {
 let loanAmount = document.getElementById("loanAmount").value;
@@ -82,7 +86,7 @@ paymentInfo.classList.add("payment-info");
 
 let payEmiBtn = document.createElement("button");
 payEmiBtn.classList.add("pay-emi-btn");
-payEmiBtn.setAttribute("onclick","window.location.href='../pages/buy-now.html'")
+payEmiBtn.setAttribute("onclick",`./buy-now-2.html?uuid=${thispet["uuid"]}`)
 payEmiBtn.textContent = "Pay EMI";
 
 paymentInfo.appendChild(payEmiBtn);
@@ -95,6 +99,7 @@ card.appendChild(paymentInfo);
 // Append the card container to the page
 document.body.appendChild(card);
 }
+
 
 
 

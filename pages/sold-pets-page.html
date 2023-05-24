@@ -86,10 +86,13 @@
 
   
 
-let new_card = JSON.parse(localStorage.getItem("new_card"))
-let pet_sold_seller_email =localStorage.getItem("selleremail");
-let user_email =localStorage.getItem("useremail")
-let admin_email =localStorage.getItem("adminemail")
+let pet_sold_seller_email = JSON.parse(localStorage.getItem("selleremail"));
+let new_card = JSON.parse(localStorage.getItem("new_card")).filter((e) => e.card_created_email === pet_sold_seller_email);
+console.log(new_card)
+let user_email =localStorage.getItem("useremail");
+let admin_email =localStorage.getItem("adminemail");
+
+
 
 console.log(pet_sold_seller_email);
 console.log(new_card);
@@ -149,6 +152,8 @@ deletes.setAttribute("class","delete")
 deletes.setAttribute("uuid",new_card[i]["uuid"])
 deletes.innerText = "Delete"
 button_div.append(deletes)
+
+
 
 deletes.addEventListener("click", function () {
           if (confirm("Are you sure?")) {

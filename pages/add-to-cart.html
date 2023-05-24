@@ -18,6 +18,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="../assets/styles/order-details.css" />
+
     <title>Pet Mall</title>
     <!--<title>Dashboard Sidebar Menu</title>-->
   </head>
@@ -26,6 +28,10 @@
     <section class="home">
       <div class="text">
         <img src="../assets/images/image.logo.png" alt="logo-image" />
+      </div>
+      <div class="buy_div">
+        <div>Total : <a class="total" id="total"></a></div>
+        <button class="buy_btn" type="submit" id="buy_btn">Buy All</button>
       </div>
       <div class="no_item">
 
@@ -93,7 +99,6 @@
         </footer>
       </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <script src="../JS_files/navbar.js"></script>
 
     <script>
@@ -119,6 +124,7 @@
            div_not_item.innerText = "No item in the cart"
           }
         }
+        let total_calculate = 0;
       
 
       let add_to_cart = JSON.parse(localStorage.getItem("add_to_cart"));
@@ -151,6 +157,8 @@
         head2.innerText = "Rs : " + add_to_cart[i]["pet_price"];
         div_contentBox.append(head2);
 
+        total_calculate += add_to_cart[i]["pet_price"] * 1;
+
         let anchor = document.createElement("a");
         anchor.setAttribute(
           "href",
@@ -168,9 +176,16 @@
         anchor_remove_from_cart.setAttribute("class", "buy");
         anchor_remove_from_cart.innerText = "Remove cart";
         div_contentBox.append(anchor);
+
+        let totalamount = document.getElementById("total");
+      totalamount.innerHTML = total_calculate
       }
 
-
+      let buy_total = document.getElementById("buy_btn");
+      buy_total.addEventListener("click", function (e) {
+        localStorage.removeItem(0)
+        window.location.href=`./buy-now.html?uuid=${thispet["uuid"]}`
+      });
 
      
     </script>

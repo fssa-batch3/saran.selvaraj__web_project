@@ -95,7 +95,6 @@
         </footer>
       </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
     <script src="../JS_files/navbar.js"></script>
 
     <script>
@@ -172,7 +171,7 @@
       
       let buy_total = document.getElementById("buy_btn");
       buy_total.addEventListener("click", function (e) {
-        window.location.href="./buy-now.html"
+        window.location.href=`./buy-now.html?uuid=${thispet["uuid"]}`
       });
     </script>
   </body>
