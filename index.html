@@ -27,7 +27,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" id="password" placeholder="Password" required>
           </div>
-          <div class="pass"><a href="#">Forgot password?</a></div>
+          <!-- <div class="pass"><a href="#">Forgot password?</a></div> -->
           <div class="row button">
             <input type="submit" value="Login">
           </div>
@@ -44,8 +44,7 @@
 
     let form = document.getElementById("form");
 
-    let user = JSON.parse(localStorage.getItem("User_data"));
-console.log(user)
+   
 
     form.addEventListener("submit",function (event){
         event.preventDefault();
@@ -53,25 +52,20 @@ let email = document.getElementById("email").value
 let password = document.getElementById("password").value
 // console.log(email,password)
 
+let user = JSON.parse(localStorage.getItem("User_data")).find((e) => e.email == email);
+console.log(user)
 
-
-
-let ismatch = false
-for(let i = 0; i < user.length; i++){
-if(email === user[i]["email"] && password === user[i]["password"]){
-    ismatch = true
+if(user == null || user == undefined) {
+  alert("User email not found")
+}else if(user.email === email){
+if(user.password === password){
+  alert("Successfully logged in")
+  window.location.href="./pages/home-page.html"
 }else{
-  ismatch = false
+  alert("Invalid password")
 }
 }
-if(ismatch === true){
-  alert("Successfully logged in");
-  window.localStorage.setItem("useremail",JSON.stringify(email))
-    window.location.href = "./pages/home-page.html";
-  
-}else{
-  alert("                          USERNAME\n                                OR \n                PASSWORD INCORRECT");
-}
+
     });
   </script>
 </html>

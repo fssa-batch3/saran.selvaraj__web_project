@@ -98,6 +98,23 @@ span_pie_chart_alt_icon.setAttribute("class","text nav-text");
 span_pie_chart_alt_icon.innerHTML = "About us";
 a_About_us.append(span_pie_chart_alt_icon);
 
+let li_nav_link2 = document.createElement("li");
+li_nav_link2.setAttribute("class","nav-link");
+ul_menu_links.append(li_nav_link2);
+
+let a_home_pages = document.createElement("a")
+a_home_pages.setAttribute("href","../index.html")
+li_nav_link2.append(a_home_pages)
+
+let i_home_alt_icons = document.createElement("i")
+i_home_alt_icons.setAttribute("class","bx bx-home-alt icon");
+a_home_pages.append(i_home_alt_icons);
+
+let span_home_alt_icons = document.createElement("i")
+span_home_alt_icons.setAttribute("class","text nav-text");
+span_home_alt_icons.innerHTML = "Login";
+a_home_pages.append(span_home_alt_icons);
+
 let div_bottom_content = document.createElement("div");
 div_bottom_content.setAttribute("class","bottom-content");
 div_menu_bar.append(div_bottom_content);
@@ -165,12 +182,3 @@ modeText.innerText = "Dark mode";
 
 
 
-let account_href = document.getElementById("account")
-let personas_verify = JSON.parse(localStorage.getItem("user_persona"));
-if(personas_verify ===  "user"){
-    account_href.setAttribute("href","./profile.html")
-}else if(personas_verify === "seller"){
-    account_href.setAttribute("href","./seller-profile.html")
-}else{
-    account_href.setAttribute("href","./admin-profile.html")
-}

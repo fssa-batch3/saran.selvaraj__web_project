@@ -87,16 +87,16 @@
   
 
 let new_card = JSON.parse(localStorage.getItem("new_card"))
+
 let pet_sold_seller_email =localStorage.getItem("selleremail");
 let user_email =localStorage.getItem("useremail")
 let admin_email =localStorage.getItem("adminemail")
 
-console.log(pet_sold_seller_email);
-console.log(new_card);
+
 for(let i = 0; i < new_card.length; i++){
 
 
-
+  
 let div_card = document.createElement("div");
 div_card.setAttribute("class","card");
 document.querySelector("div.whole-card").append(div_card);

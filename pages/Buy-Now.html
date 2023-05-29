@@ -27,10 +27,10 @@
           <input id="card_Number" class="input_field" type="text" name="input-name" pattern="[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}" title="Inpit title" value="9876 9876 9876 9876">
         </div>
         <div class="input_container">
-          <label for="password_field" class="input_label">Expiry Date / CVV</label>
+          <label for="password_field"  class="input_label">Expiry Date / CVV</label>
           <div class="split">
-          <input id="expiry_Date" class="input_field" type="text" name="input-name" title="Expiry Date" value="01/23">
-          <input id="cvv" class="input_field" type="number" name="cvv" title="CVV" value="375">
+          <input id="expiry_Date" class="input_field" type="month" name="input-name" title="Expiry Date" value="01/23">
+          <input id="cvv" class="input_field" type="password" name="cvv" title="CVV" value="375">
         </div>
         </div>
       </div>
@@ -45,6 +45,7 @@
       let urlparams = new URLSearchParams(window.location.search);
       let thisid = urlparams.get("uuid");
       let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
+      console.log(thispet);
       let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid);
       let form = document.getElementById("form")
       form.addEventListener("submit", function(event){
@@ -55,7 +56,7 @@
         let cvv = document.getElementById("cvv").value;
 
 if(check == null || check == undefined ){
-
+localStorage.setItem("bought_pets",JSON.stringify(thispet))
 
         if (card_holder_name === "") {
           alert("Your name should not null")

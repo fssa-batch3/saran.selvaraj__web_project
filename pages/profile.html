@@ -42,12 +42,9 @@
   <script>
 
       let Email =JSON.parse(window.localStorage.getItem("useremail"))
-      console.log(Email);
       let details = JSON.parse(window.localStorage.getItem("User_data"))//if (userpers===seller){
 
-     console.log(details)
      let user_profile = details.find(e => e["email"] == Email)
-    console.log(user_profile);
       
       let save = document.getElementById("save");
       let edit = document.getElementById("edit");
@@ -69,7 +66,6 @@
     if (inputs.disabled) {
         document.getElementById("Full-name").disabled = false;
         document.getElementById("Last-name").disabled = false;
-        document.getElementById("Email").disabled = false;
         document.getElementById("Phonenumber").disabled = false;
         document.getElementById("Address").disabled = false;
 

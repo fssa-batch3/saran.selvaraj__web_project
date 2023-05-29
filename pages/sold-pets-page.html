@@ -87,15 +87,12 @@
   
 
 let pet_sold_seller_email = JSON.parse(localStorage.getItem("selleremail"));
-let new_card = JSON.parse(localStorage.getItem("new_card")).filter((e) => e.card_created_email === pet_sold_seller_email);
-console.log(new_card)
+let new_card = JSON.parse(localStorage.getItem("new_card")).filter((e) => e.card_created_email == pet_sold_seller_email);
 let user_email =localStorage.getItem("useremail");
 let admin_email =localStorage.getItem("adminemail");
 
 
 
-console.log(pet_sold_seller_email);
-console.log(new_card);
 for(let i = 0; i < new_card.length; i++){
 
 
