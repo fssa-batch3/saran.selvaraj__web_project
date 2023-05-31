@@ -47,16 +47,16 @@
       let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
       console.log(thispet);
       let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid);
-      let form = document.getElementById("form")
-      form.addEventListener("submit", function(event){
+      let checkout = document.getElementById("checkout")
+      checkout.addEventListener("click", function(event){
         event.preventDefault();
         let card_holder_name = document.getElementById("card_holder_name").value;
         let card_number = document.getElementById("card_Number").value;
         let expiry_Date =document.getElementById("expiry_Date").value;
         let cvv = document.getElementById("cvv").value;
 
-if(check == null || check == undefined ){
-localStorage.setItem("bought_pets",JSON.stringify(thispet))
+// if(check == null || check == undefined ){
+// localStorage.setItem("bought_pets",JSON.stringify(thispet))
 
         if (card_holder_name === "") {
           alert("Your name should not null")
@@ -75,9 +75,9 @@ localStorage.setItem("bought_pets",JSON.stringify(thispet))
            alert("Successfully bought the pet!")
            window.location.href=`./order-details-page.html?uuid=${thispet["uuid"]}`
         }
-      }else{
-        alert("You have already bought this pet!")
-      }
+      // }else{
+      //   alert("You have already bought this pet!")
+      // }
      
     });
 
