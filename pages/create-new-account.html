@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../assets/styles/create_new_account.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Pet Mall</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   </head>
+<body>
+  <div class="Whole-div">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="#" id="login_form">
+        <div class="admin-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" value="saran" id="full_name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{2,30}$" required >
+          </div>
+          <div class="input-box">
+            <span class="details">Last name</span>
+            <input type="text" value="selvaraj" id="last_name" pattern="^[a-zA-Z][a-zA-Z0-9]{1,20}$" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" value="saran@gmail.com"  title="Email should contain @ and .com to proceed"  id="email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" value="9876543210" id="phone" pattern="[0-9]{5}[0-9]{5}" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <div id="foricon">
+            <input type="password" class= "icon" value="Saran2004"  title="Password should contain atleast 8 characters and atleast One Capital letter, One Small letter, One Number."  id="pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+            <i className="icon" class="uil uil-eye-slash toggle" ></i>
+          </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" value="Saran2004" id="conpass" required>
+          </div>
+        </div>
+        
+        </div>
+        <div class="select_submit">
+        <select id="slt">  
+          <option value="user" id="user">User</option>
+          <option value="seller" id="seller">Seller</option> 
+      </select>
+      <input type="text" placeholder="other gender" id="other_gender" style="display: none;">
+          <button id="submit" class="submit">SUBMIT</button>
+        </div>
+        <div class="signup-link">Do you have an Account? <a href="../index.html">Login</a></div>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+<script>
+
+const toggle = document.querySelector(".toggle"),
+              inputs = document.querySelector("input.icon");
+              toggle.addEventListener("click", () =>{
+                  if(inputs.type ==="password"){
+                    inputs.type = "text";
+                    toggle.classList.replace("uil-eye-slash", "uil-eye");
+                  }else{
+                    inputs.type = "password";
+                    toggle.classList.replace("uil-eye", "uil-eye-slash");
+
+                  }
+              })
+
+let getelement  = JSON.parse(localStorage.getItem("User_data"))
+  
+  let Admin_data = [];
+  let User_data = [];
+  let Seller_data = []
+
+  let user_persona = localStorage.getItem("User_Personas")
+  console.log(user_persona)
+    let form = document.getElementById("login_form")
+    form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let data = {}
+    const firstname = document.getElementById("full_name").value;
+    const lastname = document.getElementById("last_name").value;
+    const phonenumber = document.getElementById("phone").value;
+    const emailaddress = document.getElementById("email").value;
+    const newpassword = document.getElementById("pass").value;
+    const confirmpassword = document.getElementById("conpass").value;
+    const select = document.getElementById("slt").value;
+    window.localStorage.setItem("user_persona",JSON.stringify(select));  
+
+    const uuid = self.crypto.randomUUID()
+    console.log(uuid)
+
+    data["full_name"] = firstname
+    data["last_name"] =  lastname
+    data["phone"] = phonenumber
+    data["email"] =emailaddress.toLowerCase()
+    data["password"] = newpassword
+    data["slt_value"] = select
+    data["user_persona"] = user_persona 
+    data["uuid"] = uuid
+
+
+
+
+let slt = document.getElementById("slt")
+let userdatas = JSON.parse(window.localStorage.getItem("User_data"));
+let sellerdatas = JSON.parse(window.localStorage.getItem("Seller_data"));
+
+
+if(slt.value === "user"){
+        useremailmatch()
+        passmatch()
+        localStorage.setItem("useremail", JSON.stringify(emailaddress));
+      }else{
+        selleremailmatch()
+        passmatch()
+        localStorage.setItem("selleremail", JSON.stringify(emailaddress));
+      }
+
+
+      function passmatch() {
+      if (newpassword !== confirmpassword) {
+        alert("password and confirm password does not match")
+        return true;
+      }
+    }
+    
+    function selleremailmatch() {
+     
+if(window.localStorage.getItem("Seller_data") === null){
+  Seller_data.push(data)
+  window.localStorage.setItem("Seller_data", JSON.stringify(Seller_data));
+  alert("Successfully registered")
+window.location.href = "./sold-pets-page.html"
+}else{
+  selleremail()
+      }
+    }
+
+    function selleremail(){
+    let ismatchs = false
+
+      for (let i = 0; i < sellerdatas.length; i++) {
+        if (sellerdatas[i]["email"] !== emailaddress) {
+          ismatchs = true;
+        }else{
+          ismatchs = false; 
+        }
+      }
+      if (ismatchs === false) {
+          alert("Email already exist")
+          return false;
+        }
+          storingasseller()
+        
+    }
+    function storingasseller(){
+ 
+      let Seller = JSON.parse(localStorage.getItem("Seller_data"));
+      Seller.push(data)
+      window.localStorage.setItem("Seller_data", JSON.stringify(Seller));
+      alert("Succesfully registered")
+
+      window.location.href="./home-page.html.html"
+    
+  }
+
+
+  
+  function useremailmatch() {
+     
+     if(window.localStorage.getItem("User_data") === null){
+       User_data.push(data)
+       window.localStorage.setItem("User_data", JSON.stringify(User_data));
+  alert("Successfully registered")
+     window.location.href = "./home-page.html"
+     }else{
+       useremail()
+     
+           }
+         }
+     
+         function useremail(){
+     let ismatchs = false
+     
+           for (let i = 0; i < userdatas.length; i++) {
+             if (userdatas[i]["email"] !== emailaddress) {
+               ismatchs = true;
+             }else{
+               ismatchs = false; 
+             }
+           }
+           if (ismatchs === false) {
+               alert("Email already exist")
+               return false;
+             }
+           
+               storingasuser()
+             
+         }
+
+  function storingasuser(){
+  
+      let User = JSON.parse(localStorage.getItem("User_data"));
+      User.push(data)
+      window.localStorage.setItem("User_data", JSON.stringify(User));
+      alert("Succesfully registered")
+
+      window.location.href="./home-page.html"
+    
+  }
+
+  });
+</script>
+</html>

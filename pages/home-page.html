@@ -1,550 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PET MALL</title>
-    <header>
-      <!-- <iframe src="../pages/navbar.html" frameborder="0" height="auto" width="1480px" class="navvvv"></iframe>  -->
-      <nav class="navbar">
-        <img class="logo-image" src="../assets/images/image.logo.png" alt="image"/>
-        <div class="nav-bar">
-          <div class="searchbar">
-            <div class="searchbar-wrapper">
-                <div class="searchbar-left">
-                    <div class="search-icon-wrapper">
-                        <span class="search-icon searchbar-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                                </path>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-        
-                <div class="searchbar-center">
-                    <div class="searchbar-input-spacer"></div>
-        
-                    <input type="text" class="searchbar-input" placeholder="SEARCH PETS">
-                </div>
-        
-                <div class="searchbar-right">
-                    <svg class="voice-search" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path  d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z">
-                        </path>
-                        <path  d="m11 18.08h2v3.92h-2z"></path>
-                        <path  d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z">
-                        </path>
-                        <path  d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z">
-                        </path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-          <div class="btns">
-            <button class="button" onclick="window.location.href ='./home-page.html'">HOME</button>
-            <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
-            <button class="button" onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
-            <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
-            <a class="acc" onclick="window.location.href ='./profile.html'"><img src="../assets/images/Account-Logo.svg" height="40px" width="40px" alt="account"></a>
-          </div>
-          <div class="dropdown">
-            <button class="dropbtn"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/220px-Hamburger_icon.svg.png" height="20px" width="20px" alt="menu-icon">
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content" style="font-size:25px; color:black;">
-              <a href="#">HOME</a>
-              <a href="#">SELL</a>
-              <a href="#">ORDER DETAILS</a>
-              <a href="#">ABOUT US</a>
-              <a href="#">ACCOUNT</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-  </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../assets/styles/home-page.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Pet Mall</title>
+</head>
 <body>
-  <!-- <div class="loading-image">
-  <img src="https://i.makeagif.com/media/8-23-2015/97VAUa.gif">
-</div> -->
+    
+    <section class="home">
+        <div class="text"><img src="../assets/images/image.logo.png" alt="logo-image"></div>
+        <div class="whole-card">
+       
+        </div>
+        <div>
+            <footer>
+              <div class="content">
+                <div class="top">
+                  <div class="logo-details">
+                    <i class="fab fa-slack"></i>
+                    <span class="logo_name">Pet Mall</span>
+                  </div>
+                  <div class="media-icons">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Freels%2FCrQVENlONIu%2F%3F__coig_login%3D1"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.14650114788_asid.150089839322_crid.656569072783_kw.www%20linkedin_d.c_tid.kwd-2246447582_n.g_mt.e_geo.9061971"><i class="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+                <div class="link-boxes">
+                  <ul class="box">
+                    <li class="link_name">Company</li>
+                    <li><a href="./home-page.html">Home</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Get started</a></li>
+                  </ul>
+                  <ul class="box">
+                    <li class="link_name">Services</li>
+                    <li><a href="#">App design</a></li>
+                    <li><a href="#">Web design</a></li>
+                    <li><a href="#">Logo design</a></li>
+                    <li><a href="#">Banner design</a></li>
+                  </ul>
+                  <ul class="box">
+                    <li class="link_name">Account</li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">My account</a></li>
+                    <li><a href="#">Prefrences</a></li>
+                    <li><a href="#">Purchase</a></li>
+                  </ul>
+                  <ul class="box">
+                    <li class="link_name">Courses</li>
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Photography</a></li>
+                    <li><a href="#">Photoshop</a></li>
+                  </ul>
+                  
+                </div>
+              </div>
+              <div class="bottom-details">
+                <div class="bottom_text">
+                  <span class="copyright_text">Copyright © 2021 <a href="#">CodingLab.</a>All rights reserved</span>
+                  <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                  </span>
+                </div>
+              </div>
+            </footer>
+        </div>
+    </section>
+    <script src="../JS_files/navbar.js"></script>
+    <script>
+
+
+
 
   
-  <div class="cats">
-    <img src="	https://i.gifer.com/XZ5K.gif" width="500px" height="400px">
-  <img src="https://cdnb.artstation.com/p/assets/images/images/045/352/753/original/naroe-cat-animate-gif-chat-2.gif?1642524845" width="300px" height="400px">
-  <img src="	https://media.baamboozle.com/uploads/images/197603/1623908962_500190.gif" width="500px" height="400px">
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-cat-image-1.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/cat-page-1.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-cat-image-2.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/cat-page-2.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-dog-image-1.jpg" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/DOG-page-1.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-dog-image-2.jpg" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/DOG-page-2.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-dog-image-3.jpg" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/DOG-page-3.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-birds-image-2.jpg" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/BIRDS-page-1.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-birds-image-3.jpg" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/BIRDS-page-2.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-fish-image-2.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/FISH-page-1.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-fish-image-3.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/FISH-page-1.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-rabbit-image-3.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/RABBIT-page-1.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-rabbit-image-5.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/RABBIT-page-2.html'" class="buttons">VIEW</button>
-    </div> -->
-    <!-- <div class="separate_divs" style="margin: 140px 0px 0px 50px">
-      <img class="cat-view" src="../../assets/images/buy-rabbit-image-6.png" alt="image" height="250px" width="300px">
-      <button onclick="window.location.href ='./CAT-PAGES/RABBIT-page-3.html'" class="buttons">VIEW</button>
-    </div> -->
 
-  </div>
-  <footer>
-    <a class="footer" href="">About us</a>
-    <a class="footer" href="">Contact us</a>
-    <a class="footer" href="">visit us</a>
-    <a class="footer" href="https://www.instagram.com/">Instagram</a>
-  <a class="footer" href="https://www.youtube.com/watch?v=jORreokUsco">Youtube</a>
-  </footer>
+let new_card = JSON.parse(localStorage.getItem("new_card"))
+
+let pet_sold_seller_email =localStorage.getItem("selleremail");
+let user_email =localStorage.getItem("useremail")
+let admin_email =localStorage.getItem("adminemail")
+
+
+for(let i = 0; i < new_card.length; i++){
+
+
+  
+let div_card = document.createElement("div");
+div_card.setAttribute("class","card");
+document.querySelector("div.whole-card").append(div_card);
+
+let div_img = document.createElement("div");
+div_img.setAttribute("class","imgBox");
+div_card.append(div_img);
+
+let image = document.createElement("img");
+image.setAttribute("src",new_card[i]["source"]);
+image.setAttribute("alt","pet");
+image.setAttribute("class","mouse");
+div_img.append(image)
+
+let div_contentBox = document.createElement("div");
+div_contentBox.setAttribute("class","contentBox");
+div_card.append(div_contentBox)
+
+let head3 = document.createElement("h3")
+head3.innerText = new_card[i]["pet_name_alt"]
+div_contentBox.append(head3)
+
+let head2 = document.createElement("h2")
+head2.setAttribute("class","price")
+head2.innerText ="Rs : " + new_card[i]["pet_price"]
+div_contentBox.append(head2)
+
+let anchor = document.createElement("a")
+anchor.setAttribute("href",`./details.html?uuid=${new_card[i]["uuid"]}`);
+anchor.setAttribute("class","buy")
+anchor.innerText = "Buy Now"
+div_contentBox.append(anchor)
+
+
+if(pet_sold_seller_email === new_card[i]["card_created_email"] ){
+
+let button_div = document.createElement("div")
+button_div.setAttribute("class","edit_delete")
+div_contentBox.append(button_div)
+
+let edit = document.createElement("a")
+edit.setAttribute("href",`./update_pet_card.html?uuid=${new_card[i]["uuid"]}`);
+edit.setAttribute("class","update")
+edit.innerText = "Edit"
+button_div.append(edit)
+
+let deletes = document.createElement("a")
+deletes.setAttribute("href","./home-page.html");
+deletes.setAttribute("class","delete")
+deletes.setAttribute("uuid",new_card[i]["uuid"])
+deletes.innerText = "Delete"
+button_div.append(deletes)
+
+deletes.addEventListener("click", function () {
+          if (confirm("Are you sure?")) {
+            let jsonData = JSON.parse(window.localStorage.getItem("new_card"));
+            let uuid = deletes.getAttribute("uuid");
+            console.log(uuid);
+            let indexOf = jsonData.findIndex((obj) => obj.uuid === uuid);
+            console.log(indexOf);
+            jsonData.splice(indexOf, 1);
+
+            window.localStorage.setItem("new_card",JSON.stringify(jsonData));
+            window.location.href = "./home-page.html";
+          }
+        });
+        break;
+}
+}
+
+
+
+
+    </script>
+
 </body>
-<script>
-
-// $(window).on("load",function(){
-//   $("div.loading-image").fadeOut("slow")
-// })
-
-const arrayOfDetails = [
-  {
-    "image":{source: "../assets/images/buy-cat-image-1.png",
-             alt:"cat-1"}   
-},
-{
-    "image":{source:"../assets/images/buy-cat-image-2.jpg",
-             alt:"cat-2"}
-},
-{
-    "image":{source:"../assets/images/buy-dog-image-1.jpg",
-             alt:"dog-1"}
-},
-{
-    "image":{source:"../assets/images/buy-dog-image-2.jpg",
-             alt:"dog-2"}
-},
-{
-    "image":{source:"../assets/images/buy-dog-image-3.jpg",
-             alt:"dog-3"}
-},
-{
-    "image":{source:"../assets/images/buy-birds-image-1.jpg",
-             alt:"bird-1"}
-},
-{
-    "image":{source:"../assets/images/buy-birds-image-2.jpg",
-             alt:"bird-2"}
-},
-{
-    "image":{source:"../assets/images/buy-fish-image-1.jpg",
-             alt:"fish-1"}
-},
-{
-    "image":{source:"../assets/images/buy-fish-image-2.png",
-             alt:"fish-2"}
-},
-{
-    "image":{source:"../assets/images/buy-rabbit-image-1.png",
-             alt:"rabbit-1"}
-},
-{
-    "image":{source:"../assets/images/buy-rabbit-image-2.png",
-             alt:"rabbit-2"}
-            },
-{
-    "image":{source:"../assets/images/buy-rabbit-image-3.png",
-              alt:"rabbit-3"}
-            }
-]
-          
-// let create_card = JSON.parse(localStorage.getItem("new_card"));
-// console.log(create_card);
-
-// for(let i = 0; i < create_card.length; i++ ){
-//   arrayOfDetails.push("create_card")
-//   console.log()
-
-// }
-
-
-for(let i = 0; i < arrayOfDetails.length; i++){
-
-  const details = arrayOfDetails[i]
-
-  console.log(details["image"])
-
-const separate_div = document.createElement("div");
-separate_div.setAttribute("class","separate_divs");
-document.querySelector("div.cats").append(separate_div);
-
-const view_image = document.createElement("a");
-view_image.setAttribute("onclick","window.location.href ='./pet-page.html'");
-separate_div.append(view_image);
-
-const div_image = document.createElement("img");
-div_image.setAttribute("class","cat-view");
-div_image.setAttribute("src",details["image"]["source"]);
-div_image.setAttribute("alt",details["image"]["alt"]);
-div_image.setAttribute("height","200px");
-div_image.setAttribute("width","250px");
-view_image.append(div_image);
-
-
-}
-
-
-
-</script>
-
 </html>
-<style>
-  body {
-    background-color: rgb(255, 255, 255);
-    margin: 0px;
-    justify-content: center;
-  }
-  :root{
-    background-color: rgb(255, 255, 255);
-  }
-  .logo-image {
-    width: 200px;
-    height: 100px;
-    border-radius: 5px;
-    margin-left: 20px;
-  }
-
-  .cats{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin:0px 0px;
-  }
-
-  .separate_divs{
-    display:flex;
-    flex-wrap: wrap;
-    margin:100px 0px 0px 50px;
-  }
-
-  .cat-view{
-
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 10px #569dfa;
-    margin: 20px 0px;
-
-  }
-  .btns{
-    margin-left:0px;
-    display:flex;
-    }
-  .searchbar {
-  font-size: 14px;
-  font-family: arial, sans-serif;
-  color: #202124;
-  display: flex;
-  z-index: 3;
-  height: 44px;
-  background: white;
-  border: 1px solid #dfe1e5;
-  box-shadow: none;
-  border-radius: 24px;
-  margin: 0 130px;
-  width:500px;
-}
-
-.searchbar:hover {
-  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
-  border-color: rgba(223,225,229,0);
-}
-
-.searchbar-wrapper {
-  flex: 1;
-  display: flex;
-  padding: 5px 8px 0 14px;
-}
-
-.searchbar-left {
-  font-size: 14px;
-  font-family: arial, sans-serif;
-  color: #202124;
-  display: flex;
-  align-items: center;
-  padding-right: 13px;
-  margin-top: -5px;
-}
-
-.search-icon-wrapper {
-  margin: auto;
-}
-
-.search-icon {
-  margin-top: 3px;
-  color: #1877f2;
-  height:0px;
-  line-height: 20px;
-  width: 0px;
-}
-
-.searchbar-icon {
-  display: inline-block;
-  fill: currentColor;
-  height: 24px;
-  line-height: 24px;
-  width: 24px;
-}
-
-.searchbar-center {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-}
-
-.searchbar-input-spacer {
-  color: transparent;
-  flex: 100%;
-  white-space: pre;
-  height: 34px;
-  font-size: 16px;
-}
-
-.searchbar-input {
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  color: rgba(0, 0, 0, .87);
-  word-wrap: break-word;
-  outline: none;
-  display: flex;
-  flex: 100%;
-  margin-top: -37px;
-  height: 34px;
-  font-size: 16px;
-  max-width: 100%;
-  width:auto;
-}
-
-.searchbar-right {
-  display: flex;
-  flex: 0 0 auto;
-  margin-top: -5px;
-  align-items: stretch;
-  flex-direction: row
-}
-
-.searchbar-clear-icon {
-  margin-right: 12px
-}
-
-.voice-search {
-  flex: 1 0 auto;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  border: 0;
-  background: transparent;
-  outline: none;
-  padding: 0 8px;
-  width: 2.8em;
-}
-  .navbar {
-    height: 100px;
-    display: flex;
-    background-color: rgb(230, 229, 232);
-    width:1460px;
-    z-index: 100;
-    border-radius: 100px;
-    margin:25px 0px 0px 10px;
-  }
-  .nav-bar {
-    display: flex;
-    align-items: center;
-  }
-  .button {
-    border: none;
-    background-color:transparent;
-    cursor:pointer;
-    font-size: 19px;
-    color:#1877f2;
-  }
-  .button:hover {
-    border-bottom: 5px solid #1877f2;
-  }
-  #rabbit{
-    border: 2px black solid;
-  }
-  footer {
-    display: flex;
-    padding: 40px 0px 40px 420px ;
-    margin: 100px 0px 25px 0px;
-    font-size: 30px;
-    background-color: #8bb7ef;
-    border-radius: 100px;
-
-  }
-  .footer{
-    padding:0px 10px 0px 10px;
-    color:black;
-    text-decoration: none;
-  }
-
-  .account {
-    border: 5px solid rgb(130, 245, 220);
-    border-radius: 20px;
-    margin:100px 0px 200px 600px;
-    width: 450px;
-  }
-  
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-.dropbtn{
-margin-left:0px;
-height: 200px;
-width:200px;
-display:none;
-}
-.dropdown .dropbtn {
-  font-size: 30px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin-left:350px;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color:white;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-left:380px ;
-}
-
-.dropdown-content a {
-  float:none; 
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display:block;
-  text-align:center ;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-  @media screen and (max-width:1000px){
-    body{
-      font-size:0px;
-    }
-    .navbar{
-     margin-top:25px;
-     padding: 0px;
-     width:auto;
-     height:100px;
-     text-align: center;
-     display: flex;
-     margin-left: 20px;
-    }
-    .btns{
-      margin-left:0px;
-    }
-    .logo-image{
-      width: 200px;
-    height: 100px;
-    border-radius: 5px;
-    margin:0px;
-    margin-left: 70px;
-    }
-    .cats{
-      margin-top:150px;
-      margin-left: 50px;
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .button{
-      display:initial;
-      margin-left:0px;
-    }
-    .separate_divs{
-      margin:0px 0px 50px 0px;
-    }
-    .cat-view{
-      width: 300px;
-      height: 200px;
-      box-shadow: 0px 0px 10px 10px rgb(255, 136, 0);
-      margin: 20px 20px;
-
-    }
-    .buttons{
-      width: 300px;
-      height: 50px;
-      font-size: 25px;
-      box-shadow: 0px 0px 10px 10px rgb(255, 136, 0);
-      margin: 15px 0px 50px 20px;
-    }
-    .searchbar{
-      text-align: center;
-      width: 350px;
-      height: 50px;
-      border-radius: 100px;
-      font-size: 50px;
-      margin: 0px 200px 0px 200px;
-
-    }
-    .searchbar-center{
-      width: 150px;
-      height:auto;
-      font-size:0px;
-    }
-    .searchbar-icon{
-      height: 50px;
-      width: 50px;
-    }
-    .dropbtn{
-      display:none;
-
-    }
-  }
-</style>

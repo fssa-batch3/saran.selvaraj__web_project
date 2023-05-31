@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <title>Pet Mall</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <img
+          src="../assets/images/image.logo.png"
+          height="150px"
+          width="300px"
+          alt="logo_img"
+        />
+      </div>
+      <div class="wrapper">
+        <div class="title"><span>Seller Login Form</span></div>
+        <form action="#" id="form">
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="email"
+              placeholder="Enter your Email"
+              
+            />
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              
+            />
+          </div>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" value="Login" />
+          </div>
+          <div class="signup-link">
+            Not a member? <a href="./sign-up.html">Signup now</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    let form = document.getElementById("form");
+
+    let seller = JSON.parse(localStorage.getItem("Seller_data"));
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      let ismatch = false
+      for (let i = 0; i < seller.length; i++) {
+        if (
+          email === seller[i]["email"] &&
+          password === seller[i]["password"]
+        ) {
+          ismatch = true
+        } else {
+          ismatch = false
+        }
+      }
+     if(email === "" || password === ""){
+      alert("There is no input value !");
+}else{
+      if(ismatch === true){
+        alert("Login successfully completed !");
+          window.location.href = "./home-page.html";
+      }else{
+        alert("Email or password incorrect");
+      }
+} 
+      window.localStorage.setItem("selleremail",JSON.stringify(email));
+      
+    });
+
+  </script>
+</html>

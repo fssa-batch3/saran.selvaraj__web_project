@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../assets/styles/home-page.css" />
+
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/order-details.css" />
+
+    <title>Pet Mall</title>
+    <!--<title>Dashboard Sidebar Menu</title>-->
+  </head>
+  <body>
+   
+    <section class="home">
+      <div class="text">
+        <img src="../assets/images/image.logo.png" alt="logo-image" />
+      </div>
+      <div class="buy_div">
+        <div>Total : <a class="total" id="total"></a></div>
+        <button class="buy_btn" type="submit" id="buy_btn">Buy All</button>
+      </div>
+      <div class="no_item">
+
+      </div>
+      <div class="whole-card"></div>
+      <div>
+        <footer>
+          <div class="content">
+            <div class="top">
+              <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name">Pet Mall</span>
+              </div>
+              <div class="media-icons">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Freels%2FCrQVENlONIu%2F%3F__coig_login%3D1"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.14650114788_asid.150089839322_crid.656569072783_kw.www%20linkedin_d.c_tid.kwd-2246447582_n.g_mt.e_geo.9061971"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+            <div class="link-boxes">
+              <ul class="box">
+                <li class="link_name">Company</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Get started</a></li>
+              </ul>
+              <ul class="box">
+                <li class="link_name">Services</li>
+                <li><a href="#">App design</a></li>
+                <li><a href="#">Web design</a></li>
+                <li><a href="#">Logo design</a></li>
+                <li><a href="#">Banner design</a></li>
+              </ul>
+              <ul class="box">
+                <li class="link_name">Account</li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Prefrences</a></li>
+                <li><a href="#">Purchase</a></li>
+              </ul>
+              <ul class="box">
+                <li class="link_name">Courses</li>
+                <li><a href="#">HTML & CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">Photography</a></li>
+                <li><a href="#">Photoshop</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bottom-details">
+            <div class="bottom_text">
+              <span class="copyright_text"
+                >Copyright © 2021 <a href="#">CodingLab.</a>All rights
+                reserved</span
+              >
+              <span class="policy_terms">
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms & condition</a>
+              </span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <script src="../JS_files/navbar.js"></script>
+
+    <script>
+
+
+      let urlparams = new URLSearchParams(window.location.search);
+      let thisid = urlparams.get("uuid");
+      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
+
+      let checking = JSON.parse(localStorage.getItem("add_to_cart"));
+      let addtocart = [];
+      addtocart.push(thispet);
+      if (checking === null || checking === undefined) {
+        window.localStorage.setItem("add_to_cart", JSON.stringify(addtocart));
+      } else {
+        let check = JSON.parse(localStorage.getItem("add_to_cart")).find((e) => e.uuid == thisid );
+        if (check === null || check === undefined) {
+            let json = JSON.parse(window.localStorage.getItem("add_to_cart"));
+            json.push(thispet);
+            window.localStorage.setItem("add_to_cart", JSON.stringify(json));
+          }else if(thispet["uuid"] === check["uuid"] ){
+           let div_not_item = document.getElementsByClassName("div.not_item");
+           div_not_item.innerText = "No item in the cart"
+          }
+        }
+        let total_calculate = 0;
+      
+
+      let add_to_cart = JSON.parse(localStorage.getItem("add_to_cart"));
+
+      for (let i = 0; i < add_to_cart.length; i++) {
+        let div_card = document.createElement("div");
+        div_card.setAttribute("class", "card");
+        document.querySelector("div.whole-card").append(div_card);
+
+        let div_img = document.createElement("div");
+        div_img.setAttribute("class", "imgBox");
+        div_card.append(div_img);
+
+        let image = document.createElement("img");
+        image.setAttribute("src", add_to_cart[i]["source"]);
+        image.setAttribute("alt", "pet");
+        image.setAttribute("class", "mouse");
+        div_img.append(image);
+
+        let div_contentBox = document.createElement("div");
+        div_contentBox.setAttribute("class", "contentBox");
+        div_card.append(div_contentBox);
+
+        let head3 = document.createElement("h3");
+        head3.innerText = add_to_cart[i]["pet_name_alt"];
+        div_contentBox.append(head3);
+
+        let head2 = document.createElement("h2");
+        head2.setAttribute("class", "price");
+        head2.innerText = "Rs : " + add_to_cart[i]["pet_price"];
+        div_contentBox.append(head2);
+
+        total_calculate += add_to_cart[i]["pet_price"] * 1;
+
+        let anchor = document.createElement("a");
+        anchor.setAttribute(
+          "href",
+          `./details.html?uuid=${add_to_cart[i]["uuid"]}`
+        );
+        anchor.setAttribute("class", "buy");
+        anchor.innerText = "Buy Now";
+        div_contentBox.append(anchor);
+
+        let anchor_remove_from_cart = document.createElement("a");
+        anchor_remove_from_cart.setAttribute(
+          "href",
+          `./details.html?uuid=${add_to_cart[i]["uuid"]}`
+        );
+        anchor_remove_from_cart.setAttribute("class", "buy");
+        anchor_remove_from_cart.innerText = "Remove cart";
+        div_contentBox.append(anchor);
+
+        let totalamount = document.getElementById("total");
+      totalamount.innerHTML = total_calculate
+      }
+
+      let buy_total = document.getElementById("buy_btn");
+      buy_total.addEventListener("click", function (e) {
+        localStorage.removeItem(0)
+        window.location.href=`./buy-now.html?uuid=${thispet["uuid"]}`
+      });
+
+     
+    </script>
+  </body>
+</html>

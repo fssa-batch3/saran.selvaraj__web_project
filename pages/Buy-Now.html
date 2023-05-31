@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOG</title>
-    <header>
-        <nav class="navbar">
-          <img class="logo-image" src="../../assets/images/image.logo.png" alt="image"/>
-          <div class="nav-bar">
-            <div style="display: flex">
-              <input
-                class="search-bar"
-                type="text"
-                placeholder="search..."
-                style="margin: 0px 0px 0px 10px; width: 225px; height: 45px; flex: 1; padding-right: 500px;"/>
-              <button class="searchbar">
-                <img class="searchicon" src="../../assets/images/search-icon.png"  alt="image"/>
-              </button>
-            </div>
-            <div>
-              <button class="button" style="margin: 0px 0px 0px 100px" onclick="window.location.href ='./home-page.html'">HOMEPAGE</button>
-              <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
-            <button class="button" onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
-            <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
-            <button class="button" onclick="window.location.href ='./account-page.html'">ACCOUNT</button>
-            </div>
-          </div>
-        </nav>
-      </header>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/styles/buy-now.css">
+  <link rel="stylesheet" href="../assets/styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+
 </head>
-<body> 
-</body>
-</html>
-<style>
-    body {
-   background-color: rgb(255, 136, 0);
-   color: black;
-   margin: 0px;
-    }
-    .logo-image {
-    width: 200px;
-    height: 100px;
-    border-radius: 5px;
-    margin-left: 20px;
-  }
-  .search-bar {
-    background-color: white;
-    border: 2px solid black;
-    align-items: center;
-  }
-  .searchbar {
-    height: 30px;
-    border-radius: 5px;
-  }
-  .buttons{
-    background-color: rgb(255, 136, 0);
-    color:white;
-    border-radius: 5px;
-    width:250px;
-    padding:10px;
-    margin:8px;
-  }
-  .searchicon {
-    height: 46px;
-    width: 50px;
-    border: 2px solid black;
-    margin-left: -7px;
-  }
-  .navbar {
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    background-color: rgb(230, 229, 232);
-    width: 1635px;
-    z-index: 100;
-    border-radius: 5px;
-  }
-  .nav-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  button {
-    border: none;
-    background-color: rgb(230, 229, 232);
-    cursor: pointer;
-  }
-  .button:hover {
-    border-bottom: 5px solid rgb(130, 245, 220);
-  }
-  
-  </style>
+<body>
+ 
+  <div class="modal">
+    <form class="form" id="form">
+      <div class="payment--options"> 
+      </div>
+      <div class="credit-card-info--form">
+        <div class="input_container">
+          <label for="password_field" class="input_label">Card holder full name</label>
+          <input id="card_holder_name" class="input_field"  type="text" name="input-name" title="Inpit title" value="saran s">
+        </div>
+        <div class="input_container">
+          <label for="password_field" class="input_label">Card Number</label>
+          <input id="card_Number" class="input_field" type="text" name="input-name" pattern="[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}" title="Inpit title" value="9876 9876 9876 9876">
+        </div>
+        <div class="input_container">
+          <label for="password_field"  class="input_label">Expiry Date / CVV</label>
+          <div class="split">
+          <input id="expiry_Date" class="input_field" type="month" name="input-name" title="Expiry Date" value="01/23">
+          <input id="cvv" class="input_field" type="password" name="cvv" title="CVV" value="375">
+        </div>
+        </div>
+      </div>
+        <button class="purchase--btn" type="submit" id="checkout">Checkout</button>
+        <button class="purchase--btn" id="buy_with_emi">Buy with EMI</button>
+    </form>
+    </div>
+  </body>
+
+<script>
+
+      let urlparams = new URLSearchParams(window.location.search);
+      let thisid = urlparams.get("uuid");
+      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
+      console.log(thispet);
+      let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid);
+      let checkout = document.getElementById("checkout")
+      checkout.addEventListener("click", function(event){
+        event.preventDefault();
+        let card_holder_name = document.getElementById("card_holder_name").value;
+        let card_number = document.getElementById("card_Number").value;
+        let expiry_Date =document.getElementById("expiry_Date").value;
+        let cvv = document.getElementById("cvv").value;
+
+// if(check == null || check == undefined ){
+// localStorage.setItem("bought_pets",JSON.stringify(thispet))
+
+        if (card_holder_name === "") {
+          alert("Your name should not null")
+
+        }else if(card_number === "" ){
+          alert("card number should not be null")
+        }else if(card_number < 16 ){
+          alert("card number should not be less than 16")
+        }else if(expiry_Date === ""){
+          alert("Expiry date should not be null")
+        }else if(cvv === ""){
+          alert("Cvv should not be null")
+        }else if(cvv < 3){
+          alert("Cvv should not be less than or greater than 3")
+        }else{
+           alert("Successfully bought the pet!")
+           window.location.href=`./order-details-page.html?uuid=${thispet["uuid"]}`
+        }
+      // }else{
+      //   alert("You have already bought this pet!")
+      // }
+     
+    });
+
+    let buy_with_emi = document.getElementById("buy_with_emi");
+    buy_with_emi.addEventListener("click",function(e) {
+      window.location.href="../pages/EMI.html"
+    })
+
+  </script>
+  </html>
+

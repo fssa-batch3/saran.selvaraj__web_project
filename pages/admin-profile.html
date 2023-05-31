@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/home-page.css">
+    <link rel="stylesheet" href="../assets/styles/profile.css">
+  </head>
+
+  <body>
+
+    <section class="home">
+    <div class="customer-details">
+      <form id = "profile-form" class="account">
+        <div>
+          <div class="first-name">First-name</div>
+          <input type="text" id="Full-name" class="first-nam" disabled></input>
+
+          <div class="first-name">User-name</div>
+          <input type="text" id="Last-name" class="first-nam" disabled></input>
+
+          <div class="first-name">Email</div>
+          <input type="email" id="Email" class="first-nam" disabled></input>
+
+          <div class="first-name">Phonenumber</div>
+          <input type="number" id="Phonenumber" class="first-nam" disabled></input>
+
+          <div class="first-name">Address</div>
+          <!-- <input type="textarea" id="Address" class="first-nam"></input> -->
+          <textarea rows="4" cols="60" id="Address"  disabled>
+            </textarea>
+        </div>
+        <button id = "edit" type="submit" onclick="edit" class="edit-save-delete">Edit</button>
+        <button id = "save" class="edit-save-delete">Save</button>
+        <button id = "deletes" onclick="Delete" class="edit-save-delete">Delete</button>
+      </form>
+    </div>
+    </section>
+  </body>
+  <script src="../JS_files/navbar.js"></script>
+  <script>
+
+
+      let Email = JSON.parse(window.localStorage.getItem("adminemail"))
+      let details = JSON.parse(window.localStorage.getItem("Admin_data"))//if (userpers===seller){
+      let user_profile = details.find(e => e["email"] == Email)
+    
+      
+      let save = document.getElementById("save");
+      let edit = document.getElementById("edit");
+      let deletes = document.getElementById("deletes")
+      
+      let full_name = document.getElementById("Full-name").value = user_profile["full_name"];
+      let last_name = document.getElementById("Last-name").value = user_profile["last_name"];
+      let email = document.getElementById("Email").value = user_profile["email"];
+      let phone = document.getElementById("Phonenumber").value = user_profile["phone"];
+      let Address = document.getElementById("Address").value = user_profile["Address"];
+      
+    edit.addEventListener("click",function (event){
+    event.preventDefault()
+    let inputs = document.getElementById("Full-name");
+    if (inputs.disabled) {
+        document.getElementById("Full-name").disabled = false;
+        document.getElementById("User-name").disabled = false;
+        document.getElementById("Email").disabled = false;
+        document.getElementById("Phonenumber").disabled = false;
+        document.getElementById("Address").disabled = false;
+
+    }
+    else {
+      document.getElementById("Full-name").disabled = true;
+        document.getElementById("User-name").disabled = true;
+        document.getElementById("Email").disabled = true;
+        document.getElementById("Phonenumber").disabled = true;
+        document.getElementById("Address").disabled = true;
+    }
+
+    save.addEventListener("click",function(event){
+    event.preventDefault()
+    let full_name = document.getElementById("Full-name").value;
+    let last_name = document.getElementById("Last-name").value;
+    let email = document.getElementById("Email").value;
+    let phone = document.getElementById("Phonenumber").value;
+    let Address = document.getElementById("Address").value;    
+
+    let edited_details = {}
+    edited_details["full_name"] = full_name;
+    edited_details["user_name"] = user_name;
+    edited_details["email"] = email;
+    edited_details["phone"] = phone;
+    edited_details["Address"] = Address;
+
+    let ismatch = false
+    if(Email === edited_details["email"]){
+     ismatch = true
+    }else{
+      ismatch = false
+    } 
+    if(ismatch = true){
+      let combine = Object.assign(user_profile,edited_details);
+
+let userindex = details.indexOf(user_profile)
+console.log(userindex)
+details[userindex] = combine;
+
+window.localStorage.setItem("Admin_data",JSON.stringify(details))
+
+alert("Successfully updated your profile")
+       
+    }else{
+      alert("You can't change the email")
+    }
+    });
+});
+
+
+deletes.addEventListener("click", function (event){
+ event.preventDefault();
+
+ let index = details.indexOf(user_profile);
+ let failed = confirm("Cofirm to delete this");
+ if(failed !== true){
+ return;
+ }else{
+  details.splice(index, 1);
+  localStorage.setItem("userdata", JSON.stringify(details));
+  window.location.href = "./home-page.html"
+ }
+
+});
+
+
+
+  </script>
+
+</html>
+

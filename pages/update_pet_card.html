@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PET MALL</title>
+    <link rel="stylesheet" href="../assets/styles/sell-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+  </head>
+  <body>
+    <div class="container">
+      <header>Update your Pet's Detail</header>
+
+      <form id="seller_form">
+          <div class="form first">
+              <div class="details personal">
+                  <span class="title">Personal Details</span>
+
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>ADD IMAGE</label>
+                          <input type="url"  id="pet_img" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Real Name : </label>
+                          <input type="text" id="pet_name_alt" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Personal Name</label>
+                          <input type="text" id="pet_personal_name" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>DOB of the pet</label>
+                          <input type="text" id="dob_pet" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Special talent</label>
+                          <input type="text" id="special_talent" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Behavior</label>
+                          <input type="text" id="behavior" disabled>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="details ID">
+
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>Character</label>
+                          <input type="text" id="character" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Pets price</label>
+                          <input type="text" id="pet_price" disabled>
+                      </div>
+
+                      <div class="input-field">
+                          <label>Contact</label>
+                          <input type="text" id="seller_contact" disabled>
+                      </div>
+
+                      
+                  </div>
+                  <div class="buttons">
+                  
+                  <button class="nextBtn" id = "edit" type="submit" onclick="edit" class="edit-save-delete">Edit</button>
+                  <button class="nextBtn" id = "save" class="edit-save-delete">Save</button>
+                  <button class="nextBtn" onclick="window.location.href='./home-page.html'" class="edit-save-delete">Back</button>
+                  
+              </div>
+              </div> 
+          </div>
+
+          
+
+          </div>
+      </form>
+  </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> 
+  
+  <script>
+
+
+      let save = document.getElementById("save");
+      let edit = document.getElementById("edit");
+     
+
+      let new_card = JSON.parse(localStorage.getItem("new_card")) 
+      let logged_seller_email = localStorage.getItem("selleremail");
+        let urlparams = new URLSearchParams(window.location.search);
+      let thisid = urlparams.get('uuid');
+      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid === thisid);
+
+        let updates = {};
+        let pet_img = document.getElementById("pet_img").value = thispet["source"];
+        let pet_name_alt = document.getElementById("pet_name_alt").value = thispet["pet_name_alt"];
+        let personal_name = document.getElementById("pet_personal_name").value  = thispet["personal_name"];
+        let dob_pet = document.getElementById("dob_pet").value = thispet["dob_pet"];
+        let special_talent = document.getElementById("special_talent").value = thispet["special_talent"];
+        let behavior = document.getElementById("behavior").value = thispet["behavior"];
+        let character = document.getElementById("character").value = thispet["character"];
+        let pet_price = document.getElementById("pet_price").value = thispet["pet_price"];
+        let contact = document.getElementById("seller_contact").value = thispet["contact"];
+      
+
+edit.addEventListener("click",function (event){
+    event.preventDefault()
+    document.getElementById("pet_img").disabled = false
+    document.getElementById("pet_name_alt").disabled = false
+    document.getElementById("pet_personal_name").disabled = false
+    document.getElementById("dob_pet").disabled = false
+    document.getElementById("special_talent").disabled = false
+    document.getElementById("behavior").disabled = false
+    document.getElementById("character").disabled = false
+    document.getElementById("pet_price").disabled = false
+    document.getElementById("seller_contact").disabled = false
+
+})
+
+save.addEventListener("click",function(event){
+    event.preventDefault()
+    let pet_img = document.getElementById("pet_img").value;
+    let pet_name_alt = document.getElementById("pet_name_alt").value;
+    let personal_name = document.getElementById("pet_personal_name").value;
+    let dob_pet = document.getElementById("dob_pet").value;
+    let special_talent = document.getElementById("special_talent").value;
+    let behavior = document.getElementById("behavior").value;
+    let character = document.getElementById("character").value;
+    let pet_price = document.getElementById("pet_price").value;
+    let contact = document.getElementById("seller_contact").value
+
+        let updates = {}
+
+
+        updates["source"] = pet_img;
+        updates["pet_name_alt"] = pet_name_alt;
+        updates["personal_name"] = personal_name;
+        updates["dob_pet"] = dob_pet;
+        updates["special_talent"] = special_talent;
+        updates["behavior"] = behavior;
+        updates["character"] = character;
+        updates["pet_price"] = pet_price;
+        updates["contact"] = contact;
+        updates["card_created_email"] = logged_seller_email
+        updates["uuid"]= thisid;
+        
+        let combine = Object.assign(updates,thispet)
+        console.log(combine)
+        let cardindex = new_card.indexOf(thispet);
+        console.log(cardindex)
+        new_card[cardindex] = combine;
+
+        window.localStorage.setItem("new_card",JSON.stringify(new_card))
+        alert("successfully updated your pet's details")
+        window.location.href = "./home-page.html"
+ });    
+
+
+ 
+        
+    
+
+  </script>
+ 
+</html>
+ 

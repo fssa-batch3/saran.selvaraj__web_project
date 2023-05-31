@@ -1,0 +1,27 @@
+{
+  "name": "pet_mall",
+  "version": "1.0.0",
+  "description": "I created this website for buying and selling a pet for you in my website there is a interesting feature is there \r that is introducing emi system to buy pets <br>\r  <a href=\"https://drive.google.com/drive/u/0/folders/1FSxHTmsoCz5ibuJJf9kfhPs4cypCDUPr\">problem statement drive</a><br>\r  <a href=\"https://only4pets.com/\">Marketing research</a><br>\r  <a href=\"https://drive.google.com/drive/u/0/folders/1fbYdPPxEcfrrSNDm6HAPNBnQ-NHVSfIr\">user flow</a><br>\r  <a href=\"https://drive.google.com/drive/u/0/folders/1TjlvoOOy5uS2iV6FcNz_6t8DX-HdsDIL\">wireframe</a><br>\r  <a href=\"https://sonarcloud.io/project/overview?id=fssa-batch3_saran.selvaraj__web_project\">Sonar cloud</a>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fssa-batch3/saran.selvaraj__web_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fssa-batch3/saran.selvaraj__web_project/issues"
+  },
+  "homepage": "https://github.com/fssa-batch3/saran.selvaraj__web_project#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "sweetalert": "^2.1.2"
+  }
+}

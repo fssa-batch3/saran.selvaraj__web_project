@@ -5,146 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PET MALL</title>
-    <header>
-      <nav class="navbar">
-        <img class="logo-image" src="../../assets/images/image.logo.png" alt="image"/>
-        <div class="nav-bar">
-          <div style="display: flex">
-            <input class="search-bar" type="text" placeholder="search..." style="margin: 0px 0px 0px 100px;width: 210px;height: 45px;flex: 1;padding-right: 500px;"/>
-            <button class="searchbar">
-              <img class="searchicon" src="../../assets/images/search-icon.png" alt="image"/>
-            </button>
-          </div>
-          <div>
-            <button class="button" style="margin: 0px 0px 0px 100px" onclick="window.location.href ='./home-page.html'">HOMEPAGE</button>
-            <button class="button" onclick="window.location.href ='./sell-page.html'">SELL</button>
-            <button class="button" onclick="window.location.href ='./order-details-page.html'">ORDER DETAILS</button>
-            <button class="button" onclick="window.location.href ='./about-us-page.html'">ABOUT US</button>
-            <button class="button" onclick="window.location.href ='./account-page.html'">ACCOUNT</button>
-          </div>
-        </div>
-      </nav>
-    </header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/home-page.css">
+    <link rel="stylesheet" href="../assets/styles/order-details.css">
+      
   </head>
   <body>
-  <div>  
-    <div class="order">
-     <img class="image" src="../assets/images/buy-cat-image-1.png" alt="image" width="100px" height="100px" >
-      <div class="text">₹5000</div>
-      <div class="text">12:30AM</div>
-      <div class="text">Order Will be delivered on 24 dec</div>
-    </div>
-    <div class="order">
-      <img class="image" src="../assets/images/buy-dog-image-2.jpg" alt="image" width="100px" height="100px" >
+    <section class="home">
+      <div class="text">
+        <img src="../assets/images/image.logo.png" alt="logo-image" />
+      </div>
+      <div class="no_item">
 
-       <div class="text">₹5000</div>
-       <div class="text">12:30AM</div>
-       <div class="text">Order Will be delivered on 24 dec</div>
-     </div>
-     <div class="order">
-      <img class="image" src="../assets/images/buy-fish-image-3.png" alt="image" width="100px" height="100px" >
-
-       <div class="text">₹5000</div>
-       <div class="text">12:30AM</div>
-       <div class="text">Order Will be delivered on 24 dec</div>
-     </div>
-     <div class="order">
-      <img class="image" src="../assets/images/buy-birds-image-4.jpg" alt="image" width="100px" height="100px" >
-
-       <div class="text">₹5000</div>
-       <div class="text">12:30AM</div>
-       <div class="text">Order Will be delivered on 24 dec</div>
-     </div>
-  </div>
+      </div>
+      <div class="whole-card" id="div"></div>
+      <div>
+      </section>
+      
   </body>
-  <footer style="display:flex; flex-direction:row;">
-    <a class="footer" href="">About us</a>
-    <a class="footer" href="">Contact us</a>
-    <a class="footer" href="">visit us</a>
-    <a class="footer" href="">Instagram</a>
-    <a class="footer" href="">Youtube</a>
-  </footer>
-</html>
-  <style>
-     body {
-    background-color: rgb(255, 136, 0);
-    background-size: 1670px 2100px;
-    margin: 0px;
-  }
-  :root{
-    background-color: rgb(255, 255, 255);
-  }
-  .logo-image {
-    width: 200px;
-    height: 100px;
-    border-radius: 5px;
-  }
-  .search-bar {
-    background-color: white;
-    border: 2px solid black;
-    align-items: center;
-  }
-  .searchbar {
-    height: 30px;
-    border-radius: 5px;
-  }
-  .searchicon {
-    height: 46px;
-    width: 50px;
-    border: 2px solid black;
-    margin-left: -7px;
-  }
-  .navbar {
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(230, 229, 232);
-    width: 1635px;
-    border-radius: 5px;
-  }
-  .nav-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  button {
-    border: none;
-    background-color: rgb(230, 229, 232);
-    cursor:pointer;
-  }
-  .button:hover {
-    border-bottom: 5px solid rgb(0, 140, 255);
-  }
-  .order{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    font-size: 30px;
-    
-  }
-  .image{
-    border-radius: 100px;
+  <script src="../JS_files/navbar.js"></script>
+  <script>
+          let urlparams = new URLSearchParams(window.location.search);
+          console.log(urlparams)
+      let thisid = urlparams.get("uuid");
+      console.log(thisid)
+      let thispet = JSON.parse(localStorage.getItem("new_card")).find((e) => e.uuid == thisid);
+      console.log(thispet)
+      let checking = JSON.parse(localStorage.getItem("bought_pets"));
+      let boughtpets = [];
+      boughtpets.push(thispet);
+      if (checking === null || checking === undefined) {
+        window.localStorage.setItem("bought_pets", JSON.stringify(boughtpets));
+      } else {
+        let check = JSON.parse(localStorage.getItem("bought_pets")).find((e) => e.uuid == thisid );
+        if (check === null || check === undefined) {
+            let json = JSON.parse(window.localStorage.getItem("bought_pets"));
+            json.push(thispet);
+            window.localStorage.setItem("bought_pets", JSON.stringify(json));
+          }else if(thispet["uuid"] === check["uuid"] ){
+           let div_not_item = document.getElementsByClassName("div.not_item");
+           div_not_item.innerText = "No item in the cart"
+          }
+        }
 
-  }
-  .text{
-    margin:0px 100px 0px 0px;
-  }
-  footer {
-    padding: 50px;
-    display: flex;
-   padding-left:500px;
-    flex-direction: column;
-    font-size: 30px;
-    background-color: rgb(0, 140, 255);
-  }
-  .footer{
-    padding:0px 10px 0px 10px;
-    text-decoration: none;
-  }
+      let bought_pets = JSON.parse(localStorage.getItem("bought_pets"));
 
-  .account {
-    border: 5px solid rgb(0, 140, 255);
-    border-radius: 20px;
-    margin:100px 600px 200px 600px;
-    width: 450px;
-  }
-  </style>
+      let whole_card = document.getElementById('div');
+      for(let i = 0; i < bought_pets.length; i++){
+
+     
+        let petCard_anchor = document.createElement('a');
+        petCard_anchor.setAttribute("class","petCard_anchor")
+        petCard_anchor.setAttribute("href",`./details.html?uuid=${bought_pets[i]["uuid"]}`)
+whole_card.append(petCard_anchor);
+
+let petCard = document.createElement('div');
+petCard.className = 'pet-card';
+petCard_anchor.append(petCard);
+
+let card_div = document.createElement('div');
+card_div.setAttribute("class","pet_div");
+petCard.append(card_div);
+
+let petImage = document.createElement('img');
+petImage.setAttribute("src",bought_pets[i]["source"]);
+petImage.alt = bought_pets[i]["pet_name_alt"];
+card_div.append(petImage);
+
+let div_name_amount = document.createElement('div');
+card_div.append(div_name_amount);
+
+let petName = document.createElement('h2');
+petName.innerText = bought_pets[i]["pet_name_alt"];
+div_name_amount.append(petName);
+
+let petPrice = document.createElement('p');
+petPrice.innerText ='Rs : ' + bought_pets[i]["pet_price"];
+div_name_amount.append(petPrice);
+
+let freeShipping = document.createElement('p');
+freeShipping.innerText = 'Free shipping';
+petCard.append(freeShipping);
+
+let deliveryDate = document.createElement('p');
+deliveryDate.innerText = 'Delivery date: 5/10/2023';
+petCard.append(deliveryDate);
+
+// Add the pet card to the HTML document
+
+      }
+  </script>
+  </html>

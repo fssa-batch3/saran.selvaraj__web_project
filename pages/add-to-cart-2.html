@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="stylesheet" href="../assets/styles/home-page.css" />
+
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/order-details.css" />
+    <title>Pet Mall</title>
+
+  </head>
+  <body>
+    <section class="home">
+      <div class="text">
+        <img src="../assets/images/image.logo.png" alt="logo-image" />
+      </div>
+      <div class="buy_div">
+        <div>Total : <a class="total" id="total"></a></div>
+        <button class="buy_btn" type="submit" id="buy_btn">Buy All</button>
+      </div>
+      <div class="no_item" id="no_item"></div>
+      <div class="whole-card" id="whole-card"></div>
+      <div>
+        <footer>
+          <div class="content">
+            <div class="top">
+              <div class="logo-details">
+                <i class="fab fa-slack"></i>
+                <span class="logo_name">Pet Mall</span>
+              </div>
+              <div class="media-icons">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Freels%2FCrQVENlONIu%2F%3F__coig_login%3D1"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.14650114788_asid.150089839322_crid.656569072783_kw.www%20linkedin_d.c_tid.kwd-2246447582_n.g_mt.e_geo.9061971"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+            <div class="link-boxes">
+              <ul class="box">
+                <li class="link_name">Company</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Get started</a></li>
+              </ul>
+              <ul class="box">
+                <li class="link_name">Services</li>
+                <li><a href="#">App design</a></li>
+                <li><a href="#">Web design</a></li>
+                <li><a href="#">Logo design</a></li>
+                <li><a href="#">Banner design</a></li>
+              </ul>
+              <ul class="box">
+                <li class="link_name">Account</li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Prefrences</a></li>
+                <li><a href="#">Purchase</a></li>
+              </ul>
+              <ul class="box">
+                <li class="link_name">Courses</li>
+                <li><a href="#">HTML & CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">Photography</a></li>
+                <li><a href="#">Photoshop</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bottom-details">
+            <div class="bottom_text">
+              <span class="copyright_text"
+                >Copyright © 2021 <a href="#">CodingLab.</a>All rights
+                reserved</span
+              >
+              <span class="policy_terms">
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms & condition</a>
+              </span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <script src="../JS_files/navbar.js"></script>
+
+    <script>
+
+
+      let add_to_cart = JSON.parse(localStorage.getItem("add_to_cart"));
+
+      let no_item = document.getElementById("no_item");
+
+      if (add_to_cart === null || add_to_cart === undefined) {
+        let no_item_bought = document.createElement("div");
+        no_item_bought.setAttribute("class", "no_item_bought");
+        no_item_bought.innerText = "No items in the cart !";
+        no_item.append(no_item_bought);
+      } else {
+        let whole_card = document.getElementById("whole-card");
+        let total_calculate = 0;
+        for (let i = 0; i < add_to_cart.length; i++) {
+          let petCard_anchor = document.createElement("a");
+          petCard_anchor.setAttribute("class", "petCard_anchor");
+          petCard_anchor.setAttribute(
+            "href",
+            `./details.html?uuid=${add_to_cart[i]["uuid"]}`
+          );
+          whole_card.append(petCard_anchor);
+
+  
+          let petCard = document.createElement("div");
+          petCard.className = "pet-card";
+          petCard_anchor.append(petCard);
+
+          let card_div = document.createElement("div");
+          card_div.setAttribute("class", "pet_div");
+          petCard.append(card_div);
+
+          let petImage = document.createElement("img");
+          petImage.setAttribute("src", add_to_cart[i]["source"]);
+          petImage.alt = add_to_cart[i]["pet_name_alt"];
+          card_div.append(petImage);
+
+         
+          let div_name_amount = document.createElement("div");
+          card_div.append(div_name_amount);
+
+          let petName = document.createElement("h2");
+          petName.innerText = add_to_cart[i]["pet_name_alt"];
+          div_name_amount.append(petName);
+
+          
+          let petPrice = document.createElement("p");
+          petPrice.innerText = "Rs : " + add_to_cart[i]["pet_price"];
+          div_name_amount.append(petPrice);
+
+          total_calculate += add_to_cart[i]["pet_price"] * 1;
+
+          
+          let freeShipping = document.createElement("p");
+          freeShipping.innerText = "Free shipping";
+          petCard.append(freeShipping);
+
+         
+
+          let deliveryDate = document.createElement("p");
+          deliveryDate.innerText = "Delivery date: 5/10/2023";
+          petCard.append(deliveryDate);
+
+         
+        }
+        let totalamount = document.getElementById("total");
+      totalamount.innerHTML = total_calculate
+      }
+      
+      
+      
+      let buy_total = document.getElementById("buy_btn");
+      buy_total.addEventListener("click", function (e) {
+        window.location.href=`./buy-now.html?uuid=${thispet["uuid"]}`
+      });
+    </script>
+  </body>
+</html>

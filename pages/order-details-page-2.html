@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PET MALL</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/home-page.css">
+    <link rel="stylesheet" href="../assets/styles/order-details.css">
+      
+  </head>
+  <body>
+    <section class="home">
+      <div class="text">
+        <img src="../assets/images/image.logo.png" alt="logo-image" />
+      </div>
+      <div class="no_item">
+
+      </div>
+      <div class="whole-card" id="div"></div>
+      <div>
+      </section>
+      
+  </body>
+  <script src="../JS_files/navbar.js"></script>
+  <script>
+       
+
+
+      let bought_pets = JSON.parse(localStorage.getItem("bought_pets"));
+      let whole_card = document.getElementById('div');
+
+      if(bought_pets === null || bought_pets === undefined ){
+        let no_item_bought = document.createElement("div");
+        no_item_bought.setAttribute("class","no_item_bought")
+        no_item_bought.innerText = "No items you bought !"
+        whole_card.append(no_item_bought)
+      }
+
+      for(let i = 0; i < bought_pets.length; i++){
+
+     
+        let petCard_anchor = document.createElement('a');
+        petCard_anchor.setAttribute("class","petCard_anchor")
+        petCard_anchor.setAttribute("href",`./details.html?uuid=${bought_pets[i]["uuid"]}`)
+whole_card.append(petCard_anchor);
+
+let petCard = document.createElement('div');
+petCard.className = 'pet-card';
+petCard_anchor.append(petCard);
+
+let card_div = document.createElement('div');
+card_div.setAttribute("class","pet_div");
+petCard.append(card_div);
+
+let petImage = document.createElement('img');
+petImage.setAttribute("src",bought_pets[i]["source"]);
+petImage.alt = bought_pets[i]["pet_name_alt"];
+card_div.append(petImage);
+
+let div_name_amount = document.createElement('div');
+card_div.append(div_name_amount);
+
+let petName = document.createElement('h2');
+petName.innerText = bought_pets[i]["pet_name_alt"];
+div_name_amount.append(petName);
+
+let petPrice = document.createElement('p');
+petPrice.innerText ='Rs : ' + bought_pets[i]["pet_price"];
+div_name_amount.append(petPrice);
+
+let freeShipping = document.createElement('p');
+freeShipping.innerText = 'Free shipping';
+petCard.append(freeShipping);
+
+let deliveryDate = document.createElement('p');
+deliveryDate.innerText = 'Delivery date: 5/10/2023';
+petCard.append(deliveryDate);
+
+
+      }
+  </script>
+  </html>
